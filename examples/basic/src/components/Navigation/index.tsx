@@ -8,7 +8,10 @@ const NavComponent = () => {
         <Link href="/">Home</Link>
       </li>
       <li>
-        <Link href="/news">New</Link>
+        <Link href="/news">News</Link>
+      </li>
+      <li>
+        <Link href="/posts">Posts</Link>
       </li>
     </ul>
   );
