@@ -10,7 +10,6 @@ const Lazy = lazy(() =>
 
 const Detail = ({ params }: { params: { newId: string } }) => {
   const [isShowLazy, setIsShowLazy] = useState(false);
-
   return (
     <>
       <p>Detail: {params.newId}</p>

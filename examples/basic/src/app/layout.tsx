@@ -1,7 +1,14 @@
+import { CacheProvider } from "@chakra-ui/next-js";
+import { ChakraProvider } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+
+// Components
 import { Navigation } from "@/components";
+import { Providers } from "./chakra";
+
+// Styles
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +22,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  console.log("Re-render");
-
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -38,7 +43,9 @@ export default function RootLayout({
           </p>
           <Navigation />
         </section>
-        <section className="body">{children}</section>
+        <section className="body">
+          <Providers> {children}</Providers>
+        </section>
       </body>
     </html>
   );

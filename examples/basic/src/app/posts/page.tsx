@@ -7,11 +7,13 @@ const Post = async () => {
   const posts = await getPosts();
 
   return (
-    <ul>
-      {posts.map((post: { title: string }) => (
-        <li key={post.title}>{post.title}</li>
-      ))}
-    </ul>
+    <>
+      <ul>
+        {posts.map((post: { title: string }) => (
+          <li key={post.title}>{post.title}</li>
+        ))}
+      </ul>
+    </>
   );
 };
 
