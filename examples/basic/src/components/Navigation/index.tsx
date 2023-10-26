@@ -11,7 +11,7 @@ const NavComponent = () => {
         <Link href="/news">News</Link>
       </li>
       <li>
-        <Link href="/posts">Posts</Link>
+        <Link href="/fetching/default">Fetching</Link>
       </li>
     </ul>
   );
