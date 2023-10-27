@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "cd ../.. && husky install practices/practice-one/.husky"
   },
   "dependencies": {
     "next": "14.0.0",
@@ -23,7 +24,14 @@
     "eslint-config-next": "14.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
     "prettier": "3.0.3",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npx prettier --write",
+      "eslint src/*.{ts,tsx} --fix-dry-run --no-error-on-unmatched-pattern"
+    ]
   }
 }
