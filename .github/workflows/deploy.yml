@@ -26,7 +26,6 @@ jobs:
         with:
           node-version: 18.x
           cache: "pnpm"
-          cache-dependency-path: "practices/practice-one"
 
       # - name: Install Vercel CLI
       #   run: yarn global add vercel
