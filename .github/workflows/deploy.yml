@@ -26,8 +26,23 @@ jobs:
         with:
           node-version: 18.x
           cache: "pnpm"
-          working-directory: practices/practice-one
-          cache-dependency-path: "practices/practice-one/pnpm-lock.yaml"
+          cache-dependency-path: "practices/practice-one"
+
+      # - name: Checkout code
+      #   uses: actions/checkout@v3
+
+      # - name: Use pnpm
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: 8
+
+      # - name: Use Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 18.x
+      #     cache: "pnpm"
+      #     working-directory: practices/practice-one
+      #     cache-dependency-path: "practices/practice-one/pnpm-lock.yaml"
 
       # - name: Install Vercel CLI
       #   run: yarn global add vercel
