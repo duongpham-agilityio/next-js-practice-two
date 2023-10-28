@@ -1,61 +1,36 @@
-name: Vercel Preview Deployment
-
+name: Auto deploy with github actions
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-"on":
+on:
   push:
-    branches: feature/practice-one
+    branches: main
 
 jobs:
-  build:
+  install:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: practices/practice-one
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout action v4
+        uses: actions/checkout@v4
 
-      - name: Use pnpm
+      - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 8.6.7
 
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          cache: "pnpm"
-          cache-dependency-path: "practices/practice-one"
+      - name: Install Vercel CLI
+        run: pnpm install --global vercel@latest
 
-      # - name: Checkout code
-      #   uses: actions/checkout@v3
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      # - name: Use pnpm
-      #   uses: pnpm/action-setup@v2
-      #   with:
-      #     version: 8
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
-      # - name: Use Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 18.x
-      #     cache: "pnpm"
-      #     working-directory: practices/practice-one
-      #     cache-dependency-path: "practices/practice-one/pnpm-lock.yaml"
-
-      # - name: Install Vercel CLI
-      #   run: yarn global add vercel
-      #   working-directory: practices/practice-one
-
-      # - name: Pull Vercel Environment Information
-      #   run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-      #   working-directory: practices/practice-one
-
-      # - name: Build Project Artifacts
-      #   run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
-      #   working-directory: practices/practice-one
-
-      # - name: Deploy Project Artifacts to Vercel
-      #   run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-      #   working-directory: practices/practice-one
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
