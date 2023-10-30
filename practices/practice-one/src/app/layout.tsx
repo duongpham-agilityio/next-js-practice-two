@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { Box, Container } from '@chakra-ui/react';
 
 // Providers
-import { ChakraUIProvider } from '@providers';
+import { ChakraUIProvider } from '@providers/index';
 
 const inter = Inter({ subsets: ['latin'] });
 
