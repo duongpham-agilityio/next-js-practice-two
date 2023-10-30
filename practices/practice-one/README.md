@@ -6,7 +6,7 @@
 - Design:
   - Card Management [here](https://www.figma.com/file/QVmxPvUitGS5SfBYXJilRk/E-Banking---Card-management?type=design&node-id=1%3A597&mode=dev)
 - Plan: [here](https://docs.google.com/document/d/1f38v9bEX4qFom-wFSPWr-fSjpmKMEtiV2lg_o2RZOjo/edit)
-- App workflow Update to late
+- App workflow: update to late
 - Deploy: [here](https://card-management-beta.vercel.app/)
 
 ### Targets
@@ -17,7 +17,7 @@
 
 ### Requirements
 
-- Page Card:
+- Home:
   - See all card
   - You can the search by name, sort, filter
   - You can add, active, close, inactive card
@@ -47,13 +47,11 @@
 
 ### Main App Features
 
-- Login
 - Home:
   - View all card
-  - Search, sort , and filter card
+  - Add, update status, search, sort , and filter card
 - Detail:
   - View detail card
-- Wishlist:
 
 ### Getting Started
 
