@@ -23,7 +23,7 @@ const InputSearch = (props: InputSearchProps): JSX.Element => (
     </IconButton>
 
     {/* Fill input */}
-    <InputBase w={609} py={8} placeholder="Search something" {...props} />
+    <InputBase w={523} py={8} placeholder="Search something" {...props} />
   </InputGroup>
 );
 
