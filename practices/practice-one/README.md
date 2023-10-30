@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Card Management
 
-## Getting Started
+### Overview
 
-First, run the development server:
+- This is the website for manage card.
+- Design:
+  - Card Management [here](https://www.figma.com/file/QVmxPvUitGS5SfBYXJilRk/E-Banking---Card-management?type=design&node-id=1%3A597&mode=dev)
+- Plan: [here](https://docs.google.com/document/d/1f38v9bEX4qFom-wFSPWr-fSjpmKMEtiV2lg_o2RZOjo/edit)
+- App workflow Update to late
+- Deploy: [here](https://card-management-beta.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Targets
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Understand NextJs
+- Custom theme with ChakraUI
+- Manage store with zustand
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Requirements
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Page Card:
+  - See all card
+  - You can the search by name, sort, filter
+  - You can add, active, close, inactive card
+  - Pagination
+- Detail:
+  - Update to late....
 
-## Learn More
+### Information
 
-To learn more about Next.js, take a look at the following resources:
+- Timeline
+  - Estimate day: 4 days
+  - Actual time: Update to late
+- Techniques:
+  - NextJs: [14.0.0](https://nextjs.org/)
+  - ChakraUI:[v2.8.1](https://chakra-ui.com/getting-started)
+  - TypeScript [v5.2.2](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
+  - localStorage
+  - Eslint [v8.0.1](https://eslint.org/docs/latest/use/getting-started#quick-start)
+  - Prettier [v2.8.7](https://prettier.io/docs/en/install.html)
+  - Zustand: [v4.4.1](https://docs.pmnd.rs/zustand/getting-started/introduction)
+- Editor: Visual Studio Code.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Development Environment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Node [v16.20.0](https://nodejs.org/en/)
+- Pnpm [v8.6.5](https://pnpm.io/installation)
 
-## Deploy on Vercel
+### Main App Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Login
+- Home:
+  - View all card
+  - Search, sort , and filter card
+- Detail:
+  - View detail card
+- Wishlist:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Getting Started
+
+- Step 1: Clone repository
+  - With HTTPS :
+    ```
+    git clone https://gitlab.asoft-python.com/duong.pham/nextjs-training.git
+    ```
+  - With SSH:
+    ```
+    git clone git@gitlab.asoft-python.com:duong.pham/nextjs-training.git
+    ```
+- Step 2: Move to branch feature/practice-three
+  ```
+  git checkout feature/practice-one
+  ```
+- Step 3: Move to folder
+  ```
+  cd  practices/practice-one
+  ```
+- Step 4: Now you need to install packages
+  ```
+  pnpm install
+  ```
+- Step 5: After installing the packages
+  ```
+  pnpm start
+  ```
+- Step 6: Open [localhost](http://localhost:5173) to see the website
