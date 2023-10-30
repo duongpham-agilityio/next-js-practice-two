@@ -17,7 +17,7 @@ const ActionBar = ({
       <InputSearch {...inputProps} />
     </Box>
     <Button variant="primary" alignSelf="flex-end" onClick={onAddCard}>
-      Click me
+      Add a new card
     </Button>
   </>
 );
