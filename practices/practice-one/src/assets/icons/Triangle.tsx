@@ -1,6 +1,6 @@
 import { SVGProps, memo } from 'react';
 
-const TriangleDownComponent = (props: SVGProps<SVGSVGElement>) => (
+const TriangleDownComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={7}
@@ -15,7 +15,7 @@ const TriangleDownComponent = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const TriangleUpComponent = (props: SVGProps<SVGSVGElement>) => (
+const TriangleUpComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={7}
