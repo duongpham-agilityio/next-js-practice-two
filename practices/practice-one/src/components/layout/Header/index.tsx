@@ -1,8 +1,9 @@
-import { Text } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import { memo } from 'react';
 
 const HeaderComponent = (): JSX.Element => (
-  <Text
+  <Heading
+    as="h1"
     p="4px 9px"
     fontSize="2xl"
     bg="logoRGBA"
@@ -10,7 +11,7 @@ const HeaderComponent = (): JSX.Element => (
     fontWeight="extrabold"
   >
     E-Banking
-  </Text>
+  </Heading>
 );
 
 export const Header = memo(HeaderComponent);
