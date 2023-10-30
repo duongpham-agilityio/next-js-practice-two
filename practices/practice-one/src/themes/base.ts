@@ -3,12 +3,13 @@ import { ThemeOverride } from '@chakra-ui/react';
 // Custom colors
 export const colors: ThemeOverride['colors'] = {
   // Hex colors
-  primary: '#fff',
+  primary: '#C9CED6',
   secondary: '#144EE3',
   success: '#1EB036',
   warning: '#B0901E',
   danger: '#B01E1E',
   info: '#ACC3FF',
+  light: '#fff',
 
   // Rgba colors
   successRGBA: 'rgba(30, 176, 54, 0.14)',
@@ -22,9 +23,10 @@ export const colors: ThemeOverride['colors'] = {
 export const fontSizes: ThemeOverride['fontSizes'] = {
   xs: '9px',
   sm: '14px',
-  md: '16px',
-  lg: '48px',
-  xl: '64px',
+  md: '15px',
+  lg: '16px',
+  xl: '48px',
+  '2xl': '64px',
 };
 
 // Custom fontWeights
