@@ -15,7 +15,7 @@ const InputBase = ({
   ...rest
 }: InputProps): JSX.Element => {
   const handleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
+    (e: ChangeEvent<HTMLInputElement>): void => {
       onChange && onChange(e.target.value);
     },
     [onChange],
