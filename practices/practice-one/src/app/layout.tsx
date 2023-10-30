@@ -6,6 +6,9 @@ import { Box, Container } from '@chakra-ui/react';
 // Providers
 import { ChakraUIProvider } from '@providers/index';
 
+// Components
+import { Header } from '@components/layout/Header';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -21,10 +24,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
           background="url('./background.png') no-repeat center"
           backgroundSize="cover"
         >
-          <Container minH="100vh">
-            <Box as="main" maxW={1421} minH="inherit">
-              {children}
-            </Box>
+          <Header />
+          <Container as="main" minH="100vh">
+            {children}
           </Container>
         </Box>
       </ChakraUIProvider>
