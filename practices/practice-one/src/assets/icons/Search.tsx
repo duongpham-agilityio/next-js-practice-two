@@ -1,6 +1,6 @@
-import { SVGProps, memo } from 'react';
+import { SVGProps } from 'react';
 
-const SearchComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
+export const SearchIcon = (props: SVGProps<SVGSVGElement>): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -14,5 +14,3 @@ const SearchComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
     />
   </svg>
 );
-
-export const SearchIcon = memo(SearchComponent);

@@ -1,6 +1,6 @@
-import { SVGProps, memo } from 'react';
+import { SVGProps } from 'react';
 
-const CopyComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
+export const CopyIcon = (props: SVGProps<SVGSVGElement>): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={15}
@@ -14,5 +14,3 @@ const CopyComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
     />
   </svg>
 );
-
-export const CopyIcon = memo(CopyComponent);

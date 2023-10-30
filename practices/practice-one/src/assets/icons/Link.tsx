@@ -1,6 +1,6 @@
-import { SVGProps, memo } from 'react';
+import { SVGProps } from 'react';
 
-const LinkIconComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
+export const LinkIcon = (props: SVGProps<SVGSVGElement>): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={19}
@@ -15,7 +15,7 @@ const LinkIconComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
   </svg>
 );
 
-const UnlinkIconComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
+export const UnlinkIcon = (props: SVGProps<SVGSVGElement>): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={19}
@@ -29,6 +29,3 @@ const UnlinkIconComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
     />
   </svg>
 );
-
-export const LinkIcon = memo(LinkIconComponent);
-export const UnlinkIcon = memo(UnlinkIconComponent);

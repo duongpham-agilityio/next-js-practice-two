@@ -1,6 +1,6 @@
-import { SVGProps, memo } from 'react';
+import { SVGProps } from 'react';
 
-const CloseComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
+export const CloseIcon = (props: SVGProps<SVGSVGElement>): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={19}
@@ -14,5 +14,3 @@ const CloseComponent = (props: SVGProps<SVGSVGElement>): JSX.Element => (
     />
   </svg>
 );
-
-export const CloseIcon = memo(CloseComponent);
