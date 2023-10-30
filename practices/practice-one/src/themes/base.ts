@@ -31,8 +31,8 @@ export const fontSizes: ThemeOverride['fontSizes'] = {
 
 // Custom fontWeights
 export const fontWeights: ThemeOverride['fontWeights'] = {
-  light: 300,
-  regular: 600,
+  regular: 300,
+  semibold: 600,
   bold: 700,
   extrabold: 800,
 };

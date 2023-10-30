@@ -4,19 +4,19 @@ export const text: ThemeOverride['components'] = {
   Text: {
     baseStyle: {
       color: 'primary',
-      fontWeight: 'light',
+      fontWeight: 'regular',
     },
 
     variants: {
       primary: {
         fontSize: 'sm',
-        fontWeight: 'light',
+        fontWeight: 'regular',
         lineHeight: 0,
       },
 
       secondary: {
         fontSize: 'lg',
-        fontWeight: 'light',
+        fontWeight: 'regular',
       },
 
       titleMd: {
