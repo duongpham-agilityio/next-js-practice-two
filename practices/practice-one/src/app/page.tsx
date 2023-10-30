@@ -1,5 +1,7 @@
 import Image from 'next/image';
+
 import styles from './page.module.css';
+import { Button } from '@chakra-ui/react';
 
 const Home = () => (
   <main className={styles.main}>
@@ -25,6 +27,7 @@ const Home = () => (
           />
         </a>
       </div>
+      <Button variant="primary">Click me</Button>
     </div>
 
     <div className={styles.center}>

@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 
 // Providers
-import { ChakraUIProvider } from '@/providers';
+import { ChakraUIProvider } from '@providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
