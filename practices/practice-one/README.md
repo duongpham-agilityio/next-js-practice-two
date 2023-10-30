@@ -33,8 +33,7 @@
 - Techniques:
   - NextJs: [14.0.0](https://nextjs.org/)
   - ChakraUI:[v2.8.1](https://chakra-ui.com/getting-started)
-  - TypeScript [v5.2.2](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
-  - localStorage
+  - TypeScript [v5.2.2](https://www.typescriptlang.org/download)
   - Eslint [v8.0.1](https://eslint.org/docs/latest/use/getting-started#quick-start)
   - Prettier [v2.8.7](https://prettier.io/docs/en/install.html)
   - Zustand: [v4.4.1](https://docs.pmnd.rs/zustand/getting-started/introduction)
