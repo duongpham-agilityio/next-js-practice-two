@@ -26,6 +26,7 @@
       "@pages/*": ["./src/pages/*"],
       "@constants/*": ["./src/constants/*"],
       "@interfaces/*": ["./src/interfaces/*"],
+      "@services/*": ["./src/services/*"],
       "@mocks/*": ["./src/mocks/*"]
     }
   },
