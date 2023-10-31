@@ -11,6 +11,7 @@ export const colors: ThemeOverride['colors'] = {
   info: '#ACC3FF',
   light: '#fff',
   dark: '#0B101B',
+  dark10: '#181E29',
   gray: '#353C4A',
 
   // Rgba colors
