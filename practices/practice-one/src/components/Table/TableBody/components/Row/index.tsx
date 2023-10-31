@@ -19,7 +19,7 @@ import { ICard } from '@interfaces/card';
 export type RowProps = {
   skin: number;
   id: string;
-  number: string;
+  cardNumber: string;
   name: string;
   createdAt: string;
   updatedAt: string;
@@ -36,7 +36,7 @@ const Row = (props: RowProps): JSX.Element => {
   const {
     id,
     skin,
-    number,
+    cardNumber,
     name,
     role,
     status,
@@ -66,9 +66,9 @@ const Row = (props: RowProps): JSX.Element => {
   const handleCopy = useCallback(
     (e: MouseEvent): void => {
       e.stopPropagation();
-      onCopy(number);
+      onCopy(cardNumber);
     },
-    [number, onCopy],
+    [cardNumber, onCopy],
   );
 
   /**
@@ -173,11 +173,11 @@ const Row = (props: RowProps): JSX.Element => {
   );
 
   return (
-    <Tr key={number} backdropFilter="blur(28px)" onClick={handleNavigate}>
+    <Tr backdropFilter="blur(28px)" onClick={handleNavigate}>
       {/* Card number */}
       <Td>
         <Center gap={4}>
-          <Text as="span">{number}</Text>
+          <Text as="span">{cardNumber}</Text>
           <IconButton
             aria-label="The button copy card number"
             icon={<CopyIcon />}
