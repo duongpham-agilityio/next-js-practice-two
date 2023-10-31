@@ -7,15 +7,19 @@ export const button: ThemeOverride['components'] = {
       borderRadius: 'full',
       fontSize: 'md',
       fontWeight: 'regular',
+      _hover: {
+        opacity: 0.8,
+      },
     },
 
     variants: {
       primary: {
         w: 183,
-        fontSize: 'md',
+        h: '60px',
+        fontSize: 'lg',
         bg: 'secondary',
-        p: '21px 25.047px 21px 25px',
         boxShadow: '10px 9px 22px 0px rgba(20, 78, 227, 0.38)',
+        fontWeight: 'semibold',
       },
 
       action: {
