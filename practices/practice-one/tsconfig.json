@@ -24,6 +24,8 @@
       "@themes/*": ["./src/themes/*"],
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
       "@mocks/*": ["./src/mocks/*"]
     }
   },
