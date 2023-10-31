@@ -16,6 +16,9 @@ export const colors: ThemeOverride['colors'] = {
 
   // Rgba colors
   successRGBA: 'rgba(30, 176, 54, 0.14)',
+  dangerRGBA: 'rgba(176, 30, 30, 0.19)',
+  warningRGBA: 'rgba(176, 144, 30, 0.19)',
+  darkRGBA: 'rgba(24, 30, 41, 0.22)',
   titleRGBA:
     'linear-gradient(90deg, #144EE3 -0.02%, #EB568E 18.86%, #A353AA 64.49%, #144EE3 100.67%)',
   logoRGBA:
@@ -44,4 +47,8 @@ export const fontWeights: ThemeOverride['fontWeights'] = {
 export const radii: ThemeOverride['radii'] = {
   sm: '10px',
   xl: '48px',
+};
+
+export const shadows: ThemeOverride['shadows'] = {
+  base: '0px 4px 10px 0px rgba(0, 0, 0, 0.10)',
 };
