@@ -1,5 +1,5 @@
 import { VStack } from '@chakra-ui/react';
-import { memo } from 'react';
+import { Suspense, memo } from 'react';
 
 // Components
 import PageInformation from '@components/PageInfomation';
@@ -14,7 +14,9 @@ const Home = async () => {
   return (
     <VStack as="section" gap={5}>
       <PageInformation />
-      <HomeBody data={card} />
+      <Suspense>
+        <HomeBody data={card} />
+      </Suspense>
     </VStack>
   );
 };

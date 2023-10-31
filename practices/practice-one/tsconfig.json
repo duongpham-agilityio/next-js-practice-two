@@ -23,7 +23,6 @@
       "@providers/*": ["./src/providers/*"],
       "@themes/*": ["./src/themes/*"],
       "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
       "@constants/*": ["./src/constants/*"],
       "@interfaces/*": ["./src/interfaces/*"],
       "@services/*": ["./src/services/*"],

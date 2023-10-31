@@ -18,6 +18,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
    */
   const handleNavigation = useCallback((path: string): void => {
     // TODO: Update to later
+    console.log(path);
   }, []);
 
   /**
@@ -26,6 +27,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
    */
   const handleCopyCardNumber = useCallback((cardNumber: string): void => {
     // TODO: Update to later
+    console.log(cardNumber);
   }, []);
 
   /**
@@ -34,6 +36,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
    */
   const handleActiveCard = useCallback((id: string): void => {
     // TODO: Update to later
+    console.log(id);
   }, []);
 
   /**
@@ -42,6 +45,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
    */
   const handleInActiveCard = useCallback((id: string): void => {
     // TODO: Update to later
+    console.log(id);
   }, []);
 
   /**
@@ -50,6 +54,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
    */
   const handleCloseCard = useCallback((id: string): void => {
     // TODO: Update to later
+    console.log(id);
   }, []);
 
   return (

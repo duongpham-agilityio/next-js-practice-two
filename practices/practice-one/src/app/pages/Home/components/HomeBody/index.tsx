@@ -17,7 +17,7 @@ export type HomeBodyProps = {
   data: ICard[];
 };
 
-const HomeBody = ({ data }: HomeBodyProps): JSX.Element => {
+const HomeBody = ({ data = [] }: HomeBodyProps): JSX.Element => {
   const { data: card, pagination, currentPage } = usePagination(data);
 
   return (
