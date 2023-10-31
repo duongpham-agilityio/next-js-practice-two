@@ -19,6 +19,7 @@ export const colors: ThemeOverride['colors'] = {
   dangerRGBA: 'rgba(176, 30, 30, 0.19)',
   warningRGBA: 'rgba(176, 144, 30, 0.19)',
   darkRGBA: 'rgba(24, 30, 41, 0.22)',
+  grayRGBA: 'rgba(28, 40, 63, 0.69)',
   titleRGBA:
     'linear-gradient(90deg, #144EE3 -0.02%, #EB568E 18.86%, #A353AA 64.49%, #144EE3 100.67%)',
   logoRGBA:
