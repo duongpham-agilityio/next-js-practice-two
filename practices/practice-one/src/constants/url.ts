@@ -6,3 +6,7 @@ export const ROUTES = {
 export const DYNAMIC_ROUTES = {
   CARD_ID: ':cardId',
 };
+
+export const SEARCH_KEYS = {
+  PAGE: 'page',
+};
