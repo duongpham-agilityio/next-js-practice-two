@@ -33,7 +33,7 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "react/display-name": "error",
-    "react/require-default-props": "error",
+    "react/require-default-props": "off",
     "react/no-array-index-key": "error",
     "arrow-body-style": ["error", "as-needed"]
   }
