@@ -1,3 +1,6 @@
-const Home = () => <></>;
+import { memo } from 'react';
 
-export default Home;
+// Pages
+import HomePage from '@pages/Home';
+
+export default memo(HomePage);
