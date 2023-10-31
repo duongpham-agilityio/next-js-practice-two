@@ -10,6 +10,7 @@ export const colors: ThemeOverride['colors'] = {
   danger: '#B01E1E',
   info: '#ACC3FF',
   light: '#fff',
+  dark: '#0B101B',
 
   // Rgba colors
   successRGBA: 'rgba(30, 176, 54, 0.14)',

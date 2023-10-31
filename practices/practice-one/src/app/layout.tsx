@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
+import { Box, Container } from '@chakra-ui/react';
 
 // Providers
-import { ChakraUIProvider } from '@/providers';
+import { ChakraUIProvider } from '@providers/index';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,7 +16,18 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang="en">
     <body className={inter.className}>
-      <ChakraUIProvider>{children}</ChakraUIProvider>
+      <ChakraUIProvider>
+        <Box
+          background="url('./background.png') no-repeat center"
+          backgroundSize="cover"
+        >
+          <Container minH="100vh">
+            <Box as="main" maxW={1421} minH="inherit">
+              {children}
+            </Box>
+          </Container>
+        </Box>
+      </ChakraUIProvider>
     </body>
   </html>
 );
