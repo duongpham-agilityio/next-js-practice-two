@@ -173,7 +173,12 @@ const Row = (props: RowProps): JSX.Element => {
   );
 
   return (
-    <Tr backdropFilter="blur(28px)" onClick={handleNavigate}>
+    <Tr
+      backdropFilter="blur(28px)"
+      fontSize="sm"
+      fontWeight="regular"
+      onClick={handleNavigate}
+    >
       {/* Card number */}
       <Td>
         <Center gap={4}>
