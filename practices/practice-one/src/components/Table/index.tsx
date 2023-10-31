@@ -5,11 +5,14 @@ import { memo } from 'react';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 
-const Table = (): JSX.Element => (
+// Types
+import { ICard } from '@interfaces/card';
+
+const Table = ({ data }: { data: ICard[] }): JSX.Element => (
   <TableContainer w="full" mt={8}>
     <TableChakra style={{ borderCollapse: 'separate', borderSpacing: '0 3px' }}>
       <TableHead />
-      <TableBody />
+      <TableBody data={data} />
     </TableChakra>
   </TableContainer>
 );

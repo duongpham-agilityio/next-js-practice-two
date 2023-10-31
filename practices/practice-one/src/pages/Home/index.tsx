@@ -7,12 +7,19 @@ import ActionBar from '@pages/Home/components/ActionBar';
 import PageInformation from '@components/PageInfomation';
 import Table from '@components/Table';
 
-const Home = (): JSX.Element => (
-  <VStack as="section" gap={5}>
-    <PageInformation />
-    <ActionBar />
-    <Table />
-  </VStack>
-);
+// Service
+import { getAllCard } from '@services/card';
+
+const Home = async () => {
+  const card = await getAllCard();
+
+  return (
+    <VStack as="section" gap={5}>
+      <PageInformation />
+      <ActionBar />
+      <Table data={card} />
+    </VStack>
+  );
+};
 
 export default memo(Home);
