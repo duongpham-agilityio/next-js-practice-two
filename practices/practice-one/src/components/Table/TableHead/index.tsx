@@ -15,10 +15,7 @@ export type TableHeadProps = {
 
 const TableHead = (): JSX.Element => (
   <Thead bg="dark10" overflow="hidden">
-    <Tr
-      borderRadius="10px 10px 0px 0px"
-      boxShadow="0px 4px 10px 0px rgba(0, 0, 0, 0.10)"
-    >
+    <Tr boxShadow="base">
       {
         // TODO: Will update to data prop later
         tableHead.map((cell: TTableHeadCell, index: number): JSX.Element => {
