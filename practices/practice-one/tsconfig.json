@@ -27,6 +27,7 @@
       "@constants/*": ["./src/constants/*"],
       "@interfaces/*": ["./src/interfaces/*"],
       "@services/*": ["./src/services/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@mocks/*": ["./src/mocks/*"]
     }
   },
