@@ -1,3 +1,7 @@
+// Constants
+import { ROUTES } from '@constants/url';
+
+// Types
 import { ICard } from '@interfaces/card';
 
 /**
@@ -5,6 +9,4 @@ import { ICard } from '@interfaces/card';
  * @returns
  */
 export const getAllCard = async (): Promise<ICard[]> =>
-  await fetch('https://64eb6eb1e51e1e82c57759bb.mockapi.io/ap1/v1/card').then(
-    (res) => res.json(),
-  );
+  await fetch(`${process.env.DB_URL}/${ROUTES.CARD}`).then((res) => res.json());
