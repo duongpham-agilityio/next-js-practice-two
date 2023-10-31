@@ -5,7 +5,7 @@ export const container: ThemeOverride['components'] = {
     baseStyle: {
       maxWidth: {
         xl: '1140px',
-        '2xl': '1421px',
+        '2xl': '1440px',
       },
       margin: '0 auto',
     },
