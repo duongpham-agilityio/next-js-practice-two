@@ -8,10 +8,10 @@ export type PaginationProps = {
   currentPage: number;
 };
 
-const Pagination = (props: PaginationProps): JSX.Element => {
+const Pagination = (props: PaginationProps): JSX.Element | null => {
   const { data, currentPage } = props;
 
-  if (!data.length || data.length === 1) return <></>;
+  if (data.length <= 1) return null;
 
   return (
     <HStack as={List} justifyContent="center" py={19} gap={7}>

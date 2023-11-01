@@ -30,6 +30,8 @@ const TableHead = (): JSX.Element => (
             },
           };
 
+          const isTextAlignRight: boolean = index === 3 || index === 6;
+
           return (
             <Th
               key={title}
@@ -41,6 +43,7 @@ const TableHead = (): JSX.Element => (
               textTransform="unset"
               borderColor="transparent"
               {...borderStyle[index]}
+              {...(isTextAlignRight && { textAlign: 'right' })}
             >
               {title}
 
