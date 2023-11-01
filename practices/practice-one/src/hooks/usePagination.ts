@@ -1,22 +1,25 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
+
+// Hooks
+import { useSearchParams } from './useSearchParam';
 
 // Constants
 import { TABLE_SIZE } from '@constants/variables';
-import { useSearchParams } from 'next/navigation';
 import { SEARCH_KEYS } from '@constants/url';
 
 export type TUsePagination<T> = {
   data: T[];
   pagination: number[];
   currentPage: number;
+  handleChangePage: (page: number) => void;
 };
 
 export const usePagination = <T>(
   data: T[],
   record = TABLE_SIZE,
 ): TUsePagination<T> => {
-  const searchParams = useSearchParams()!;
-  const currentPage: number = Number(searchParams.get(SEARCH_KEYS.PAGE) ?? 1);
+  const { get, setSearchParam } = useSearchParams();
+  const currentPage: number = Number(get(SEARCH_KEYS.PAGE) ?? 1);
 
   /**
    * Calculate the number of pages to RECORDS_PER_PAGE
@@ -47,9 +50,21 @@ export const usePagination = <T>(
     return result;
   }, [currentPage, data, record]);
 
+  /**
+   * Handle change page
+   * @param page
+   */
+  const handleChangePage = useCallback(
+    (page: number): void => {
+      setSearchParam(SEARCH_KEYS.PAGE, `${page}`);
+    },
+    [setSearchParam],
+  );
+
   return {
     data: dataShow,
     currentPage,
     pagination,
+    handleChangePage,
   };
 };

@@ -6,17 +6,19 @@ import { memo } from 'react';
 export type PaginationProps = {
   data: number[];
   currentPage: number;
+  onChangePage: (page: number) => void;
 };
 
 const Pagination = (props: PaginationProps): JSX.Element | null => {
-  const { data, currentPage } = props;
+  const { data, currentPage, onChangePage } = props;
 
   if (data.length <= 1) return null;
 
   return (
     <HStack as={List} justifyContent="center" py={19} gap={7}>
       {data.map((page: number): JSX.Element => {
-        const isActive = page === currentPage;
+        const isActive: boolean = page === currentPage;
+        const handleChangePage = (): void => onChangePage(page);
 
         return (
           <ListItem key={page}>
@@ -25,6 +27,7 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
               bg={isActive ? 'secondary' : 'info'}
               color="light"
               fontSize="xs"
+              onClick={handleChangePage}
             >
               {page}
             </Button>

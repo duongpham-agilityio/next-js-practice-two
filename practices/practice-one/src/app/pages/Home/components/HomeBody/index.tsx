@@ -18,13 +18,22 @@ export type HomeBodyProps = {
 };
 
 const HomeBody = ({ data = [] }: HomeBodyProps): JSX.Element => {
-  const { data: card, pagination, currentPage } = usePagination(data);
+  const {
+    data: card,
+    pagination,
+    currentPage,
+    handleChangePage,
+  } = usePagination(data);
 
   return (
     <>
       <ActionBar />
       <Table data={card} />
-      <Pagination data={pagination} currentPage={currentPage} />
+      <Pagination
+        data={pagination}
+        currentPage={currentPage}
+        onChangePage={handleChangePage}
+      />
     </>
   );
 };
