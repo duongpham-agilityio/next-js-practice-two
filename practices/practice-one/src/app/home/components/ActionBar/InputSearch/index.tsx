@@ -7,9 +7,16 @@ import { InputBase, InputProps } from '@components/common';
 // Icons
 import { SearchIcon } from '@assets/icons';
 
-export type InputSearchProps = InputProps;
+export type InputSearchProps = Omit<
+  InputProps,
+  'onClick' | 'onChange' | 'value'
+> & {
+  value: string;
+  onChange: (value: string) => void;
+  onClick: () => void;
+};
 
-const InputSearch = (props: InputSearchProps): JSX.Element => (
+const InputSearch = ({ onClick, ...props }: InputSearchProps): JSX.Element => (
   <InputGroup
     as={Center}
     borderRadius="xl"
@@ -18,7 +25,7 @@ const InputSearch = (props: InputSearchProps): JSX.Element => (
     px={5}
   >
     {/* Search icon */}
-    <IconButton aria-label="The search icon">
+    <IconButton aria-label="The search icon" onClick={onClick}>
       <SearchIcon />
     </IconButton>
 

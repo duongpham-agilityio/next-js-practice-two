@@ -3,7 +3,7 @@
 import { memo } from 'react';
 
 // Hooks
-import { usePagination } from '@hooks/usePagination';
+import { usePagination, useSearch } from '@hooks/index';
 
 // Components
 import ActionBar from '../ActionBar';
@@ -19,15 +19,25 @@ export type HomeBodyProps = {
 
 const HomeBody = ({ data = [] }: HomeBodyProps): JSX.Element => {
   const {
+    data: searchData,
+    searchValue,
+    changeSearch,
+    handleSearch,
+  } = useSearch(data);
+  const {
     data: card,
     pagination,
     currentPage,
     handleChangePage,
-  } = usePagination(data);
+  } = usePagination(searchData);
 
   return (
     <>
-      <ActionBar />
+      <ActionBar
+        searchValue={searchValue}
+        onChangeSearch={changeSearch}
+        onSearch={handleSearch}
+      />
       <Table data={card} />
       <Pagination
         data={pagination}
