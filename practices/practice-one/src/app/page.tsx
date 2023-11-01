@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
 // Pages
-import HomePage from './pages/Home';
+import HomePage from './home/page';
 
 export default memo(HomePage);
