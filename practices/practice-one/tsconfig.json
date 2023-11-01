@@ -27,6 +27,7 @@
       "@interfaces/*": ["./src/interfaces/*"],
       "@services/*": ["./src/services/*"],
       "@hooks/*": ["./src/hooks/*"],
+      "@helpers/*": ["./src/helpers/*"],
       "@mocks/*": ["./src/mocks/*"]
     }
   },

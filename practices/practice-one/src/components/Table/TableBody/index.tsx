@@ -3,6 +3,9 @@
 import { Tbody } from '@chakra-ui/react';
 import { memo, useCallback } from 'react';
 
+// Helpers
+import { getTimeString } from '@helpers/date';
+
 // Icons
 import Row from './components/Row';
 import { ICard } from '@interfaces/card';
@@ -60,8 +63,8 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
   return (
     <Tbody>
       {data.map((cell): JSX.Element => {
-        const createdAt: string = cell.createdAt.toString();
-        const updatedAt: string = cell.updatedAt.toString();
+        const createdAt: string = getTimeString(new Date(cell.createdAt));
+        const updatedAt: string = getTimeString(new Date(cell.updatedAt));
 
         return (
           <Row
