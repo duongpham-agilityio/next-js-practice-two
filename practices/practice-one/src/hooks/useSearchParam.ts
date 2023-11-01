@@ -45,7 +45,7 @@ export const useSearchParams = (): TUseSearchParams => {
         newSearchParams += `${key}=${value}`;
       }
 
-      router.push(`/${pathName}${newSearchParams}`);
+      router.push(`${pathName}${newSearchParams}`);
     },
 
     [pathName, router, searchParams],

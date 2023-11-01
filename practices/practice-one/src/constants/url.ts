@@ -9,4 +9,5 @@ export const DYNAMIC_ROUTES = {
 
 export const SEARCH_KEYS = {
   PAGE: 'page',
+  NAME: 'name',
 };
