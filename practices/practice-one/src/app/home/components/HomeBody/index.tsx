@@ -13,13 +13,13 @@ import { ROUTES } from '@constants/url';
 import ActionBar from '../ActionBar';
 import Table from '@components/Table';
 import Pagination from '@components/Pagination';
+import Skeleton from '@components/Skeleton';
 
 // Services
 import { getAllCard } from '@services/card';
 
 // Types
 import { ICard } from '@interfaces/card';
-import Skeleton from '@components/Skeleton';
 
 const HomeBody = (): JSX.Element => {
   const { data = [], isLoading } = useQuery<ICard[]>({
@@ -33,6 +33,7 @@ const HomeBody = (): JSX.Element => {
     changeSearch,
     handleSearch,
   } = useSearch(data);
+
   const {
     data: card,
     pagination,
