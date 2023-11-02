@@ -1,23 +1,31 @@
 'use client';
 
 import { memo } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 // Hooks
 import { usePagination, useSearch } from '@hooks/index';
+
+// Constants
+import { ROUTES } from '@constants/url';
 
 // Components
 import ActionBar from '../ActionBar';
 import Table from '@components/Table';
 import Pagination from '@components/Pagination';
 
+// Services
+import { getAllCard } from '@services/card';
+
 // Types
 import { ICard } from '@interfaces/card';
 
-export type HomeBodyProps = {
-  data: ICard[];
-};
+const HomeBody = (): JSX.Element => {
+  const { data = [] } = useQuery<ICard[]>({
+    queryKey: [ROUTES.CARD],
+    queryFn: getAllCard,
+  });
 
-const HomeBody = ({ data = [] }: HomeBodyProps): JSX.Element => {
   const {
     data: searchData,
     searchValue,
