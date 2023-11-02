@@ -9,4 +9,7 @@ export const MESSAGES = {
   ACTIVE_SUCCESS: 'Active card success',
   INACTIVE_SUCCESS: 'Inactive card success',
   CLOSE_CARD_SUCCESS: 'Close card success',
+
+  // Others
+  DIALOG_CONFIRM: 'Are you sure?',
 };
