@@ -4,8 +4,18 @@ import { useCallback } from 'react';
 
 type TSuccessHandler = () => void;
 type TErrorHandler = (error: Error) => void;
+type TUseCardHandler = (
+  id: string,
+  successHandler?: TSuccessHandler,
+  errorHandler?: TErrorHandler,
+) => Promise<void>;
+export type TUseCard = {
+  activeHandler: TUseCardHandler;
+  inactiveHandler: TUseCardHandler;
+  closeHandler: TUseCardHandler;
+};
 
-export const useCard = () => {
+export const useCard = (): TUseCard => {
   /**
    * Handle active for card
    * @param id
@@ -17,7 +27,7 @@ export const useCard = () => {
       id: string,
       successHandler?: TSuccessHandler,
       errorHandler?: TErrorHandler,
-    ) => {
+    ): Promise<void> => {
       try {
         await updateCard(id, { status: 'active' });
         successHandler && successHandler();
@@ -39,7 +49,7 @@ export const useCard = () => {
       id: string,
       successHandler?: TSuccessHandler,
       errorHandler?: TErrorHandler,
-    ) => {
+    ): Promise<void> => {
       try {
         await updateCard(id, { status: 'inactive' });
         successHandler && successHandler();
@@ -61,7 +71,7 @@ export const useCard = () => {
       id: string,
       successHandler?: TSuccessHandler,
       errorHandler?: TErrorHandler,
-    ) => {
+    ): Promise<void> => {
       try {
         await updateCard(id, { status: 'close' });
         successHandler && successHandler();
