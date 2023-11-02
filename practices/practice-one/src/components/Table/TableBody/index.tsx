@@ -5,7 +5,7 @@ import { memo, useCallback, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 
 // Hooks
-import { useCard } from '@hooks/index';
+import { useCard, useClipBoard } from '@hooks/index';
 
 // Helpers
 import { getTimeString } from '@helpers/date';
@@ -32,10 +32,11 @@ type TStatusInfo = {
 type TStatus = Record<ICard['status'], TStatusInfo>;
 
 const TableBody = ({ data }: TableBodyProps): JSX.Element => {
-  const [idIsSelected, setIdIsSelected] = useState('');
-  const { isOpen: isOpenDialog, onToggle } = useDisclosure();
-  const queryClient = useQueryClient();
   const { activeHandler, inactiveHandler, closeHandler } = useCard();
+  const { isOpen: isOpenDialog, onToggle } = useDisclosure();
+  const [idIsSelected, setIdIsSelected] = useState('');
+  const queryClient = useQueryClient();
+  const { copyText } = useClipBoard();
   const toast = useToast({
     duration: 2000,
   });
@@ -229,10 +230,28 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
    * Handle copy card number
    * @param cardNumber
    */
-  const handleCopyCardNumber = useCallback((cardNumber: string): void => {
-    // TODO: Update to later
-    console.log(cardNumber);
-  }, []);
+  const handleCopyCardNumber = useCallback(
+    async (cardNumber: string): Promise<void> => {
+      const successHandler = (): void => {
+        toast({
+          title: TITLES.COPY,
+          description: MESSAGES.COPY_SUCCESS,
+          status: 'success',
+        });
+      };
+
+      const errorHandler = (error: Error): void => {
+        toast({
+          title: TITLES.COPY,
+          description: error.message,
+          status: 'error',
+        });
+      };
+
+      copyText(cardNumber, successHandler, errorHandler);
+    },
+    [copyText, toast],
+  );
 
   return (
     <>
