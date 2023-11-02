@@ -1,11 +1,11 @@
 'use client';
 
-import { Tbody, useDisclosure, useToast } from '@chakra-ui/react';
+import { Tbody, useDisclosure } from '@chakra-ui/react';
 import { memo, useCallback, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 
 // Hooks
-import { useCard, useClipBoard } from '@hooks/index';
+import { useCard, useClipBoard, useToast } from '@hooks/index';
 
 // Helpers
 import { getTimeString } from '@helpers/date';
@@ -17,10 +17,10 @@ import { TITLES } from '@constants/titles';
 
 // Components
 import Row from './components/Row';
+import Dialog from '@components/Dialog';
 
 // Types
 import { ICard } from '@interfaces/card';
-import Dialog from '@components/Dialog';
 
 export type TableBodyProps = {
   data: ICard[];
@@ -37,7 +37,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
   const [idIsSelected, setIdIsSelected] = useState('');
   const queryClient = useQueryClient();
   const { copyText } = useClipBoard();
-  const toast = useToast({
+  const { showToast } = useToast({
     duration: 2000,
   });
 
@@ -93,7 +93,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
         const { title, desc: description }: TStatusInfo =
           getWarningInfo(status);
 
-        toast({
+        showToast({
           title,
           description,
           status: 'warning',
@@ -104,7 +104,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
 
       return true;
     },
-    [getCardById, getWarningInfo, toast],
+    [getCardById, getWarningInfo, showToast],
   );
 
   /**
@@ -115,12 +115,12 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
   const errorHandler = useCallback(
     (title: string): ((error: Error) => void) =>
       (error: Error) =>
-        toast({
+        showToast({
           title: title,
           description: error.message,
           status: 'error',
         }),
-    [toast],
+    [showToast],
   );
 
   /**
@@ -132,7 +132,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
   const successHandler = useCallback(
     (title: string, description: string): (() => void) =>
       () => {
-        toast({
+        showToast({
           title,
           description,
           status: 'success',
@@ -140,7 +140,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
 
         queryClient.invalidateQueries({ queryKey: [ROUTES.CARD] });
       },
-    [queryClient, toast],
+    [queryClient, showToast],
   );
 
   /**
@@ -233,7 +233,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
   const handleCopyCardNumber = useCallback(
     async (cardNumber: string): Promise<void> => {
       const successHandler = (): void => {
-        toast({
+        showToast({
           title: TITLES.COPY,
           description: MESSAGES.COPY_SUCCESS,
           status: 'success',
@@ -241,7 +241,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
       };
 
       const errorHandler = (error: Error): void => {
-        toast({
+        showToast({
           title: TITLES.COPY,
           description: error.message,
           status: 'error',
@@ -250,7 +250,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
 
       copyText(cardNumber, successHandler, errorHandler);
     },
-    [copyText, toast],
+    [copyText, showToast],
   );
 
   return (
