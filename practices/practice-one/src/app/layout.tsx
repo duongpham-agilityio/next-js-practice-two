@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { Box, Container } from '@chakra-ui/react';
 
 // Providers
-import { ChakraUIProvider } from '@providers/index';
+import { ChakraUIProvider, ReactQueryProvider } from '@providers/index';
 
 // Components
 import { Header } from '@components/layout/Header';
@@ -20,15 +20,17 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang="en">
     <body className={inter.className}>
       <ChakraUIProvider>
-        <Box
-          background="url('./background.png') no-repeat center"
-          backgroundSize="cover"
-        >
-          <Header />
-          <Container as="main" minH="100vh">
-            {children}
-          </Container>
-        </Box>
+        <ReactQueryProvider>
+          <Box
+            background="url('./background.png') no-repeat center"
+            backgroundSize="cover"
+          >
+            <Header />
+            <Container as="main" minH="100vh">
+              {children}
+            </Container>
+          </Box>
+        </ReactQueryProvider>
       </ChakraUIProvider>
     </body>
   </html>

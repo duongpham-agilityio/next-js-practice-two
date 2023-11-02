@@ -1,24 +1,17 @@
-import { VStack } from '@chakra-ui/react';
 import { Suspense, memo } from 'react';
 
 // Components
-import PageInformation from '@components/PageInfomation';
 import HomeBody from './components/HomeBody';
+import HomeLayout from '@components/layout/HomeLayout';
 
 // Service
-import { getAllCard } from '@services/card';
 
-const Home = async () => {
-  const card = await getAllCard();
-
-  return (
-    <VStack as="section" gap={5}>
-      <PageInformation />
-      <Suspense>
-        <HomeBody data={card} />
-      </Suspense>
-    </VStack>
-  );
-};
+const Home = () => (
+  <HomeLayout>
+    <Suspense>
+      <HomeBody />
+    </Suspense>
+  </HomeLayout>
+);
 
 export default memo(Home);
