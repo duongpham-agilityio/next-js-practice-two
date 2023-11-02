@@ -19,9 +19,10 @@ import { getAllCard } from '@services/card';
 
 // Types
 import { ICard } from '@interfaces/card';
+import Skeleton from '@components/Skeleton';
 
 const HomeBody = (): JSX.Element => {
-  const { data = [] } = useQuery<ICard[]>({
+  const { data = [], isLoading } = useQuery<ICard[]>({
     queryKey: [ROUTES.CARD],
     queryFn: getAllCard,
   });
@@ -46,7 +47,11 @@ const HomeBody = (): JSX.Element => {
         onChangeSearch={changeSearch}
         onSearch={handleSearch}
       />
-      <Table data={card} />
+
+      <Skeleton isLoading={isLoading}>
+        <Table data={card} />
+      </Skeleton>
+
       <Pagination
         data={pagination}
         currentPage={currentPage}
