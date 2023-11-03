@@ -8,7 +8,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useCard, useClipBoard, useToast } from '@hooks/index';
 
 // Helpers
-import { getTimeString } from '@helpers/date';
+import { getTimeString } from '@helpers/time';
 
 // Constants
 import { ROUTES } from '@constants/url';
@@ -21,6 +21,7 @@ import Dialog from '@components/Dialog';
 
 // Types
 import { ICard } from '@interfaces/card';
+import { useRouter } from 'next/navigation';
 
 export type TableBodyProps = {
   data: ICard[];
@@ -35,6 +36,7 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
   const { activeHandler, inactiveHandler, closeHandler } = useCard();
   const { isOpen: isOpenDialog, onToggle } = useDisclosure();
   const [idIsSelected, setIdIsSelected] = useState('');
+  const router = useRouter();
   const queryClient = useQueryClient();
   const { copyText } = useClipBoard();
   const { showToast } = useToast({
@@ -221,10 +223,12 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
    * Handle navigate to detail page
    * @param path
    */
-  const handleNavigation = useCallback((path: string): void => {
-    // TODO: Update to later
-    console.log(path);
-  }, []);
+  const handleNavigation = useCallback(
+    (path: string): void => {
+      router.push(path);
+    },
+    [router],
+  );
 
   /**
    * Handle copy card number

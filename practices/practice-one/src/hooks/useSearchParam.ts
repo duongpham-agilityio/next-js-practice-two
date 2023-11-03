@@ -26,6 +26,8 @@ export const useSearchParams = (): TUseSearchParams => {
       let isUpdateKey: boolean = false;
 
       searchParams.forEach((oldValue: string, oldKey: string) => {
+        if (!value) return;
+
         if (oldKey === key) {
           isUpdateKey = true;
           newSearchParams += `${oldKey}=${value}&`;
@@ -41,7 +43,7 @@ export const useSearchParams = (): TUseSearchParams => {
           0,
           newSearchParams.length - 1,
         );
-      } else {
+      } else if (value) {
         newSearchParams += `${key}=${value}`;
       }
 
