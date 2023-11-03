@@ -5,27 +5,21 @@ export const tableHead: TTableHeadCell[] = [
   {
     title: 'Card number',
   },
-
   {
     title: 'Card name',
   },
-
   {
     title: 'Card image',
   },
-
   {
     title: 'Status',
   },
-
   {
     title: 'Created time',
   },
-
   {
     title: 'Updated time',
   },
-
   {
     title: 'Actions',
   },
@@ -51,7 +45,6 @@ export const tableBody: CardInfoMock[] = [
     createdAt: '12:00 AM Oct - 10 -2023',
     updatedAt: '12:00 AM Oct - 10 -2023',
   },
-
   {
     number: '123-456-789-000',
     name: 'John Smith',
@@ -61,7 +54,6 @@ export const tableBody: CardInfoMock[] = [
     createdAt: '12:00 AM Oct - 10 -2023',
     updatedAt: '12:00 AM Oct - 10 -2023',
   },
-
   {
     number: '123-456-789-000',
     name: 'John Smith',
