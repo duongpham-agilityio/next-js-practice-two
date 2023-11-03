@@ -3,7 +3,7 @@ import { MESSAGES } from '@constants/messages';
 import { ROUTES } from '@constants/url';
 
 // Types
-import { ICard } from '@interfaces/card';
+import { TCardPayload, ICard } from '@interfaces/card';
 
 /**
  * Get all card from DB
@@ -33,6 +33,30 @@ export const updateCard = async (
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(payload),
+    },
+  ).then((res) => {
+    if (res.ok) return res.json();
+
+    throw new Error(MESSAGES.FAILED_TO_FETCH);
+  });
+
+  return response;
+};
+
+/**
+ * Send request add new card
+ * @param card info card
+ * @returns new card
+ */
+export const postCard = async (card: TCardPayload): Promise<ICard> => {
+  const response: ICard = await fetch(
+    `${process.env.NEXT_PUBLIC_DB_URL}/${ROUTES.CARD}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(card),
     },
   ).then((res) => {
     if (res.ok) return res.json();

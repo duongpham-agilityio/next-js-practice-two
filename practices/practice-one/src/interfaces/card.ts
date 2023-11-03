@@ -8,3 +8,5 @@ export interface ICard {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export type TCardPayload = Omit<ICard, 'id'>;
