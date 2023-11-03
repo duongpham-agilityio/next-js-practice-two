@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { postCard, updateCard } from '@services/card';
 
 // Types
-import { TCardPayload } from '@interfaces/card';
+import { ICard, TCardPayload } from '@interfaces/card';
 
 type TSuccessHandler = () => void;
 type TErrorHandler = (error: Error) => void;
@@ -13,12 +13,19 @@ type TUseCardHandler = (
   successHandler?: TSuccessHandler,
   errorHandler?: TErrorHandler,
 ) => Promise<void>;
+
 export type TUseCard = {
   activeHandler: TUseCardHandler;
   inactiveHandler: TUseCardHandler;
   closeHandler: TUseCardHandler;
   addNewCard: (
     card: TCardPayload,
+    successHandler?: TSuccessHandler,
+    errorHandler?: TErrorHandler,
+  ) => Promise<void>;
+  updateInfo: (
+    id: string,
+    payload: Partial<ICard>,
     successHandler?: TSuccessHandler,
     errorHandler?: TErrorHandler,
   ) => Promise<void>;
@@ -113,10 +120,32 @@ export const useCard = (): TUseCard => {
     [],
   );
 
+  /**
+   * Handle update info of card
+   * @param id
+   * @param payload
+   * @param successHandler
+   * @param errorHandler
+   */
+  const updateInfo = async (
+    id: string,
+    payload: Partial<ICard>,
+    successHandler?: TSuccessHandler,
+    errorHandler?: TErrorHandler,
+  ): Promise<void> => {
+    try {
+      await updateCard(id, payload);
+      successHandler && successHandler();
+    } catch (error) {
+      errorHandler && errorHandler(error as Error);
+    }
+  };
+
   return {
     activeHandler,
     inactiveHandler,
     closeHandler,
     addNewCard,
+    updateInfo,
   };
 };
