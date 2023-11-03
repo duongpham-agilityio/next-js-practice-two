@@ -98,7 +98,7 @@ const FormData = ({
         name: nameInvalid,
       };
 
-      if (cardNumberInvalid || name) {
+      if (cardNumberInvalid || nameInvalid) {
         return setError(error);
       }
 
