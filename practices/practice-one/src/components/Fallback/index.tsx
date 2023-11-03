@@ -2,8 +2,8 @@ import { Center, Spinner } from '@chakra-ui/react';
 import { memo } from 'react';
 
 const Fallback = () => (
-  <Center>
-    <Spinner />
+  <Center h="80vh">
+    <Spinner color="white" size="xl" />
   </Center>
 );
 
