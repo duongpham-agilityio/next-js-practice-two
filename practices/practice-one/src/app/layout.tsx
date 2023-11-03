@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-import { Box, Container } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 
 // Providers
 import { ChakraUIProvider, ReactQueryProvider } from '@providers/index';
@@ -18,18 +18,19 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang="en">
-    <body className={inter.className}>
+    <body
+      className={inter.className}
+      style={{
+        background: "url('/background.png') no-repeat center",
+        backgroundSize: 'cover',
+      }}
+    >
       <ChakraUIProvider>
         <ReactQueryProvider>
-          <Box
-            background="url('./background.png') no-repeat center"
-            backgroundSize="cover"
-          >
-            <Header />
-            <Container as="main" minH="100vh">
-              {children}
-            </Container>
-          </Box>
+          <Header />
+          <Container as="main" minH="100vh">
+            {children}
+          </Container>
         </ReactQueryProvider>
       </ChakraUIProvider>
     </body>
