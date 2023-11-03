@@ -35,23 +35,10 @@ const getMinuteString = (minute: number): string => {
   return times[minute];
 };
 
-const getMonthString = (month: number): string => {
-  const months: string[] = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
+const getShortMonth = (date: Date): string => {
+  const month = date.toLocaleString('default', { month: 'short' });
 
-  return months[month];
+  return month;
 };
 
 /**
@@ -76,7 +63,7 @@ export const getTimeString = (date: Date) => {
   const hours: TTime = getHourString(date.getHours());
   const minute: string = getMinuteString(date.getMinutes());
   const year: number = date.getFullYear();
-  const month: string = getMonthString(date.getMonth());
+  const month: string = getShortMonth(date);
   const day: string = getDateString(date.getDate());
 
   return `${hours.time}:${minute} ${hours.suffix} ${month} - ${day} - ${year}`;

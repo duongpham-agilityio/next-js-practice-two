@@ -3,7 +3,7 @@ import { Flex, ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import Image from 'next/image';
 
 // Helpers
-import { getTimeString } from '@helpers/date';
+import { getTimeString } from '@helpers/time';
 
 // Mocks
 import { skinCards } from '@mocks/card';
