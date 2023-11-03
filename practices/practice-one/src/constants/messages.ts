@@ -14,4 +14,6 @@ export const MESSAGES = {
 
   // Others
   DIALOG_CONFIRM: 'Are you sure?',
+  EMPTY: 'Please enter text',
+  INVALID: 'Invalid, please check again.',
 };
