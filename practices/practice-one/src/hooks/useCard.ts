@@ -1,6 +1,10 @@
-// Services
-import { updateCard } from '@services/card';
 import { useCallback } from 'react';
+
+// Services
+import { postCard, updateCard } from '@services/card';
+
+// Types
+import { TCardPayload } from '@interfaces/card';
 
 type TSuccessHandler = () => void;
 type TErrorHandler = (error: Error) => void;
@@ -13,6 +17,11 @@ export type TUseCard = {
   activeHandler: TUseCardHandler;
   inactiveHandler: TUseCardHandler;
   closeHandler: TUseCardHandler;
+  addNewCard: (
+    card: TCardPayload,
+    successHandler?: TSuccessHandler,
+    errorHandler?: TErrorHandler,
+  ) => Promise<void>;
 };
 
 export const useCard = (): TUseCard => {
@@ -82,9 +91,32 @@ export const useCard = (): TUseCard => {
     [],
   );
 
+  /**
+   * Handle add new card
+   * @param card card info
+   * @param successHandler
+   * @param errorHandler
+   */
+  const addNewCard = useCallback(
+    async (
+      card: TCardPayload,
+      successHandler?: TSuccessHandler,
+      errorHandler?: TErrorHandler,
+    ): Promise<void> => {
+      try {
+        await postCard(card);
+        successHandler && successHandler();
+      } catch (error) {
+        errorHandler && errorHandler(error as Error);
+      }
+    },
+    [],
+  );
+
   return {
     activeHandler,
     inactiveHandler,
     closeHandler,
+    addNewCard,
   };
 };
