@@ -3,8 +3,16 @@
 import { Box, Button } from '@chakra-ui/react';
 import { memo } from 'react';
 
+// Hooks
+import { useToggleForm } from '@hooks/index';
+
+// Constants
+import { ACTIONS } from '@constants/actions';
+
 // Components
 import InputSearch from './InputSearch';
+import ModalCustom from '@components/Modal';
+import FormAdd from './FormAdd';
 
 export type TActionBarProps = {
   searchValue: string;
@@ -16,19 +24,31 @@ const ActionBar = ({
   searchValue,
   onChangeSearch,
   onSearch,
-}: TActionBarProps): JSX.Element => (
-  <>
-    <Box>
-      <InputSearch
-        value={searchValue}
-        onChange={onChangeSearch}
-        onClick={onSearch}
-      />
-    </Box>
-    <Button variant="primary" alignSelf="flex-end">
-      Add a new card
-    </Button>
-  </>
-);
+}: TActionBarProps): JSX.Element => {
+  const { isOpen: isOpenCreateForm, toggle: toggleCreateForm } = useToggleForm(
+    ACTIONS.CREATE,
+  );
+
+  return (
+    <>
+      <Box>
+        <InputSearch
+          value={searchValue}
+          onChange={onChangeSearch}
+          onClick={onSearch}
+        />
+      </Box>
+      <Button variant="primary" alignSelf="flex-end" onClick={toggleCreateForm}>
+        Add a new card
+      </Button>
+
+      {isOpenCreateForm && (
+        <ModalCustom title="Create" isOpen onClose={toggleCreateForm}>
+          <FormAdd />
+        </ModalCustom>
+      )}
+    </>
+  );
+};
 
 export default memo(ActionBar);
