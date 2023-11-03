@@ -10,7 +10,7 @@ import { useCard, useToast } from '@hooks/index';
 import { ROUTES } from '@constants/url';
 
 // Helpers
-import { addHyphen, clearHyphen } from '@helpers/form';
+import { formatTypingCardNumber } from '@helpers/form';
 
 // Components
 import FormData from '@components/FormData';
@@ -33,26 +33,6 @@ const FormUpdate = ({ data, onCloseForm }: FormUpdateProps): JSX.Element => {
   const { showToast } = useToast();
 
   /**
-   * Handle text for card number
-   * @param text the text need handle
-   */
-  const handleConvertValueForCardNumber = useCallback(
-    (text: string): string => {
-      const textIsClearHyphen: string = clearHyphen(text);
-      const textSize: number = textIsClearHyphen.length;
-      const isTheNotANumber: boolean = isNaN(Number(textIsClearHyphen));
-      const isLessThan12: boolean = textSize > 12;
-
-      if (isTheNotANumber) return textIsClearHyphen.substring(0, textSize - 1);
-
-      if (isLessThan12) return addHyphen(textIsClearHyphen.substring(0, 12));
-
-      return addHyphen(text);
-    },
-    [],
-  );
-
-  /**
    * Get text by tag name
    * @param tagName the tag name you want get text
    * @param text the text need handle
@@ -61,13 +41,13 @@ const FormUpdate = ({ data, onCloseForm }: FormUpdateProps): JSX.Element => {
   const getValueByTagName = useCallback(
     (tagName: TTagName, text: string): string => {
       const action: Record<TTagName, string> = {
-        cardNumber: handleConvertValueForCardNumber(text),
+        cardNumber: formatTypingCardNumber(text),
         name: text,
       };
 
       return action[tagName];
     },
-    [handleConvertValueForCardNumber],
+    [],
   );
 
   /**

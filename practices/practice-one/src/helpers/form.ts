@@ -57,3 +57,27 @@ export const validateName = (name: string): string => {
 
   return '';
 };
+
+/**
+ *
+ * @param text
+ * @returns
+ */
+export const isTypingNumber = (text: string): boolean => !isNaN(Number(text));
+
+/**
+ * Handle text for card number
+ * @param text the text need handle
+ */
+export const formatTypingCardNumber = (text: string): string => {
+  const textIsClearHyphen: string = clearHyphen(text);
+  const textSize: number = textIsClearHyphen.length;
+  const isNumber: boolean = isTypingNumber(textIsClearHyphen);
+  const isLessThan12: boolean = textSize > 12;
+
+  if (!isNumber) return textIsClearHyphen.substring(0, textSize - 1);
+
+  if (isLessThan12) return addHyphen(textIsClearHyphen.substring(0, 12));
+
+  return addHyphen(text);
+};
