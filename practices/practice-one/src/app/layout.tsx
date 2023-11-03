@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
-import { Container } from '@chakra-ui/react';
 
 // Providers
 import { ChakraUIProvider, ReactQueryProvider } from '@providers/index';
 
 // Components
-import { Header } from '@components/layout/Header';
+import MainLayout from '@components/layout/MainLayout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -27,10 +26,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
     >
       <ChakraUIProvider>
         <ReactQueryProvider>
-          <Header />
-          <Container as="main" minH="100vh">
-            {children}
-          </Container>
+          <MainLayout>{children}</MainLayout>
         </ReactQueryProvider>
       </ChakraUIProvider>
     </body>
