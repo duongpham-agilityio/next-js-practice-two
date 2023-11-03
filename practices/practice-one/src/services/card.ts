@@ -16,6 +16,20 @@ export const getAllCard = async (): Promise<ICard[]> =>
   }).then((res) => res.json());
 
 /**
+ *
+ * @returns
+ */
+export const getCardById = async (id: string): Promise<ICard> =>
+  await fetch(`${process.env.NEXT_PUBLIC_DB_URL}/${ROUTES.CARD}/${id}`, {
+    next: { tags: [ROUTES.CARD] },
+    cache: 'no-store',
+  }).then((res) => {
+    if (res.ok) return res.json();
+
+    throw new Error(MESSAGES.FAILED_TO_FETCH);
+  });
+
+/**
  * Update card by id
  * @param id
  * @param payload
