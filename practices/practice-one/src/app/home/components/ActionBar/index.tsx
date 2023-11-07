@@ -17,13 +17,11 @@ import FormAdd from './FormAdd';
 export type TActionBarProps = {
   searchValue: string;
   onChangeSearch: (value: string) => void;
-  onSearch: () => void;
 };
 
 const ActionBar = ({
   searchValue,
   onChangeSearch,
-  onSearch,
 }: TActionBarProps): JSX.Element => {
   const { isOpen: isOpenCreateForm, toggle: toggleCreateForm } = useToggleForm(
     ACTIONS.CREATE,
@@ -32,11 +30,7 @@ const ActionBar = ({
   return (
     <>
       <Box>
-        <InputSearch
-          value={searchValue}
-          onChange={onChangeSearch}
-          onClick={onSearch}
-        />
+        <InputSearch value={searchValue} onChange={onChangeSearch} />
       </Box>
       <Button variant="primary" alignSelf="flex-end" onClick={toggleCreateForm}>
         Add a new card

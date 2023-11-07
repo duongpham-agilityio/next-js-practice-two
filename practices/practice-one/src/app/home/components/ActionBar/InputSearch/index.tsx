@@ -13,10 +13,9 @@ export type InputSearchProps = Omit<
 > & {
   value: string;
   onChange: (value: string) => void;
-  onClick: () => void;
 };
 
-const InputSearch = ({ onClick, ...props }: InputSearchProps): JSX.Element => (
+const InputSearch = ({ ...props }: InputSearchProps): JSX.Element => (
   <InputGroup
     as={Center}
     borderRadius="xl"
@@ -25,7 +24,7 @@ const InputSearch = ({ onClick, ...props }: InputSearchProps): JSX.Element => (
     px={5}
   >
     {/* Search icon */}
-    <IconButton aria-label="The search icon" onClick={onClick}>
+    <IconButton aria-label="The search icon">
       <SearchIcon />
     </IconButton>
 

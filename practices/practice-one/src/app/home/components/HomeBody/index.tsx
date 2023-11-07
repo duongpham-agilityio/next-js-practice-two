@@ -27,12 +27,7 @@ const HomeBody = (): JSX.Element => {
     queryFn: getAllCard,
   });
 
-  const {
-    data: searchData,
-    searchValue,
-    changeSearch,
-    handleSearch,
-  } = useSearch(data);
+  const { data: searchData, searchValue, changeSearch } = useSearch(data);
 
   const {
     data: card,
@@ -43,11 +38,7 @@ const HomeBody = (): JSX.Element => {
 
   return (
     <>
-      <ActionBar
-        searchValue={searchValue}
-        onChangeSearch={changeSearch}
-        onSearch={handleSearch}
-      />
+      <ActionBar searchValue={searchValue} onChangeSearch={changeSearch} />
 
       <Skeleton isLoading={isLoading}>
         <Table data={card} />
