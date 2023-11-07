@@ -177,6 +177,7 @@ const Row = (props: RowProps): JSX.Element => {
       backdropFilter="blur(28px)"
       fontSize="sm"
       fontWeight="regular"
+      cursor="pointer"
       onClick={handleNavigate}
     >
       {/* Card number */}
