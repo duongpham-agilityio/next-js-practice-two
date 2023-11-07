@@ -1,15 +1,24 @@
 import { ReactNode, memo } from 'react';
-import { Container } from '@chakra-ui/react';
+import { Box, Container, VStack } from '@chakra-ui/react';
 
 // Components
 import { Header } from '../Header';
 import Footer from '../Footer';
 
 const MainLayout = ({ children }: { children: ReactNode }): JSX.Element => (
-  <Container as="main" minH="100vh" pt={4}>
-    <Header />
-    {children}
-    <Footer />
+  <Container>
+    <VStack
+      minH="100vh"
+      justifyContent="space-between"
+      alignItems="unset"
+      pt={3}
+    >
+      <Box>
+        <Header />
+        <Box as="main">{children}</Box>
+      </Box>
+      <Footer />
+    </VStack>
   </Container>
 );
 

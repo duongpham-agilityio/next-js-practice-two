@@ -20,6 +20,7 @@ import { getAllCard } from '@services/card';
 
 // Types
 import { ICard } from '@interfaces/card';
+import { Center, Text } from '@chakra-ui/react';
 
 const HomeBody = (): JSX.Element => {
   const { data = [], isLoading } = useQuery<ICard[]>({
@@ -36,12 +37,20 @@ const HomeBody = (): JSX.Element => {
     handleChangePage,
   } = usePagination(searchData);
 
+  console.log('Card', data);
+
   return (
     <>
       <ActionBar searchValue={searchValue} onChangeSearch={changeSearch} />
 
       <Skeleton isLoading={isLoading}>
-        <Table data={card} />
+        {card.length ? (
+          <Table data={card} />
+        ) : (
+          <Center minH={458} w="full">
+            <Text fontSize="xl">There is no suitable data</Text>
+          </Center>
+        )}
       </Skeleton>
 
       <Pagination

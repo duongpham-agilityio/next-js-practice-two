@@ -195,7 +195,9 @@ const Row = (props: RowProps): JSX.Element => {
 
       {/* Name owner */}
       <Td>
-        <Text as="span">{name}</Text>
+        <Text w={150} noOfLines={1} whiteSpace="normal" as="span">
+          {name}
+        </Text>
       </Td>
 
       {/* Skin card */}
@@ -210,7 +212,7 @@ const Row = (props: RowProps): JSX.Element => {
 
       {/* Status */}
       <Td>
-        <Text as="span">{renderStatus(role, status)}</Text>
+        <Text w={150}>{renderStatus(role, status)}</Text>
       </Td>
 
       {/* CreatedAt */}

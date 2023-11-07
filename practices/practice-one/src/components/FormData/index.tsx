@@ -108,7 +108,7 @@ const FormData = ({
   );
 
   return (
-    <VStack as="form" onSubmit={handleSubmit} p={2}>
+    <VStack as="form" onSubmit={handleSubmit} p={2} gap={6}>
       <VStack gap={8} w="full">
         <InputForm
           label="The card number"
@@ -145,7 +145,7 @@ const FormData = ({
         </Flex>
       </VStack>
 
-      <Button type="submit" variant="primary" mt={20} textTransform="uppercase">
+      <Button type="submit" variant="primary" textTransform="uppercase">
         submit
       </Button>
     </VStack>
