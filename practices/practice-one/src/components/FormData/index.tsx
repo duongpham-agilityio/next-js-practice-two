@@ -108,7 +108,7 @@ const FormData = ({
   );
 
   return (
-    <VStack as="form" onSubmit={handleSubmit}>
+    <VStack as="form" onSubmit={handleSubmit} p={2}>
       <VStack gap={8} w="full">
         <InputForm
           label="The card number"

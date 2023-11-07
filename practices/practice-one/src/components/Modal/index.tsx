@@ -19,19 +19,9 @@ const Component = (props: TModalProps): JSX.Element => {
   const { children, title, ...rest } = props;
 
   return (
-    <Modal {...rest} isCentered>
+    <Modal {...rest} isCentered size="2xl">
       <ModalOverlay />
-      <ModalContent
-        minW={{
-          base: 'full',
-          md: '70%',
-          lg: '50%',
-        }}
-        h={{
-          base: 'full',
-          md: '70%',
-        }}
-      >
+      <ModalContent>
         <ModalHeader
           fontSize={{
             base: 'xl',
@@ -43,9 +33,7 @@ const Component = (props: TModalProps): JSX.Element => {
 
         <ModalCloseButton />
 
-        <ModalBody overflow="hidden" py={5}>
-          {children}
-        </ModalBody>
+        <ModalBody>{children}</ModalBody>
       </ModalContent>
     </Modal>
   );
