@@ -4,6 +4,9 @@
 import { memo, useCallback, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 
+// Constants
+import { ROUTES } from '@constants/url';
+
 // Hooks
 import { useCard, useToast } from '@hooks/index';
 
@@ -15,7 +18,6 @@ import { formatTypingCardNumber } from '@helpers/form';
 
 // Types
 import { TCardPayload } from '@interfaces/card';
-import { ROUTES } from '@constants/url';
 
 type TTagName = 'name' | 'cardNumber';
 
@@ -25,7 +27,11 @@ const initFormState: TValueFormData = {
   skin: 0,
 };
 
-const FormAdd = () => {
+export type FormAddProps = {
+  onCloseForm: () => void;
+};
+
+const FormAdd = ({ onCloseForm }: FormAddProps) => {
   const queryClient = useQueryClient();
   const { addNewCard } = useCard();
   const { showToast } = useToast();
@@ -102,6 +108,7 @@ const FormAdd = () => {
         queryKey: [ROUTES.CARD],
       });
       setFormData(initFormState);
+      onCloseForm();
     };
 
     /**

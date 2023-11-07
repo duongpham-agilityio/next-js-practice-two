@@ -38,7 +38,7 @@ const ActionBar = ({
 
       {isOpenCreateForm && (
         <ModalCustom title="Create" isOpen onClose={toggleCreateForm}>
-          <FormAdd />
+          <FormAdd onCloseForm={toggleCreateForm} />
         </ModalCustom>
       )}
     </>
