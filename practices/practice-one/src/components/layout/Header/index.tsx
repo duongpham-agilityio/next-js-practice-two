@@ -1,5 +1,9 @@
 import { Box, Heading } from '@chakra-ui/react';
+import Link from 'next/link';
 import { memo } from 'react';
+
+// Constants
+import { ROUTES } from '@constants/url';
 
 const HeaderComponent = (): JSX.Element => (
   <Box as="header" p="4px 9px">
@@ -10,7 +14,7 @@ const HeaderComponent = (): JSX.Element => (
       backgroundClip="text"
       fontWeight="extrabold"
     >
-      E-Banking
+      <Link href={`${ROUTES.ROOT}`}>E-Banking</Link>
     </Heading>
   </Box>
 );
