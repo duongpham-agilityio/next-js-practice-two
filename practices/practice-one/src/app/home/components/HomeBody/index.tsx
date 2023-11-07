@@ -46,11 +46,11 @@ const HomeBody = (): JSX.Element => {
       <Skeleton isLoading={isLoading}>
         {card.length ? (
           <Table data={card} />
-        ) : (
+        ) : !isLoading ? (
           <Center minH={458} w="full">
             <Text fontSize="xl">There is no suitable data</Text>
           </Center>
-        )}
+        ) : null}
       </Skeleton>
 
       <Pagination

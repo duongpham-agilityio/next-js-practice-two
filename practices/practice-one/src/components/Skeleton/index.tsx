@@ -16,7 +16,7 @@ const Skeleton = ({
   <>
     {children}
     {isLoading && (
-      <VStack w="full" mt={-4}>
+      <VStack w="full" mt={8}>
         {Array.from({ length: size }).map((_, index: number) => (
           <SkeletonChakra
             // eslint-disable-next-line react/no-array-index-key
