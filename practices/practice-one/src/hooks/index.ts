@@ -5,3 +5,4 @@ export * from './useCard';
 export * from './useClipboard';
 export * from './useToast';
 export * from './useToggleForm';
+export * from './useDebounce';
