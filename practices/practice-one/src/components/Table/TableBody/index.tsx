@@ -89,7 +89,11 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
 
       if (!card) return false;
 
-      const { status: stt } = card;
+      const { status: stt, role } = card;
+
+      if (role === 'admin') {
+        return false;
+      }
 
       if (stt === status) {
         const { title, desc: description }: TStatusInfo =
@@ -141,8 +145,10 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
         });
 
         queryClient.invalidateQueries({ queryKey: [ROUTES.CARD] });
+
+        if (isOpenDialog) onToggle();
       },
-    [queryClient, showToast],
+    [isOpenDialog, onToggle, queryClient, showToast],
   );
 
   /**
@@ -188,24 +194,13 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
    * @param id
    */
   const handleCloseCard = useCallback(async (): Promise<void> => {
-    const isCorrect: boolean = isFieldUpdateCorrect(idIsSelected, 'close');
+    const onSuccess = () => {
+      successHandler(TITLES.CLOSE, MESSAGES.CLOSE_CARD_SUCCESS)();
+      onToggle();
+    };
 
-    if (!isCorrect) return;
-
-    await closeHandler(
-      idIsSelected,
-      successHandler(TITLES.CLOSE, MESSAGES.CLOSE_CARD_SUCCESS),
-      errorHandler(TITLES.CLOSE),
-    );
-    onToggle();
-  }, [
-    closeHandler,
-    errorHandler,
-    idIsSelected,
-    isFieldUpdateCorrect,
-    onToggle,
-    successHandler,
-  ]);
+    await closeHandler(idIsSelected, onSuccess, errorHandler(TITLES.CLOSE));
+  }, [closeHandler, errorHandler, idIsSelected, onToggle, successHandler]);
 
   /**
    *
@@ -213,10 +208,14 @@ const TableBody = ({ data }: TableBodyProps): JSX.Element => {
    */
   const handleSelectedId = useCallback(
     (id: string): void => {
+      const isCorrect: boolean = isFieldUpdateCorrect(id, 'close');
+
+      if (!isCorrect) return;
+
       setIdIsSelected(id);
       onToggle();
     },
-    [onToggle],
+    [isFieldUpdateCorrect, onToggle],
   );
 
   /**
