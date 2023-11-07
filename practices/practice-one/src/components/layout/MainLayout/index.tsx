@@ -6,13 +6,11 @@ import { Header } from '../Header';
 import Footer from '../Footer';
 
 const MainLayout = ({ children }: { children: ReactNode }): JSX.Element => (
-  <>
+  <Container as="main" minH="100vh" pt={4}>
     <Header />
-    <Container as="main" minH="100vh">
-      {children}
-    </Container>
+    {children}
     <Footer />
-  </>
+  </Container>
 );
 
 export default memo(MainLayout);
