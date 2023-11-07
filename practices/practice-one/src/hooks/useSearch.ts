@@ -7,20 +7,18 @@ import { SEARCH_KEYS } from '@constants/url';
 // Types
 import { ICard } from '@interfaces/card';
 import { useCallback, useMemo, useState } from 'react';
+import { useDebounce } from '.';
 
 export type TUseSearch = {
   data: ICard[];
   searchValue: string;
   changeSearch: (value: string) => void;
-  handleSearch: () => void;
 };
 
 export const useSearch = (data: ICard[]): TUseSearch => {
   const { get, setSearchParam } = useSearchParams();
   const currentSearchValue: string = (get(SEARCH_KEYS.NAME) || '').trim();
   const [search, setSearch] = useState<string>(currentSearchValue);
-
-  // Get 'name' from param
 
   /**
    * Check if there is any matching data in the list
@@ -43,17 +41,21 @@ export const useSearch = (data: ICard[]): TUseSearch => {
   /**
    * Handles the searchParam update logic
    */
-  const handleSearch = useCallback(() => {
-    setSearchParam(SEARCH_KEYS.NAME, search);
-  }, [search, setSearchParam]);
+  const handleSearch = useDebounce<string>((value) => {
+    setSearchParam(SEARCH_KEYS.NAME, value);
+  });
 
   /**
    * Listen for the input change event
    * @param value is the value the user need to find in the list
    */
-  const changeSearch = useCallback((value: string) => {
-    setSearch(value);
-  }, []);
+  const changeSearch = useCallback(
+    (value: string) => {
+      setSearch(value);
+      handleSearch(value);
+    },
+    [handleSearch],
+  );
 
   // Filter data by 'condition'
   const result: ICard[] = useMemo(
@@ -68,6 +70,5 @@ export const useSearch = (data: ICard[]): TUseSearch => {
     data: result,
     searchValue: search,
     changeSearch,
-    handleSearch,
   };
 };
