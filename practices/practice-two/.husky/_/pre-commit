@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+cd practices/practice-two
+
+npx lint-staged

@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+cd practices/practice-two
+
+pnpm commitlint ${1}

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { NextUIProvider } from "@nextui-org/system";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { ThemeProviderProps as NextThemeProviderProps } from "next-themes/dist/types";
+import * as React from 'react';
+import { NextUIProvider } from '@nextui-org/system';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { ThemeProviderProps as NextThemeProviderProps } from 'next-themes/dist/types';
 
 // Constants
-import { ThemeType } from "@/constants";
+import { ThemeType } from '@/constants';
 
 export interface ThemeProviderProps extends NextThemeProviderProps {
   children: React.ReactNode;

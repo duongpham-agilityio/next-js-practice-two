@@ -1,24 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { Poppins } from "next/font/google";
+import { Poppins } from 'next/font/google';
 
 // Styles
-import "@/styles/globals.css";
+import '@/styles/globals.css';
 
 // Providers
-import { ThemeProvider } from "@/providers";
+import { ThemeProvider } from '@/providers';
 
 const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
-  title: "BlogTO",
-  description: "This is a blog post about the latest trends in technology",
-  keywords: "AI/ML, Funding, Marketing, Talent, Engineering, Exits, Operations",
+  title: 'BlogTO',
+  description: 'This is a blog post about the latest trends in technology',
+  keywords: 'AI/ML, Funding, Marketing, Talent, Engineering, Exits, Operations',
   icons: {
-    icon: "/favicon.ico",
+    icon: '/favicon.ico',
   },
 };
 
