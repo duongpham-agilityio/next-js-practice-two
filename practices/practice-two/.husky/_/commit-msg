@@ -1,4 +1,2 @@
 #!/usr/bin/env sh
-cd practices/practice-two
-
-pnpm commitlint ${1}
+. "$(dirname "$0")/h"
