@@ -7,10 +7,12 @@ const Button = extendVariants(NextUIButton, {
   variants: {
     variant: {
       primary: clsx(
+        ['min-w-[unset]'],
         ['bg-background-300', 'hover:bg-background-200'],
         ['rounded-md'],
       ),
       outline: clsx(
+        ['min-w-[unset]'],
         ['bg-transparent', 'hover:bg-background-100'],
         ['text-text-primary', 'hover:text-text-300'],
         [
