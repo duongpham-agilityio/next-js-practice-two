@@ -1,6 +1,53 @@
 const foregroundColor = '#ffffff';
 const defaultForegroundDark = foregroundColor;
 
+export const textPrimaryDarkColors = {
+  text: {
+    primary: '#ffffff',
+    100: '#ffffff',
+    200: '#000000',
+    300: '#e64537',
+  },
+};
+export const textPrimaryLightColors = {
+  text: {
+    primary: '#000000',
+    100: '#e64537',
+    200: '#ffffff',
+    300: '#ffffff',
+  },
+};
+
+export const backgroundDarkMode = {
+  background: {
+    100: '#faeeee',
+    200: '#bc1902',
+    300: '#e64537',
+  },
+};
+
+export const backgroundLightMode = {
+  background: {
+    100: '#e64537',
+    200: '#e63946',
+    300: '#ff6b6b',
+  },
+};
+
+export const borderDarkColors = {
+  border: {
+    100: '#ffffff',
+    200: '#e64537',
+  },
+};
+
+export const borderLightColors = {
+  border: {
+    100: '#000000',
+    200: '#e64537',
+  },
+};
+
 const primaryDarkColors = {
   primary: {
     400: '#e64537',
@@ -37,7 +84,7 @@ const secondaryLightColors = {
     500: '#4a4a4a',
     900: '#2b2b2b',
     DEFAULT: '#333333',
-    foreground: defaultForegroundDark,
+    foreground: '#000000',
   },
 };
 

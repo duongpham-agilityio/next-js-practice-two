@@ -2,11 +2,17 @@ import { ConfigThemes } from '@nextui-org/react';
 
 // Themes
 import {
+  backgroundDarkMode,
+  backgroundLightMode,
+  borderDarkColors,
+  borderLightColors,
   foreground,
   primaryDarkColors,
   primaryLightColors,
   secondaryDarkColors,
   secondaryLightColors,
+  textPrimaryDarkColors,
+  textPrimaryLightColors,
 } from './color';
 
 export const themes: ConfigThemes = {
@@ -14,6 +20,9 @@ export const themes: ConfigThemes = {
     colors: {
       ...primaryLightColors,
       ...secondaryLightColors,
+      ...textPrimaryLightColors,
+      ...backgroundLightMode,
+      ...borderLightColors,
       foreground,
     },
   },
@@ -21,6 +30,9 @@ export const themes: ConfigThemes = {
     colors: {
       ...primaryDarkColors,
       ...secondaryDarkColors,
+      ...textPrimaryDarkColors,
+      ...backgroundDarkMode,
+      ...borderDarkColors,
       foreground: secondaryLightColors.secondary.foreground,
     },
   },

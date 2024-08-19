@@ -1,8 +1,11 @@
-import React from "react";
-import type { Preview } from "@storybook/react";
+import React from 'react';
+import type { Preview } from '@storybook/react';
 
 //Providers
-import { ThemeProvider } from "../providers";
+import { ThemeProvider } from '../providers';
+
+// Styles
+import '../styles/globals.css';
 
 const preview: Preview = {
   parameters: {
@@ -13,6 +16,7 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [
     (Story) => (
       <ThemeProvider>
@@ -20,6 +24,8 @@ const preview: Preview = {
       </ThemeProvider>
     ),
   ],
+
+  tags: ['autodocs']
 };
 
 export default preview;
