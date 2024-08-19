@@ -5,6 +5,9 @@ import { Poppins } from "next/font/google";
 // Styles
 import "@/styles/globals.css";
 
+// Providers
+import { ThemeProvider } from "@/providers";
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -24,8 +27,10 @@ const RootLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => (
-  <html className="dark" lang="en">
-    <body className={poppins.className}>{children}</body>
+  <html lang="en">
+    <body className={poppins.className}>
+      <ThemeProvider>{children}</ThemeProvider>
+    </body>
   </html>
 );
 
