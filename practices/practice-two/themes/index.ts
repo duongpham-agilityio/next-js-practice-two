@@ -13,11 +13,13 @@ import {
   secondaryLightColors,
   textPrimaryDarkColors,
   textPrimaryLightColors,
+  colorPalette,
 } from './color';
 
 export const themes: ConfigThemes = {
   light: {
     colors: {
+      ...colorPalette,
       ...primaryLightColors,
       ...secondaryLightColors,
       ...textPrimaryLightColors,
@@ -28,6 +30,7 @@ export const themes: ConfigThemes = {
   },
   dark: {
     colors: {
+      ...colorPalette,
       ...primaryDarkColors,
       ...secondaryDarkColors,
       ...textPrimaryDarkColors,
