@@ -7,6 +7,8 @@ import { BlogsType } from '@/models';
 import { BlogCard } from '@/components';
 // Helpers
 import { isLargeBlogCard } from '@/helpers';
+// Constants
+import { ROUTE } from '@/constants';
 
 export interface BlogListTemplateProps {
   blogs: BlogsType;
@@ -22,7 +24,7 @@ const BlogListTemplate = ({ blogs }: BlogListTemplateProps) => (
         <BlogCard
           author={author}
           externalLink={externalLink}
-          href=""
+          href={externalLink ?? `${ROUTE.BLOGS}/${id}`}
           imageURL={imageURL}
           large={isLargeBlogCard(index)}
           title={title}
