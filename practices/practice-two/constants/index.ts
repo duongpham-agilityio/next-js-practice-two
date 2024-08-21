@@ -1,3 +1,3 @@
-export * from './enum';
+export * from './theme';
 export * from './key';
-export * from './string';
+export * from './image';
