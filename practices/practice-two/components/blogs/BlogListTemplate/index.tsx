@@ -19,7 +19,9 @@ const BlogListTemplate = ({ blogs }: BlogListTemplateProps) => (
     {blogs.map(({ id, author, imageURL, title, externalLink }, index) => (
       <li
         key={id}
-        className={clsx(isLargeBlogCard(index) ? 'col-span-2' : 'col-span-1')}
+        className={clsx(
+          isLargeBlogCard(index) ? 'col-span-1 md:col-span-2' : 'col-span-1',
+        )}
       >
         <BlogCard
           author={author}
