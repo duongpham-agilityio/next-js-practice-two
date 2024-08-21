@@ -26,8 +26,8 @@ const BlogCard = ({
   href = '',
   large = false,
 }: BlogCardProps) => (
-  <Card className="bg-background-400 rounded-none">
-    <CardBody className="overflow-visible p-0">
+  <Card className="bg-background-400 rounded-none h-full">
+    <CardBody className="overflow-visible p-0 flex flex-col">
       <div className={clsx('w-full relative', large ? 'h-80' : 'h-52')}>
         <Image
           fill
@@ -38,7 +38,7 @@ const BlogCard = ({
           src={imageURL}
         />
       </div>
-      <section className="px-5 py-10 text-text-primary flex flex-col items-start">
+      <section className="flex-1 flex flex-col px-5 py-10 text-text-primary  justify-between items-start">
         <p className="uppercase text-red-primary">{author}</p>
         <h2 className="text-xl lg:text-3xl py-5 flex-1">{title}</h2>
         <OpenBlogButton
