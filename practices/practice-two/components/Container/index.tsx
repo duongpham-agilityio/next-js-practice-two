@@ -10,7 +10,7 @@ export interface ContainerProps
 const Container = ({ as = 'div', className = '', ...props }: ContainerProps) =>
   createElement(as, {
     ...props,
-    className: clsx('m-auto container px-5 md:px-0', className),
+    className: clsx('m-auto container px-5', className),
   });
 
 export default memo(Container);

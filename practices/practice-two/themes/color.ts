@@ -26,7 +26,7 @@ export const textPrimaryDarkColors = {
   text: {
     primary: colorPalette.white,
     100: colorPalette.white,
-    200: colorPalette.black,
+    200: colorPalette.white,
     300: colorPalette.red.primary,
   },
 };
@@ -44,6 +44,7 @@ export const backgroundDarkMode = {
     100: colorPalette.secondaryLight,
     200: colorPalette.red.dark,
     300: colorPalette.red.primary,
+    400: colorPalette.gray.darker,
   },
 };
 
@@ -52,6 +53,7 @@ export const backgroundLightMode = {
     100: colorPalette.red.primary,
     200: colorPalette.red.medium,
     300: colorPalette.red.light,
+    400: colorPalette.gray.light,
   },
 };
 
