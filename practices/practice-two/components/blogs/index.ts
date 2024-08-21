@@ -4,3 +4,4 @@ export * from './BlogCardSkeleton';
 export { default as HighlightBlog } from './HighlightBlog';
 export * from './HighlightBlogSkeleton';
 export { default as BlogListTemplate } from './BlogListTemplate';
+export * from './BlogListTemplateSkeleton';
