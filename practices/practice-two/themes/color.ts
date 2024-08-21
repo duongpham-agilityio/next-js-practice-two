@@ -1,7 +1,7 @@
 const foregroundColor = '#ffffff';
 const defaultForegroundDark = foregroundColor;
 
-const colorPalette = {
+export const colorPalette = {
   white: '#ffffff',
   black: '#000000',
   red: {
