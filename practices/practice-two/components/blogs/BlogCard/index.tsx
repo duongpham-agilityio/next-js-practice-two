@@ -28,7 +28,7 @@ const BlogCard = ({
 }: BlogCardProps) => (
   <Card className="bg-background-400 rounded-none h-full">
     <CardBody className="overflow-visible p-0 flex flex-col">
-      <div className={clsx('w-full relative', large ? 'h-80' : 'h-52')}>
+      <div className={clsx('w-full relative', large ? 'h-80' : 'h-80 lg:h-52')}>
         <Image
           fill
           alt="Card background"
