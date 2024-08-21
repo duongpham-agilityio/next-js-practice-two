@@ -1,4 +1,4 @@
-export * from './HeaderAction';
+export { default as HeaderAction } from './HeaderAction';
 export * from './Header';
 export * from './FooterGoogleLinks';
 export * from './FooterSocialList';
