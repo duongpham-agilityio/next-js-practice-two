@@ -1,9 +1,11 @@
+'use server';
+
 import Image from 'next/image';
 
 // Components
 import { Container, HeaderAction } from '@/components';
-// Helpers
-import { getColorMode } from '@/helpers';
+// Actions
+import { getColorMode } from '@/actions';
 
 export const Header = () => (
   <header className="py-4">
