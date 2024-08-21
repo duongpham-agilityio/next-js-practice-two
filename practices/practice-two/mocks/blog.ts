@@ -28,3 +28,5 @@ export const BLOG = {
     },
   ],
 };
+
+export const BLOGS = Array.from({ length: 6 }).map(() => BLOG);
