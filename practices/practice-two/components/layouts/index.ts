@@ -1,4 +1,4 @@
-export { default as HeaderAction } from './HeaderAction';
+export { default as Switcher } from './Switcher';
 export * from './Header';
 export * from './FooterGoogleLinks';
 export * from './FooterSocialList';

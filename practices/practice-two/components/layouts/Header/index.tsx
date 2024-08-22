@@ -1,11 +1,7 @@
-'use server';
-
 import Image from 'next/image';
 
 // Components
-import { Container, HeaderAction } from '@/components';
-// Actions
-import { getColorMode } from '@/actions';
+import { Container, CreateBlogButton, Switcher } from '@/components';
 
 export const Header = () => (
   <header className="py-4">
@@ -22,7 +18,10 @@ export const Header = () => (
           src="/images/logo.webp"
         />
       </div>
-      <HeaderAction mode={getColorMode()} />
+      <div className="flex flex-1 justify-end gap-2">
+        <Switcher />
+        <CreateBlogButton />
+      </div>
     </Container>
   </header>
 );
