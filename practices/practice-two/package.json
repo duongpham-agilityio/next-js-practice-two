@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
@@ -80,6 +80,6 @@
     "storybook": "^8.2.9",
     "tailwind-variants": "0.1.20",
     "tailwindcss": "3.4.3",
-    "typescript": "5.0.4"
+    "typescript": "5.5.4"
   }
 }
