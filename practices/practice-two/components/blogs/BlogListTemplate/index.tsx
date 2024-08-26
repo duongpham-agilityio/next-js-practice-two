@@ -1,3 +1,4 @@
+import isEqual from 'react-fast-compare';
 import { memo } from 'react';
 import clsx from 'clsx';
 
@@ -36,4 +37,4 @@ const BlogListTemplate = ({ blogs }: BlogListTemplateProps) => (
   </ul>
 );
 
-export default memo(BlogListTemplate);
+export default memo(BlogListTemplate, isEqual);

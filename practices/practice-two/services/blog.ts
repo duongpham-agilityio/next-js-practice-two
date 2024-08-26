@@ -2,6 +2,8 @@
 import { API, ENDPOINT, ERROR_MESSAGE, TIME } from '@/constants';
 // Helpers
 import { generateUrlSearchParams } from '@/helpers';
+// Mocks
+import { BLOG } from '@/mocks';
 // Models
 import { BlogsType, BlogType } from '@/models';
 
@@ -53,6 +55,25 @@ export const paginationBlogs = async (
     const data: PaginationResponseType<BlogType> = await response.json();
 
     return data;
+  } catch (error) {
+    throw new Error(ERROR_MESSAGE.FETCHING);
+  }
+};
+
+export const getBlog = async (blogId: BlogType['id']): Promise<BlogType> => {
+  try {
+    const data: Response = await fetch(
+      `${API.MAIN}${ENDPOINT.BLOGS}/${blogId}`,
+      {
+        next: {
+          tags: [ENDPOINT.BLOGS],
+          revalidate: TIME.REVALIDATE_HIGHLIGHT_BLOG,
+        },
+      },
+    );
+    const blog: BlogType = await data.json();
+
+    return blog ?? BLOG;
   } catch (error) {
     throw new Error(ERROR_MESSAGE.FETCHING);
   }
