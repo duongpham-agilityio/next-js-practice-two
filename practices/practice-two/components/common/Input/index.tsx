@@ -1,14 +1,21 @@
 import clsx from 'clsx';
 import { memo, InputHTMLAttributes } from 'react';
 
-export type InputProps = InputHTMLAttributes<HTMLInputElement>;
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  isInvalid?: boolean;
+}
 
-const Input = ({ className = '', ...props }: InputProps) => (
+const Input = ({ className = '', isInvalid = false, ...props }: InputProps) => (
   <input
     className={clsx(
-      ['border', 'border-px', 'border-border-100'],
+      [
+        'border',
+        'border-px',
+        isInvalid ? 'border-red-500' : 'border-border-100',
+        'rounded-xl',
+      ],
       ['text-text-primary'],
-      ['p-5'],
+      ['p-3'],
       className,
     )}
     {...props}

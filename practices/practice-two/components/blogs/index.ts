@@ -16,3 +16,5 @@ export * from './BlogDetailContentSkeleton';
 export * from './BlogDetailInfo';
 export * from './RelatedBlogs';
 export * from './BlogDetailInfoSkeleton';
+export * from './BlogContentForm';
+export { default as BlogForm } from './BlogForm';

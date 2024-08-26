@@ -4,3 +4,6 @@ export * from './key';
 export * from './image';
 export * from './route';
 export * from './message';
+export * from './regexp';
+export * from './rule';
+export * from './form';
