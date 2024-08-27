@@ -48,14 +48,14 @@ const BlogForm = ({
   submitAction,
   onCloseForm,
 }: BlogFormProps) => {
-  const [state, action] = useFormState<FormStateType, BlogFormValueType>(
+  const [, action] = useFormState<FormStateType, BlogFormValueType>(
     submitAction,
     {
       message: '',
       isError: false,
     },
   );
-  const [isSubmitting, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
   const { blogFormControl, checkError, handleSubmit } = useBlogForm({
     value: defaultValue,
   });
@@ -65,10 +65,6 @@ const BlogForm = ({
       action(data);
     });
   });
-
-  useEffect(() => {
-    if (!isSubmitting && !!state.message) onCloseForm && onCloseForm();
-  }, [isSubmitting, state.message, onCloseForm]);
 
   return (
     <Modal isOpen={true} onOpenChange={onCloseForm}>
