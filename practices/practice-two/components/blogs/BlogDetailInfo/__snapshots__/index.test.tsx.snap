@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogDetailInfo Component renders BlogDetailHeader and BlogDetailContent with correct props 1`] = `
+<div>
+  <section
+    class="m-auto container px-5 mt-10 flex flex-col gap-5 md:gap-10 xl:w-[720px]"
+  >
+    <div
+      class="relative w-full h-48 md:h-96 xl:h-[402px]"
+    >
+      <img
+        alt="This is the 9 Emerging Use Cases for Responsible AI"
+        class="rounded-xl"
+        data-nimg="fill"
+        decoding="async"
+        loading="lazy"
+        sizes="100vw"
+        src="/_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2F2OQ6xZvyjSYqB8sDhvxeUqJklhvmZCveUbzlvelQR5VMMAxFEdOpU0gcnykfZHwj2dy0xJnZZE1VcZnoXZR6xCfgluTc4UXPuGM_ZdZX%3De365-rw-pa-nu-w1280-v1&w=3840&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2F2OQ6xZvyjSYqB8sDhvxeUqJklhvmZCveUbzlvelQR5VMMAxFEdOpU0gcnykfZHwj2dy0xJnZZE1VcZnoXZR6xCfgluTc4UXPuGM_ZdZX%3De365-rw-pa-nu-w1280-v1&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2F2OQ6xZvyjSYqB8sDhvxeUqJklhvmZCveUbzlvelQR5VMMAxFEdOpU0gcnykfZHwj2dy0xJnZZE1VcZnoXZR6xCfgluTc4UXPuGM_ZdZX%3De365-rw-pa-nu-w1280-v1&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2F2OQ6xZvyjSYqB8sDhvxeUqJklhvmZCveUbzlvelQR5VMMAxFEdOpU0gcnykfZHwj2dy0xJnZZE1VcZnoXZR6xCfgluTc4UXPuGM_ZdZX%3De365-rw-pa-nu-w1280-v1&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2F2OQ6xZvyjSYqB8sDhvxeUqJklhvmZCveUbzlvelQR5VMMAxFEdOpU0gcnykfZHwj2dy0xJnZZE1VcZnoXZR6xCfgluTc4UXPuGM_ZdZX%3De365-rw-pa-nu-w1280-v1&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2F2OQ6xZvyjSYqB8sDhvxeUqJklhvmZCveUbzlvelQR5VMMAxFEdOpU0gcnykfZHwj2dy0xJnZZE1VcZnoXZR6xCfgluTc4UXPuGM_ZdZX%3De365-rw-pa-nu-w1280-v1&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2F2OQ6xZvyjSYqB8sDhvxeUqJklhvmZCveUbzlvelQR5VMMAxFEdOpU0gcnykfZHwj2dy0xJnZZE1VcZnoXZR6xCfgluTc4UXPuGM_ZdZX%3De365-rw-pa-nu-w1280-v1&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2F2OQ6xZvyjSYqB8sDhvxeUqJklhvmZCveUbzlvelQR5VMMAxFEdOpU0gcnykfZHwj2dy0xJnZZE1VcZnoXZR6xCfgluTc4UXPuGM_ZdZX%3De365-rw-pa-nu-w1280-v1&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2F2OQ6xZvyjSYqB8sDhvxeUqJklhvmZCveUbzlvelQR5VMMAxFEdOpU0gcnykfZHwj2dy0xJnZZE1VcZnoXZR6xCfgluTc4UXPuGM_ZdZX%3De365-rw-pa-nu-w1280-v1&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+      />
+    </div>
+    <h1
+      class="text-text-primary text-xl md:text-3xl xl:text-4xl"
+    >
+      9 Emerging Use Cases for Responsible AI
+    </h1>
+    <div
+      class="text-text-primary flex flex-col gap-2"
+    >
+      <p
+        class="text-xs md:hidden"
+      >
+        Jul 26, 2024
+      </p>
+      <div
+        class="flex justify-between items-center"
+      >
+        <div>
+          <p
+            class="font-bold"
+          >
+            FRAGMENT
+          </p>
+          <p
+            class="text-xs"
+          >
+            Investor
+          </p>
+        </div>
+        <div
+          class="flex items-center gap-3 h-11"
+        >
+          <p
+            class="text-xs hidden md:block"
+          >
+            Jul 26, 2024
+          </p>
+          <p
+            class="inline-flex items-center gap-1 text-red-medium"
+          >
+            Share 
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M352 320c-22.608 0-43.387 7.819-59.79 20.895l-102.486-64.054a96.551 96.551 0 0 0 0-41.683l102.486-64.054C308.613 184.181 329.392 192 352 192c53.019 0 96-42.981 96-96S405.019 0 352 0s-96 42.981-96 96c0 7.158.79 14.13 2.276 20.841L155.79 180.895C139.387 167.819 118.608 160 96 160c-53.019 0-96 42.981-96 96s42.981 96 96 96c22.608 0 43.387-7.819 59.79-20.895l102.486 64.054A96.301 96.301 0 0 0 256 416c0 53.019 42.981 96 96 96s96-42.981 96-96-42.981-96-96-96z"
+              />
+            </svg>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    class="bg-background-400 py-10"
+  >
+    <div
+      class="m-auto container px-5 text-text-primary flex flex-col gap-10 xl:w-[720px]"
+    >
+      <div>
+        <h2
+          class="pb-5 text-lg xl:text-2xl"
+        >
+          Why Responsible AI (RAI) is important?
+        </h2>
+        <p
+          class="text-sm xl:text-lg"
+        >
+          Gen AI provides a powerful tool for building software; however, companies confront adoption challenges due to concerns about AI safety and responsibility — in surveys, enterprises' main roadblocks are privacy laws (31%), AI governance, and orchestration (31%); and more than 50% of enterprises emphasized the risk of biases and hallucination. Amid increasing AI lawsuits and upcoming regulations, developing and adopting responsible AI could be key to effectively mitigating legal risks and enabling this transformational technology.
+        </p>
+      </div>
+      <div>
+        <h2
+          class="pb-5 text-lg xl:text-2xl"
+        >
+          What are RAI's use cases?
+        </h2>
+        <p
+          class="text-sm xl:text-lg"
+        >
+          There are various RAI use cases across the AI stack, and these solutions can be divided into two dimensions: AI engineering workflow and the “value” of responsible AI, and grouped under three jobs-to-be-done (JTBD): 1) Assess and improve AI quality, 2) Make AI secured and privacy-preserving, and 3) Prepare responsible data.
+        </p>
+      </div>
+      <div>
+        <h2
+          class="pb-5 text-lg xl:text-2xl"
+        >
+          What About Multi-Modality Responsible AI?
+        </h2>
+        <p
+          class="text-sm xl:text-lg"
+        >
+          Gen AI shifts from LLM to LMM can meaningfully benefit many industries such as medical, pharmaceutical, manufacturing, commerce, robotics, etc. This means that responsible AI needs to be more sophisticated as the level of complexity increases.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+`;

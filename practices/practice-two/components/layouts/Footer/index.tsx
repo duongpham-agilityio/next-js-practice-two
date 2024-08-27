@@ -4,7 +4,7 @@ import { Divider } from '@nextui-org/react';
 import { Container, FooterGoogleLinks, FooterSocialList } from '@/components';
 
 export const Footer = () => (
-  <footer className="bg-background-400 pt-32">
+  <footer className="bg-background-400 pt-32" role="contentinfo">
     <Container>
       <section className="md:m-auto md:w-[676px] lg:w-[560px]">
         <h2 className="text-center text-text-primary text-xl md:text-4xl mb-10">
