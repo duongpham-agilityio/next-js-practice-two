@@ -11,7 +11,10 @@ import { Button } from '@/components';
 // Constants
 import { DEFAULT_VALUE_BLOG_FORM } from '@/constants/data';
 
-const BlogForm = dynamic(() => import('@/components/blogs/BlogForm'));
+const BlogForm = dynamic(() => import('@/components/blogs/BlogForm'), {
+  ssr: false,
+  loading: () => <></>,
+});
 
 const CreateBlogButton = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();

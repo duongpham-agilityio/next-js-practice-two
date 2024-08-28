@@ -19,6 +19,7 @@ export const RelatedBlogs = async () => {
             <BlogCard
               author={author}
               href={`${ROUTE.BLOGS}/${id}`}
+              id={id}
               imageURL={imageURL}
               title={title}
             />
