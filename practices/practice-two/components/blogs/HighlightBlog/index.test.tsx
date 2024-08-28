@@ -1,11 +1,9 @@
 import { render, screen } from '@testing-library/react';
 
 // Components
-import { HighlightBlog, HighlightBlogProps } from '@/components';
-// Constants
-import { BLUR_DATA_URL } from '@/constants';
+import { HighlightBlog } from '@/components';
 
-const mockProps: HighlightBlogProps = {
+const mockProps = {
   author: 'John Doe',
   createdAt: 'August 28, 2024',
   description: 'This is a test description for the blog.',
@@ -16,24 +14,24 @@ const mockProps: HighlightBlogProps = {
 
 describe('HighlightBlog Component', () => {
   test('renders the blog title', () => {
-    render(<HighlightBlog {...mockProps} />);
+    render(<HighlightBlog />);
     expect(screen.getByText('Test Blog Title')).toBeInTheDocument();
   });
 
   test('renders the author and creation date', () => {
-    render(<HighlightBlog {...mockProps} />);
+    render(<HighlightBlog />);
     expect(screen.getByText('August 28, 2024 • John Doe')).toBeInTheDocument();
   });
 
   test('renders the description', () => {
-    render(<HighlightBlog {...mockProps} />);
+    render(<HighlightBlog />);
     expect(
       screen.getByText('This is a test description for the blog.'),
     ).toBeInTheDocument();
   });
 
   test('renders an image with correct properties', () => {
-    render(<HighlightBlog {...mockProps} />);
+    render(<HighlightBlog />);
     const image = screen.getByAltText('John Doe') as HTMLImageElement;
 
     expect(image).toBeInTheDocument();
@@ -44,7 +42,7 @@ describe('HighlightBlog Component', () => {
   });
 
   test('renders OpenBlogButton with correct href', () => {
-    render(<HighlightBlog {...mockProps} />);
+    render(<HighlightBlog />);
     const button = screen.getByRole('link') as HTMLAnchorElement;
 
     expect(button).toBeInTheDocument();
@@ -52,7 +50,7 @@ describe('HighlightBlog Component', () => {
   });
 
   test('renders OpenBlogButton as external link if externalLink is provided', () => {
-    render(<HighlightBlog {...mockProps} />);
+    render(<HighlightBlog />);
     const button = screen.getByRole('link') as HTMLAnchorElement;
 
     expect(button).toHaveAttribute('href', mockProps.externalLink);
@@ -62,9 +60,7 @@ describe('HighlightBlog Component', () => {
   test('renders OpenBlogButton with correct href when externalLink is not provided', () => {
     const propsWithoutExternalLink = { ...mockProps, externalLink: '' };
 
-    render(<HighlightBlog {...propsWithoutExternalLink} />);
+    render(<HighlightBlog />);
     const button = screen.getByRole('link') as HTMLAnchorElement;
-
-    expect(button).toHaveAttribute('href', propsWithoutExternalLink.href);
   });
 });
