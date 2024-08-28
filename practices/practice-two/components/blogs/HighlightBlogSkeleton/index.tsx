@@ -6,7 +6,10 @@ import { Skeleton } from '@nextui-org/react';
 import { Container } from '@/components';
 
 export const HighlightBlogSkeleton = () => (
-  <Container className="w-full md: min-h-[600px] space-y-5 flex flex-col rounded-none">
+  <Container
+    className="w-full md: min-h-[600px] space-y-5 flex flex-col rounded-none"
+    role="presentation"
+  >
     <Skeleton className="w-full md:w-[384px] m-auto rounded-lg">
       <div className="h-[330px] md:h-[216px] bg-default-300" />
     </Skeleton>

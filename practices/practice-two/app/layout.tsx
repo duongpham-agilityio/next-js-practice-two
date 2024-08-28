@@ -22,6 +22,15 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
+  openGraph: {
+    images: [
+      {
+        url: '/images/logo.webp',
+        width: 800,
+        height: 600,
+      },
+    ],
+  },
 };
 
 const RootLayout = ({

@@ -6,8 +6,10 @@ export const findItemInListByAnyField = <T>({
   field: Partial<T>;
 }) => {
   return list.find((item) => {
-    return Object.entries(field).every(
-      ([key, value]) => item[key as keyof T] === value,
-    );
+    const fields = Object.entries(field);
+
+    if (!fields.length) return false;
+
+    return fields.every(([key, value]) => item[key as keyof T] === value);
   });
 };
