@@ -24,8 +24,8 @@ export const getBlogs = async (): Promise<BlogsType> => {
     const data: Response = await fetch(`${API.MAIN}${ENDPOINT.BLOGS}`, {
       next: {
         tags: [ENDPOINT.BLOGS],
-        revalidate: TIME.REVALIDATE_HIGHLIGHT_BLOG,
       },
+      cache: 'no-store',
     });
     const blogs: BlogsType = await data.json();
 
