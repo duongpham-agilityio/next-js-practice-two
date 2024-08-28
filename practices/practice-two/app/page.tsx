@@ -10,6 +10,8 @@ import {
   TopicListSkeleton,
 } from '@/components';
 
+export const dynamic = 'force-dynamic';
+
 const HomePage = () => (
   <Container className="flex flex-col gap-8 py-10">
     <Suspense fallback={<HighlightBlogSkeleton />}>
