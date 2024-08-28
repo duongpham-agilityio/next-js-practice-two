@@ -75,6 +75,8 @@ export const getBlog = async (blogId: BlogType['id']): Promise<BlogType> => {
 
     return blog ?? BLOG;
   } catch (error) {
+    console.log(error);
+
     throw new Error(ERROR_MESSAGE.FETCHING);
   }
 };

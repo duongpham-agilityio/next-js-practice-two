@@ -15,7 +15,7 @@ export const BLOG = {
         "Gen AI provides a powerful tool for building software; however, companies confront adoption challenges due to concerns about AI safety and responsibility — in surveys, enterprises' main roadblocks are privacy laws (31%), AI governance, and orchestration (31%); and more than 50% of enterprises emphasized the risk of biases and hallucination. Amid increasing AI lawsuits and upcoming regulations, developing and adopting responsible AI could be key to effectively mitigating legal risks and enabling this transformational technology.",
     },
     {
-      id: '2',
+      id: '4',
       subtitle: "What are RAI's use cases?",
       content:
         'There are various RAI use cases across the AI stack, and these solutions can be divided into two dimensions: AI engineering workflow and the “value” of responsible AI, and grouped under three jobs-to-be-done (JTBD): 1) Assess and improve AI quality, 2) Make AI secured and privacy-preserving, and 3) Prepare responsible data.',
@@ -29,4 +29,7 @@ export const BLOG = {
   ],
 };
 
-export const BLOGS = Array.from({ length: 6 }).map(() => BLOG);
+export const BLOGS = Array.from({ length: 6 }).map((_, index) => ({
+  ...BLOG,
+  id: (index + 1).toString(),
+}));
