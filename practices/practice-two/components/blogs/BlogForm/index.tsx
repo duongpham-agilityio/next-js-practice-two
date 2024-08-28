@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useTransition } from 'react';
+import { useFormState } from 'react-dom';
 import { Controller } from 'react-hook-form';
 import {
   Modal,
@@ -11,11 +12,11 @@ import {
   Button,
   Select,
   SelectItem,
+  Spinner,
 } from '@nextui-org/react';
-
-// Components
 import clsx from 'clsx';
 
+// Components
 import { BlogContentForm, Input } from '@/components';
 // Mocks
 import { TOPICS } from '@/mocks';
@@ -23,30 +24,58 @@ import { TOPICS } from '@/mocks';
 import { BlogFormValueType, useBlogForm } from '@/hooks';
 // Constants
 import { RULE_BLOG_FORM } from '@/constants';
+// Actions
+import { FormStateType } from '@/actions';
 
 export interface BlogFormProps {
   title?: string;
   defaultValue: BlogFormValueType;
+  submitAction: (
+    preState: FormStateType,
+    formData: BlogFormValueType,
+  ) => Promise<FormStateType>;
   onCloseForm?: () => void;
-  onSubmit: (formData: BlogFormValueType) => void;
 }
 
+/**
+ * ISSUES:
+ * Can't found to solution show alert message after submit success/fail
+ * Can't custom loading style
+ */
 const BlogForm = ({
   defaultValue,
   title = 'Add a new blog',
+  submitAction,
   onCloseForm,
-  onSubmit,
 }: BlogFormProps) => {
+  const [state, action] = useFormState<FormStateType, BlogFormValueType>(
+    submitAction,
+    {
+      message: '',
+      isError: false,
+    },
+  );
+  const [isSubmitting, startTransition] = useTransition();
   const { blogFormControl, checkError, handleSubmit } = useBlogForm({
     value: defaultValue,
   });
+
+  const submit = handleSubmit((data) => {
+    startTransition(() => {
+      action(data);
+    });
+  });
+
+  useEffect(() => {
+    if (!isSubmitting && !!state.message) onCloseForm && onCloseForm();
+  }, [isSubmitting, state.message, onCloseForm]);
 
   return (
     <Modal isOpen={true} onOpenChange={onCloseForm}>
       <ModalContent
         as="form"
         className="text-text-primary w-full h-full md:h-[550px] justify-start py-10 overflow-y-scroll"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={submit}
       >
         <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
         <ModalBody className="h-fit text-sm flex-none">
