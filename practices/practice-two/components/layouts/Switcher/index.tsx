@@ -9,7 +9,11 @@ const Switcher = () => {
   const { isDarkMode, handleToggleTheme } = useColorMode();
 
   return (
-    <Switch isSelected={isDarkMode} onValueChange={() => handleToggleTheme()} />
+    <Switch
+      aria-label="Switch color mode"
+      isSelected={isDarkMode}
+      onValueChange={() => handleToggleTheme()}
+    />
   );
 };
 

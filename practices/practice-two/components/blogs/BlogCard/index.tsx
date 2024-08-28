@@ -53,6 +53,7 @@ const BlogCard = ({
             blurDataURL={BLUR_DATA_URL.DYNAMIC_IMAGE}
             className="object-cover"
             placeholder="blur"
+            sizes={`(max-width: 576px) 300px, (max-width: 767px) ${large ? '350px' : '300px'}, ${large ? '550px' : '350px'}`}
             src={imageURL}
           />
           <div className="blog-action-overlay hidden absolute inset-0 bg-black opacity-80" />
@@ -71,6 +72,7 @@ const BlogCard = ({
           <OpenBlogButton
             href={externalLink ?? href}
             isExternal={Boolean(externalLink)}
+            title={title}
           />
         </section>
       </CardBody>
