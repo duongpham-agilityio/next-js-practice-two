@@ -104,7 +104,7 @@ export const getBlog = async (blogId: BlogType['id']): Promise<BlogType> => {
 
     const blog: BlogType = await data.json();
 
-    return blog ?? BLOG;
+    return Object.keys(blog).length ? blog : BLOG;
   } catch (error) {
     throw new Error(ERROR_MESSAGE.FETCHING);
   }

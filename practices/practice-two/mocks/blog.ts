@@ -1,5 +1,5 @@
 export const BLOG = {
-  id: '2',
+  id: '0',
   author: 'FRAGMENT',
   topicId: '2',
   title: '9 Emerging Use Cases for Responsible AI',

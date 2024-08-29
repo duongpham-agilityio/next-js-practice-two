@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 
 // Components
@@ -6,7 +7,7 @@ import { Container, CreateBlogButton, Switcher } from '@/components';
 export const Header = () => (
   <header className="py-4">
     <Container className="flex justify-between items-center">
-      <div className="w-20 h-20 relative">
+      <Link className="block w-20 h-20 relative" href="/">
         <Image
           fill
           priority
@@ -17,7 +18,7 @@ export const Header = () => (
           sizes="100vw"
           src="/images/logo.webp"
         />
-      </div>
+      </Link>
       <div className="flex flex-1 justify-end gap-2">
         <Switcher />
         <CreateBlogButton />
