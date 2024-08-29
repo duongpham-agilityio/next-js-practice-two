@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
@@ -12,6 +13,8 @@ import {
 import { fetchBlogIds, getBlog } from '@/services';
 // Layout
 import { MainLayout } from '@/layouts';
+// Mocks
+import { BLOG } from '@/mocks';
 
 interface BlogDetailPageProps {
   params: { blogId: string };
@@ -20,7 +23,9 @@ interface BlogDetailPageProps {
 export const generateMetadata = async ({
   params: { blogId },
 }: BlogDetailPageProps): Promise<Metadata> => {
-  const { title, body, imageURL } = await getBlog(blogId);
+  const { id, title, body, imageURL } = await getBlog(blogId);
+
+  if (id === BLOG.id) return notFound();
 
   return {
     title,
@@ -46,19 +51,17 @@ export async function generateStaticParams() {
   }));
 }
 
-const BlogDetailPage = async ({ params: { blogId } }: BlogDetailPageProps) => {
-  return (
-    <MainLayout>
-      <Suspense fallback={<BlogDetailInfoSkeleton />}>
-        <BlogDetailInfo blogId={blogId} />
+const BlogDetailPage = async ({ params: { blogId } }: BlogDetailPageProps) => (
+  <MainLayout>
+    <Suspense fallback={<BlogDetailInfoSkeleton />}>
+      <BlogDetailInfo blogId={blogId} />
+    </Suspense>
+    <div className="mt-10">
+      <Suspense fallback={<RelatedBlogsSkeleton />}>
+        <RelatedBlogs />
       </Suspense>
-      <div className="mt-10">
-        <Suspense fallback={<RelatedBlogsSkeleton />}>
-          <RelatedBlogs />
-        </Suspense>
-      </div>
-    </MainLayout>
-  );
-};
+    </div>
+  </MainLayout>
+);
 
 export default BlogDetailPage;

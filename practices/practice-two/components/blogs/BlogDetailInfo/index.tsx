@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 // Services
 import { getBlog } from '@/services';
 // Models
@@ -6,13 +8,18 @@ import { BlogType } from '@/models';
 import { BlogDetailHeader, BlogDetailContent } from '@/components';
 // Helpers
 import { convertDateInBlog } from '@/helpers';
+// Mocks
+import { BLOG } from '@/mocks';
 
 export interface BlogDetailInfoProps {
   blogId: BlogType['id'];
 }
 
 export const BlogDetailInfo = async ({ blogId }: BlogDetailInfoProps) => {
-  const { author, title, imageURL, body, createdAt } = await getBlog(blogId);
+  const { id, author, title, imageURL, body, createdAt } =
+    await getBlog(blogId);
+
+  if (id === BLOG.id) return notFound();
 
   return (
     <>
