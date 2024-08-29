@@ -35,6 +35,36 @@ export const getBlogs = async (): Promise<BlogsType> => {
   }
 };
 
+export const fetchBlogIds = async (): Promise<BlogType['id'][]> => {
+  try {
+    const data: Response = await fetch(`${API.MAIN}${ENDPOINT.BLOGS}`, {
+      next: {
+        tags: [ENDPOINT.BLOGS, ENDPOINT.BLOG_IDS],
+      },
+    });
+    const blogs: BlogsType = await data.json();
+
+    return blogs.map(({ id }) => id);
+  } catch (error) {
+    throw new Error(ERROR_MESSAGE.FETCHING);
+  }
+};
+
+export const fetchRelatedBlogs = async (): Promise<BlogsType> => {
+  try {
+    const data: Response = await fetch(`${API.MAIN}${ENDPOINT.BLOGS}`, {
+      next: {
+        tags: [ENDPOINT.BLOGS, ENDPOINT.RELATED_BLOGS],
+      },
+    });
+    const blogs: BlogsType = await data.json();
+
+    return blogs ?? [];
+  } catch (error) {
+    throw new Error(ERROR_MESSAGE.FETCHING);
+  }
+};
+
 export const paginationBlogs = async (
   searchParam: Record<string, string>,
 ): Promise<PaginationResponseType<BlogType>> => {
@@ -71,12 +101,11 @@ export const getBlog = async (blogId: BlogType['id']): Promise<BlogType> => {
         },
       },
     );
+
     const blog: BlogType = await data.json();
 
     return blog ?? BLOG;
   } catch (error) {
-    console.log(error);
-
     throw new Error(ERROR_MESSAGE.FETCHING);
   }
 };

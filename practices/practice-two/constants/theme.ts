@@ -8,6 +8,7 @@ export const ENDPOINT = {
   TOPICS: 'topics',
   HIGHLIGHT_BLOG: 'highlight',
   RELATED_BLOGS: 'relatedBlogs',
+  BLOG_IDS: 'blogIds',
 };
 
 export const API = {
