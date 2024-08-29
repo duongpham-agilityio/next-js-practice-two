@@ -9,7 +9,7 @@ import {
   RelatedBlogsSkeleton,
 } from '@/components';
 // Services
-import { getBlog } from '@/services';
+import { fetchBlogIds, getBlog } from '@/services';
 // Layout
 import { MainLayout } from '@/layouts';
 
@@ -38,7 +38,15 @@ export const generateMetadata = async ({
   };
 };
 
-const BlogDetailPage = ({ params: { blogId } }: BlogDetailPageProps) => {
+export async function generateStaticParams() {
+  const blogIds = await fetchBlogIds();
+
+  return blogIds.slice(0, 5).map((blogId) => ({
+    blogId,
+  }));
+}
+
+const BlogDetailPage = async ({ params: { blogId } }: BlogDetailPageProps) => {
   return (
     <MainLayout>
       <Suspense fallback={<BlogDetailInfoSkeleton />}>

@@ -3,10 +3,10 @@ import { Button, Container, BlogCard } from '@/components';
 // Constants
 import { ROUTE } from '@/constants';
 // Services
-import { getBlogs } from '@/services';
+import { fetchRelatedBlogs } from '@/services';
 
 export const RelatedBlogs = async () => {
-  const blogs = await getBlogs();
+  const blogs = await fetchRelatedBlogs();
 
   return (
     <section className="flex flex-col gap-10">
