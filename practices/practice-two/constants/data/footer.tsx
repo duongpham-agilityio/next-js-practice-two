@@ -25,8 +25,8 @@ export const FOOTER_GOOGLE_LINKS = [
 ];
 
 export const FOOTER_SOCIALS = [
-  { id: 1, href: '/', icon: <FaTwitter /> },
-  { id: 2, href: '/', icon: <FaFacebook /> },
-  { id: 3, href: '/', icon: <FaLinkedin /> },
-  { id: 4, href: '/', icon: <TbBrandCrunchbase /> },
+  { id: 1, href: '/', icon: <FaTwitter />, label: 'twitter' },
+  { id: 2, href: '/', icon: <FaFacebook />, label: 'facebook' },
+  { id: 3, href: '/', icon: <FaLinkedin />, label: 'linkedin' },
+  { id: 4, href: '/', icon: <TbBrandCrunchbase />, label: 'brand crunchbas' },
 ];

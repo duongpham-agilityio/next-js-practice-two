@@ -11,6 +11,7 @@ const nextConfig = {
         protocol: 'https',
       },
     ],
+    deviceSizes: [300, 350, 450, 550],
   },
 };
 

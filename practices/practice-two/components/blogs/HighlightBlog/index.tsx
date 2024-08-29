@@ -35,6 +35,7 @@ const HighlightBlog = async () => {
           className="rounded-xl"
           objectFit="cover"
           placeholder="blur"
+          sizes="(min-width: 780px) 384px, (min-width: 680px) 560px, calc(94.44vw - 63px)"
           src={imageURL}
         />
       </div>
@@ -49,6 +50,7 @@ const HighlightBlog = async () => {
         <OpenBlogButton
           href={externalLink || `${ROUTE.BLOGS}/${id}`}
           isExternal={Boolean(externalLink)}
+          title={title}
         />
       </div>
     </Container>

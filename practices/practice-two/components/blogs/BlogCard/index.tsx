@@ -53,6 +53,7 @@ const BlogCard = ({
             blurDataURL={BLUR_DATA_URL.DYNAMIC_IMAGE}
             className="object-cover"
             placeholder="blur"
+            sizes={`(max-width: 576px) 300px, (max-width: 767px) ${large ? '350px' : '300px'}, ${large ? '550px' : '350px'}`}
             src={imageURL}
           />
           <div className="blog-action-overlay hidden absolute inset-0 bg-black opacity-80" />
@@ -66,11 +67,12 @@ const BlogCard = ({
           </div>
         </div>
         <section className="flex-1 flex flex-col px-5 py-10 text-text-primary  justify-between items-start">
-          <p className="uppercase text-red-primary">{author}</p>
+          <p className="uppercase text-red-dark">{author}</p>
           <h2 className="text-xl lg:text-3xl py-5 flex-1">{title}</h2>
           <OpenBlogButton
             href={externalLink ?? href}
             isExternal={Boolean(externalLink)}
+            title={title}
           />
         </section>
       </CardBody>

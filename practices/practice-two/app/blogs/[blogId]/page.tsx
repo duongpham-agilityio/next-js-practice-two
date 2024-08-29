@@ -8,7 +8,10 @@ import {
   RelatedBlogs,
   RelatedBlogsSkeleton,
 } from '@/components';
+// Services
 import { getBlog } from '@/services';
+// Layout
+import { MainLayout } from '@/layouts';
 
 interface BlogDetailPageProps {
   params: { blogId: string };
@@ -37,7 +40,7 @@ export const generateMetadata = async ({
 
 const BlogDetailPage = ({ params: { blogId } }: BlogDetailPageProps) => {
   return (
-    <>
+    <MainLayout>
       <Suspense fallback={<BlogDetailInfoSkeleton />}>
         <BlogDetailInfo blogId={blogId} />
       </Suspense>
@@ -46,7 +49,7 @@ const BlogDetailPage = ({ params: { blogId } }: BlogDetailPageProps) => {
           <RelatedBlogs />
         </Suspense>
       </div>
-    </>
+    </MainLayout>
   );
 };
 
