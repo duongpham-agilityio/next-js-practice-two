@@ -67,7 +67,7 @@ const BlogCard = ({
           </div>
         </div>
         <section className="flex-1 flex flex-col px-5 py-10 text-text-primary  justify-between items-start">
-          <p className="uppercase text-red-primary">{author}</p>
+          <p className="uppercase text-red-dark">{author}</p>
           <h2 className="text-xl lg:text-3xl py-5 flex-1">{title}</h2>
           <OpenBlogButton
             href={externalLink ?? href}

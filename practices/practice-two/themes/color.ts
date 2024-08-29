@@ -7,7 +7,7 @@ export const colorPalette = {
   red: {
     light: '#ff6b6b',
     medium: '#e63946',
-    dark: '#bc1902',
+    dark: '#B11702',
     primary: '#e64537',
   },
   gray: {
@@ -50,9 +50,9 @@ export const backgroundDarkMode = {
 
 export const backgroundLightMode = {
   background: {
-    100: colorPalette.red.primary,
+    100: colorPalette.red.dark,
     200: colorPalette.red.medium,
-    300: colorPalette.red.light,
+    300: colorPalette.red.dark,
     400: colorPalette.gray.light,
   },
 };

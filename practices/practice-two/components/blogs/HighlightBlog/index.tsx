@@ -35,7 +35,7 @@ const HighlightBlog = async () => {
           className="rounded-xl"
           objectFit="cover"
           placeholder="blur"
-          sizes="(max-width: 639px) 300px, 384px"
+          sizes="(min-width: 780px) 384px, (min-width: 680px) 560px, calc(94.44vw - 63px)"
           src={imageURL}
         />
       </div>
