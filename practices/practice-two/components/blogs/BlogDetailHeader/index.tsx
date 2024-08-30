@@ -26,10 +26,12 @@ export const BlogDetailHeader = ({
     <div className="relative w-full h-48 md:h-96 xl:h-[402px]">
       <Image
         fill
+        priority
         alt={`This is the ${title}`}
         blurDataURL={BLUR_DATA_URL.DYNAMIC_IMAGE}
         className="rounded-xl"
         placeholder="blur"
+        sizes="(min-width: 1280px) 680px, (min-width: 1040px) 984px, (min-width: 780px) 728px, (min-width: 680px) 600px, calc(94.44vw - 23px)"
         src={imageURL}
       />
     </div>
@@ -45,7 +47,7 @@ export const BlogDetailHeader = ({
         </div>
         <div className="flex items-center gap-3 h-11">
           <p className="text-xs hidden md:block">{createdAt}</p>
-          <p className="inline-flex items-center gap-1 text-red-medium">
+          <p className="inline-flex items-center gap-1 text-red-dark">
             Share <FaShareAlt />
           </p>
         </div>
