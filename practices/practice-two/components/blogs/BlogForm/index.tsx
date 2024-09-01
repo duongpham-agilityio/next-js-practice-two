@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { FormEventHandler } from 'react';
 import clsx from 'clsx';
 import {
@@ -16,13 +17,12 @@ import {
   ModalHeader,
   Select,
   SelectItem,
-  Spinner,
 } from '@nextui-org/react';
 
 // Hooks
 import { BlogFormValueType } from '@/hooks';
 // Components
-import { Button, Input, BlogContentForm } from '@/components';
+import { Button, Input, BlogContentForm, LoadingIndicator } from '@/components';
 // Constants
 import { FORM_TITLE, RULE_BLOG_FORM } from '@/constants';
 // Mocks
@@ -166,19 +166,7 @@ const BlogForm = ({
           </ModalFooter>
         </ModalContent>
       </Modal>
-      {isSubmitting && (
-        <Modal
-          isOpen
-          classNames={{
-            closeButton: 'hidden',
-            base: 'bg-transparent border-unset shadow-none flex items-center justify-center',
-          }}
-        >
-          <ModalContent>
-            <Spinner color="white" size="lg" />
-          </ModalContent>
-        </Modal>
-      )}
+      {isSubmitting && <LoadingIndicator />}
     </>
   );
 };

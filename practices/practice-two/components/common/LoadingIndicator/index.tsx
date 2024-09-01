@@ -1,9 +1,17 @@
 'use client';
 
-import { Spinner } from '@nextui-org/react';
+import { Modal, ModalContent, Spinner } from '@nextui-org/react';
 
 export const LoadingIndicator = () => (
-  <div className="fixed z-[100] w-full h-full opacity-50 flex justify-center items-center">
-    <Spinner size="lg" color="danger" />
-  </div>
+  <Modal
+    isOpen
+    classNames={{
+      closeButton: 'hidden',
+      base: 'bg-transparent border-unset shadow-none flex items-center justify-center',
+    }}
+  >
+    <ModalContent>
+      <Spinner color="white" size="lg" />
+    </ModalContent>
+  </Modal>
 );

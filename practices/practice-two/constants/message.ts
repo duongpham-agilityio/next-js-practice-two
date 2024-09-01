@@ -16,5 +16,6 @@ export const SUCCESS_MESSAGE = {
 };
 
 export const CONFIRM_MESSAGE = {
-  DELETE_BLOG: 'Are you sure you want to delete this blog?',
+  DELETE_BLOG:
+    'Are you sure you want to delete this blog? This action cannot be undone.',
 };

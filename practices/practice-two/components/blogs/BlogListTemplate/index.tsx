@@ -9,18 +9,19 @@ import clsx from 'clsx';
 // Models
 import { BlogsType, BlogType } from '@/models';
 // Components
-import { BlogCard } from '@/components';
+import { BlogCard, LoadingIndicator } from '@/components';
 // Helpers
 import { isLargeBlogCard } from '@/helpers';
 // Constants
 import { ROUTE } from '@/constants';
-// Actions
-import { deleteBlog } from '@/actions';
+// Hooks
+import { useDeleteBlog } from '@/hooks';
 
 const EditBlogForm = dynamic(() => import('@/components/blogs/EditBlogForm'), {
   ssr: false,
   loading: () => <></>,
 });
+const ConfirmModal = dynamic(() => import('@/components/common/ConfirmModal'));
 
 export interface BlogListTemplateProps {
   blogs: BlogsType;
@@ -33,6 +34,13 @@ const BlogListTemplate = ({ blogs }: BlogListTemplateProps) => {
     onClose: closeEditForm,
     onOpen: openEditForm,
   } = useDisclosure();
+  const {
+    isOpenConfirmModal,
+    isBlogDeleting,
+    handleDeleteBlog,
+    handleCloseConfirmModal,
+    handleOpenConfirmModal,
+  } = useDeleteBlog();
 
   const handleEditBlog = useCallback(
     (blogId: BlogType['id']) => {
@@ -43,6 +51,20 @@ const BlogListTemplate = ({ blogs }: BlogListTemplateProps) => {
     },
     [blogs, openEditForm],
   );
+
+  const openConfirmModal = useCallback(
+    (blogId: BlogType['id']) => {
+      const blog = blogs.find(({ id }) => blogId === id);
+
+      setBlog(blog ?? null);
+      handleOpenConfirmModal();
+    },
+    [blogs, handleOpenConfirmModal],
+  );
+
+  const deleteBlog = useCallback(() => {
+    blog && handleDeleteBlog(blog.id);
+  }, [blog]);
 
   const handleCloseForm = useCallback(() => {
     setBlog(null), closeEditForm();
@@ -68,7 +90,7 @@ const BlogListTemplate = ({ blogs }: BlogListTemplateProps) => {
               imageURL={imageURL}
               large={isLargeBlogCard(index)}
               title={title}
-              onDelete={deleteBlog}
+              onDelete={openConfirmModal}
               onEdit={handleEditBlog}
             />
           </li>
@@ -77,6 +99,10 @@ const BlogListTemplate = ({ blogs }: BlogListTemplateProps) => {
       {isOpen && !!blog && (
         <EditBlogForm blog={blog} onClose={handleCloseForm} />
       )}
+      {isOpenConfirmModal && (
+        <ConfirmModal onAccept={deleteBlog} onClose={handleCloseConfirmModal} />
+      )}
+      {isBlogDeleting && <LoadingIndicator />}
     </>
   );
 };
