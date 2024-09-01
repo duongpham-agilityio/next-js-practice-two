@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 // Components
 import { Button, Container, BlogCard } from '@/components';
 // Constants
@@ -27,7 +29,9 @@ export const RelatedBlogs = async () => {
         ))}
       </Container>
       <div className="flex items-center justify-center">
-        <Button>See all post</Button>
+        <Button as={Link} href="/">
+          See all post
+        </Button>
       </div>
     </section>
   );
