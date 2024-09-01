@@ -15,9 +15,9 @@ import { isLargeBlogCard } from '@/helpers';
 // Constants
 import { ROUTE } from '@/constants';
 // Actions
-import { deleteBlog, editBlog } from '@/actions';
+import { deleteBlog } from '@/actions';
 
-const BlogForm = dynamic(() => import('@/components/blogs/BlogForm'), {
+const EditBlogForm = dynamic(() => import('@/components/blogs/EditBlogForm'), {
   ssr: false,
   loading: () => <></>,
 });
@@ -75,12 +75,7 @@ const BlogListTemplate = ({ blogs }: BlogListTemplateProps) => {
         ))}
       </ul>
       {isOpen && !!blog && (
-        <BlogForm
-          defaultValue={blog}
-          submitAction={editBlog}
-          title="Update blog"
-          onCloseForm={handleCloseForm}
-        />
+        <EditBlogForm blog={blog} onClose={handleCloseForm} />
       )}
     </>
   );

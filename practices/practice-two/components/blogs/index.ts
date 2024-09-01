@@ -19,3 +19,4 @@ export * from './BlogDetailInfoSkeleton';
 export * from './BlogContentForm';
 export { default as BlogForm } from './BlogForm';
 export * from './BlogWrapper';
+export { default as EditBlogForm } from './EditBlogForm';

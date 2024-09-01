@@ -13,10 +13,7 @@ export interface FormStateType {
   message: string;
 }
 
-export const addBlog = async (
-  _: FormStateType,
-  formData: BlogFormValueType,
-): Promise<FormStateType> => {
+export const addBlog = async (formData: BlogFormValueType): Promise<void> => {
   const response = await fetch(`${API.MAIN}${ENDPOINT.BLOGS}`, {
     method: 'POST',
     headers: {
@@ -25,24 +22,12 @@ export const addBlog = async (
     body: JSON.stringify(formData),
   });
 
-  if (!response.ok)
-    return {
-      message: ERROR_MESSAGE.ADD_BLOG,
-      isError: true,
-    };
+  if (!response.ok) throw new Error(ERROR_MESSAGE.ADD_BLOG);
 
   revalidateTag(ENDPOINT.BLOGS);
-
-  return {
-    message: SUCCESS_MESSAGE.ADD_BLOG,
-    isError: false,
-  };
 };
 
-export const editBlog = async (
-  _: FormStateType,
-  formData: BlogFormValueType,
-): Promise<FormStateType> => {
+export const editBlog = async (formData: BlogFormValueType): Promise<void> => {
   const response = await fetch(
     `${API.MAIN}${ENDPOINT.BLOGS}/${formData.id ?? ''}`,
     {
@@ -54,18 +39,9 @@ export const editBlog = async (
     },
   );
 
-  if (!response.ok)
-    return {
-      message: ERROR_MESSAGE.UPDATE_BLOG,
-      isError: true,
-    };
+  if (!response.ok) throw new Error(ERROR_MESSAGE.UPDATE_BLOG);
 
   revalidateTag(ENDPOINT.BLOGS);
-
-  return {
-    message: SUCCESS_MESSAGE.UPDATE_BLOG,
-    isError: false,
-  };
 };
 
 export const deleteBlog = async (

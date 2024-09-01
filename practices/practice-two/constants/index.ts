@@ -7,3 +7,4 @@ export * from './message';
 export * from './regexp';
 export * from './rule';
 export * from './form';
+export * from './toast';

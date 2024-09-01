@@ -1,15 +1,12 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useDisclosure } from '@nextui-org/react';
 import { FaPenFancy } from 'react-icons/fa6';
 
-// Actions
-import { addBlog } from '@/actions';
 // Components
 import { Button } from '@/components';
-// Constants
-import { DEFAULT_VALUE_BLOG_FORM } from '@/constants/data';
+// Hooks
+import { useCreateBlog } from '@/hooks';
 
 const BlogForm = dynamic(() => import('@/components/blogs/BlogForm'), {
   ssr: false,
@@ -17,18 +14,26 @@ const BlogForm = dynamic(() => import('@/components/blogs/BlogForm'), {
 });
 
 const CreateBlogButton = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure();
+  const {
+    isSubmitting,
+    isOpenCreateForm,
+    createBlogControl,
+    handleCloseCreateForm,
+    handleOpenCreateForm,
+    handleSubmitCreateBlogForm,
+  } = useCreateBlog();
 
   return (
     <>
-      <Button startContent={<FaPenFancy />} onClick={onOpen}>
+      <Button startContent={<FaPenFancy />} onClick={handleOpenCreateForm}>
         Add blog
       </Button>
-      {isOpen && (
+      {isOpenCreateForm && (
         <BlogForm
-          defaultValue={DEFAULT_VALUE_BLOG_FORM}
-          submitAction={addBlog}
-          onCloseForm={onClose}
+          control={createBlogControl}
+          isSubmitting={isSubmitting}
+          onCloseForm={handleCloseCreateForm}
+          onSubmit={handleSubmitCreateBlogForm}
         />
       )}
     </>

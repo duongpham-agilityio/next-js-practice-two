@@ -7,6 +7,8 @@ import { ThemeProviderProps as NextThemeProviderProps } from 'next-themes/dist/t
 
 // Constants
 import { ThemeType } from '@/constants';
+// Providers
+import { ToastProvider } from '@/providers';
 
 export interface ThemeProviderProps extends NextThemeProviderProps {
   children: React.ReactNode;
@@ -14,12 +16,14 @@ export interface ThemeProviderProps extends NextThemeProviderProps {
 
 export const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => (
   <NextUIProvider>
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme={ThemeType.LightMode}
-      {...props}
-    >
-      {children}
-    </NextThemesProvider>
+    <ToastProvider>
+      <NextThemesProvider
+        attribute="class"
+        defaultTheme={ThemeType.LightMode}
+        {...props}
+      >
+        {children}
+      </NextThemesProvider>
+    </ToastProvider>
   </NextUIProvider>
 );

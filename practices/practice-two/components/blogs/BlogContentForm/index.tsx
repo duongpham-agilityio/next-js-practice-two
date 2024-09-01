@@ -29,7 +29,7 @@ export const BlogContentForm = ({
     sectionId: BlogBodyType['id'],
     fieldName: keyof Omit<BlogBodyType, 'id'>,
     value: string,
-  ) =>
+  ) => {
     setSections((sections) => {
       const field: BlogBodyType | undefined = findItemInListByAnyField({
         list: sections,
@@ -44,6 +44,7 @@ export const BlogContentForm = ({
 
       return newSections;
     });
+  };
 
   const handleAddSection = () =>
     setSections((sections) => [

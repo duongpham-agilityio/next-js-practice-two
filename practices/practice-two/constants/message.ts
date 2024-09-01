@@ -5,6 +5,8 @@ export const ERROR_MESSAGE = {
   UPDATE_BLOG: 'Failed to update blog. Please try again.',
   ADD_BLOG: 'Failed to add blog. Please try again.',
   DELETE_BLOG: 'Failed to delete blog. Please try again.',
+  NOT_FOUND_CONTEXT:
+    'Could not find the context value. Make sure the component is wrapped in the corresponding "Context.Provider".',
 };
 
 export const SUCCESS_MESSAGE = {
