@@ -3,7 +3,7 @@ import { useToast, useBlogForm, UseBlogFormOptions } from '@/hooks';
 // Constants
 import { FORM_TITLE, SUCCESS_MESSAGE, ToastStatus } from '@/constants';
 // Actions
-import { editBlog } from '@/actions';
+import { editBlogAction } from '@/actions';
 // Models
 import { BlogType } from '@/models';
 
@@ -24,7 +24,7 @@ export const useEditBlog = ({
     handleSubmit: handleSubmitEditBlogForm,
   } = useBlogForm({
     value: blog,
-    action: editBlog,
+    action: editBlogAction,
     onSuccess: () => {
       toast({
         title: FORM_TITLE.EDIT_BLOG,

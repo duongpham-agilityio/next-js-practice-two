@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 // Models
 import { BlogType } from '@/models';
 // Actions
-import { deleteBlog } from '@/actions';
+import { deleteBlogAction } from '@/actions';
 // Hooks
 import { useToast } from '@/hooks';
 // Constants
@@ -22,12 +22,13 @@ export const useDeleteBlog = () => {
   const handleDeleteBlog = useCallback(async (blogId: BlogType['id']) => {
     try {
       setIsBlogDeleting(true);
-      await deleteBlog(blogId);
+      await deleteBlogAction(blogId);
       setIsBlogDeleting(false);
       toast({
         message: SUCCESS_MESSAGE.DELETE_BLOG,
         title: 'Delete blog',
       });
+      handleCloseConfirmModal();
     } catch (error) {
       if (error instanceof Error) {
         toast({

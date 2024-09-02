@@ -3,64 +3,36 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API, ENDPOINT, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
+import { ENDPOINT } from '@/constants';
 // Hooks
 import { BlogFormValueType } from '@/hooks';
+// Models
 import { BlogType } from '@/models';
+// Services
+import { createBlog, deleteBlog, editBlog } from '@/services';
 
 export interface FormStateType {
   isError: boolean;
   message: string;
 }
 
-export const addBlog = async (formData: BlogFormValueType): Promise<void> => {
-  const response = await fetch(`${API.MAIN}${ENDPOINT.BLOGS}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(formData),
-  });
-
-  if (!response.ok) throw new Error(ERROR_MESSAGE.ADD_BLOG);
-
+export const addBlogAction = async (
+  formData: BlogFormValueType,
+): Promise<void> => {
+  await createBlog(formData);
   revalidateTag(ENDPOINT.BLOGS);
 };
 
-export const editBlog = async (formData: BlogFormValueType): Promise<void> => {
-  const response = await fetch(
-    `${API.MAIN}${ENDPOINT.BLOGS}/${formData.id ?? ''}`,
-    {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    },
-  );
-
-  if (!response.ok) throw new Error(ERROR_MESSAGE.UPDATE_BLOG);
-
+export const editBlogAction = async (
+  formData: BlogFormValueType,
+): Promise<void> => {
+  await editBlog(formData);
   revalidateTag(ENDPOINT.BLOGS);
 };
 
-export const deleteBlog = async (
+export const deleteBlogAction = async (
   blogId: BlogType['id'],
-): Promise<FormStateType> => {
-  const response = await fetch(`${API.MAIN}${ENDPOINT.BLOGS}/${blogId}`, {
-    method: 'DELETE',
-  });
-
-  if (!response.ok)
-    return {
-      message: ERROR_MESSAGE.DELETE_BLOG,
-      isError: true,
-    };
-
+): Promise<void> => {
+  await deleteBlog(blogId);
   revalidateTag(ENDPOINT.BLOGS);
-
-  return {
-    message: SUCCESS_MESSAGE.DELETE_BLOG,
-    isError: false,
-  };
 };

@@ -4,8 +4,6 @@ import { render, screen } from '@testing-library/react';
 import { BlogListTemplate } from '@/components';
 // Helpers
 import { isLargeBlogCard } from '@/helpers';
-// Constants
-import { ROUTE } from '@/constants';
 // Mocks
 import { BLOGS } from '@/mocks';
 

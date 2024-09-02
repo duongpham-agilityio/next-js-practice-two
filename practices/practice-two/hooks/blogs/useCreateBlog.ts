@@ -6,7 +6,7 @@ import { useToast, useBlogForm } from '@/hooks';
 import { DEFAULT_VALUE_BLOG_FORM } from '@/constants/data';
 import { FORM_TITLE, SUCCESS_MESSAGE, ToastStatus } from '@/constants';
 // Actions
-import { addBlog } from '@/actions';
+import { addBlogAction } from '@/actions';
 
 export const useCreateBlog = () => {
   const toast = useToast();
@@ -21,7 +21,7 @@ export const useCreateBlog = () => {
     handleSubmit: handleSubmitCreateBlogForm,
   } = useBlogForm({
     value: DEFAULT_VALUE_BLOG_FORM,
-    action: addBlog,
+    action: addBlogAction,
     onSuccess: () => {
       toast({
         title: FORM_TITLE.ADD_BLOG,

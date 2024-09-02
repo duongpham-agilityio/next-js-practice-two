@@ -2,6 +2,8 @@
 import { API, ENDPOINT, ERROR_MESSAGE, TIME } from '@/constants';
 // Helpers
 import { generateUrlSearchParams } from '@/helpers';
+// Hooks
+import { BlogFormValueType } from '@/hooks';
 // Mocks
 import { BLOG } from '@/mocks';
 // Models
@@ -108,4 +110,42 @@ export const getBlog = async (blogId: BlogType['id']): Promise<BlogType> => {
   } catch (error) {
     throw new Error(ERROR_MESSAGE.FETCHING);
   }
+};
+
+export const createBlog = async (blog: BlogFormValueType) => {
+  const response = await fetch(
+    `${API.MAIN}${ENDPOINT.BLOGS}/${blog.id ?? ''}`,
+    {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(blog),
+    },
+  );
+
+  if (!response.ok) throw new Error(ERROR_MESSAGE.UPDATE_BLOG);
+};
+
+export const editBlog = async (blog: BlogFormValueType) => {
+  const response = await fetch(
+    `${API.MAIN}${ENDPOINT.BLOGS}/${blog.id ?? ''}`,
+    {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(blog),
+    },
+  );
+
+  if (!response.ok) throw new Error(ERROR_MESSAGE.UPDATE_BLOG);
+};
+
+export const deleteBlog = async (blogId: BlogType['id']) => {
+  const response = await fetch(`${API.MAIN}${ENDPOINT.BLOGS}/${blogId}`, {
+    method: 'DELETE',
+  });
+
+  if (!response.ok) throw new Error(ERROR_MESSAGE.DELETE_BLOG);
 };
