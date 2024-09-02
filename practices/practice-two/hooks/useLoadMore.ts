@@ -10,7 +10,7 @@ export interface UseLoadMoreOption {
 export const useLoadMore = <T>(blogs: T[], options?: UseLoadMoreOption) => {
   const { blogPerPage }: UseLoadMoreOption = {
     ...options,
-    blogPerPage: BLOGS_PER_PAGE_LIMIT,
+    blogPerPage: options?.blogPerPage ?? BLOGS_PER_PAGE_LIMIT,
   };
   const [page, setPage] = useState(1);
 
