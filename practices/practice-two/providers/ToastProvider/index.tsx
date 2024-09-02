@@ -11,6 +11,7 @@ import clsx from 'clsx';
 
 // Constants
 import { TIME, ToastStatus } from '@/constants';
+import { Box, Text } from '@/components';
 
 const toastStatus = {
   success: 'bg-green-500',
@@ -68,15 +69,15 @@ const ToastProvider = ({ children, config = {} }: ToastProviderProps) => {
     <ToastContext.Provider value={toastProviderValue}>
       {children}
       {toastShowing && (
-        <div
+        <Box
           className={clsx(
-            'fixed min-w-20 h-fit z-[1000] top-5 right-5 px-5 py-3 rounded-lg text-text-primary',
+            'fixed min-w-20 h-fit z-[1000] top-5 right-5 px-5 py-3 rounded-lg',
             toastStatus[toastState.status],
           )}
         >
-          <p className="text-xl font-bold">{toastState.title}</p>
-          <p>{toastState.message}</p>
-        </div>
+          <Text className="text-xl font-bold">{toastState.title}</Text>
+          <Text>{toastState.message}</Text>
+        </Box>
       )}
     </ToastContext.Provider>
   );

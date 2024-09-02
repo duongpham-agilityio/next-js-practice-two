@@ -6,6 +6,7 @@ import { Suspense } from 'react';
 import {
   BlogDetailInfo,
   BlogDetailInfoSkeleton,
+  Box,
   RelatedBlogs,
   RelatedBlogsSkeleton,
 } from '@/components';
@@ -56,11 +57,11 @@ const BlogDetailPage = async ({ params: { blogId } }: BlogDetailPageProps) => (
     <Suspense fallback={<BlogDetailInfoSkeleton />}>
       <BlogDetailInfo blogId={blogId} />
     </Suspense>
-    <div className="mt-10">
+    <Box className="mt-10">
       <Suspense fallback={<RelatedBlogsSkeleton />}>
         <RelatedBlogs />
       </Suspense>
-    </div>
+    </Box>
   </MainLayout>
 );
 

@@ -11,7 +11,7 @@ import { BLUR_DATA_URL } from '@/constants';
 // Types
 import { BlogType } from '@/models';
 // Components
-import { Button, OpenBlogButton } from '@/components';
+import { Box, Button, OpenBlogButton, Text } from '@/components';
 
 export interface BlogCardProps
   extends Pick<
@@ -41,7 +41,7 @@ const BlogCard = ({
   return (
     <Card className="bg-background-400 rounded-none h-full">
       <CardBody className="overflow-visible p-0 flex flex-col">
-        <div
+        <Box
           className={clsx(
             'w-full relative [&:hover>.blog-action]:flex  [&:hover>.blog-action-overlay]:block',
             large ? 'h-80' : 'h-80 lg:h-52',
@@ -56,25 +56,28 @@ const BlogCard = ({
             sizes={`(max-width: 576px) 300px, (max-width: 767px) ${large ? '350px' : '300px'}, ${large ? '550px' : '350px'}`}
             src={imageURL}
           />
-          <div className="blog-action-overlay hidden absolute inset-0 bg-black opacity-80" />
-          <div className="blog-action hidden absolute inset-0 z-10  items-center justify-center gap-3">
+          <Box className="blog-action-overlay hidden absolute inset-0 bg-black opacity-80" />
+          <Box className="blog-action hidden absolute inset-0 z-10  items-center justify-center gap-3">
             <Button isIconOnly onClick={handleDelete}>
               <FaTrash />
             </Button>
             <Button isIconOnly onClick={handleEdit}>
               <FaPencilAlt />
             </Button>
-          </div>
-        </div>
-        <section className="flex-1 flex flex-col px-5 py-10 text-text-primary  justify-between items-start">
-          <p className="uppercase text-red-dark">{author}</p>
-          <h2 className="text-xl lg:text-3xl py-5 flex-1">{title}</h2>
+          </Box>
+        </Box>
+        <Box
+          as="section"
+          className="flex-1 flex flex-col px-5 py-10 justify-between items-start"
+        >
+          <Text className="uppercase text-red-dark">{author}</Text>
+          <Text className="text-xl lg:text-3xl py-5 flex-1">{title}</Text>
           <OpenBlogButton
             href={externalLink ?? href}
             isExternal={Boolean(externalLink)}
             title={title}
           />
-        </section>
+        </Box>
       </CardBody>
     </Card>
   );

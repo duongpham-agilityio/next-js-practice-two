@@ -3,20 +3,20 @@
 import { Skeleton } from '@nextui-org/react';
 
 // Components
-import { Container } from '@/components';
+import { Box, Container } from '@/components';
 // Mocks
 import { BLOG } from '@/mocks';
 
 export const BlogDetailContentSkeleton = () => (
-  <section className="bg-background-400 py-10">
+  <Box as="section" className="bg-background-400 py-10">
     <Container className="text-text-primary flex flex-col gap-10 xl:w-[720px]">
       {BLOG.body.map(({ id }) => (
-        <div key={id} className="flex flex-col gap-5">
+        <Box key={id} className="flex flex-col gap-5">
           <Skeleton
             className="rounded-xl w-[70%] h-4"
             data-testid="skeleton-item"
           />
-          <div className="flex flex-col gap-2">
+          <Box className="flex flex-col gap-2">
             <Skeleton
               className="rounded-xl w-full h-3 text-sm xl:text-lg"
               data-testid="skeleton-item"
@@ -37,9 +37,9 @@ export const BlogDetailContentSkeleton = () => (
               className="rounded-xl w-full h-3 text-sm xl:text-lg"
               data-testid="skeleton-item"
             />
-          </div>
-        </div>
+          </Box>
+        </Box>
       ))}
     </Container>
-  </section>
+  </Box>
 );

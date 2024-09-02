@@ -6,7 +6,7 @@ import { memo } from 'react';
 // Models
 import { Topic, Topics } from '@/models';
 // Components
-import { Button } from '@/components';
+import { Box, Button } from '@/components';
 
 export interface TopicListProps {
   topics: Topics;
@@ -19,7 +19,10 @@ const TopicList = ({
   selected = topics[0].id,
   onChangeTopic,
 }: TopicListProps) => (
-  <section className="flex justify-start xl:justify-center gap-4 flex-nowrap overflow-x-auto 2xl:overflow-x-[unset]">
+  <Box
+    as="sections"
+    className="flex justify-start xl:justify-center gap-4 flex-nowrap overflow-x-auto 2xl:overflow-x-[unset]"
+  >
     {topics.map(({ id, label }) => {
       const handleChangeTopic = () => onChangeTopic && onChangeTopic(id);
 
@@ -34,7 +37,7 @@ const TopicList = ({
         </Button>
       );
     })}
-  </section>
+  </Box>
 );
 
 export default memo(TopicList, isEqual);

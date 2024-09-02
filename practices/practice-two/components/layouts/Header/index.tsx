@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // Components
-import { Container, CreateBlogButton, Switcher } from '@/components';
+import { Box, Container, CreateBlogButton, Switcher } from '@/components';
 
 export const Header = () => (
   <header className="py-4">
@@ -19,10 +19,10 @@ export const Header = () => (
           src="/images/logo.webp"
         />
       </Link>
-      <div className="flex flex-1 justify-end gap-2">
+      <Box className="flex flex-1 justify-end gap-2">
         <Switcher />
         <CreateBlogButton />
-      </div>
+      </Box>
     </Container>
   </header>
 );

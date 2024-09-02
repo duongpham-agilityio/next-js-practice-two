@@ -1,10 +1,10 @@
 'use client';
 
 // Components
-import { BlogCardSkeleton, Container } from '@/components';
+import { BlogCardSkeleton, Box, Container } from '@/components';
 
 export const RelatedBlogsSkeleton = () => (
-  <section className="flex flex-col gap-10">
+  <Box as="section" className="flex flex-col gap-10">
     <Container
       as="ul"
       className="flex gap-5 mt-5 overflow-x-scroll xl:overflow-x-visible"
@@ -18,5 +18,5 @@ export const RelatedBlogsSkeleton = () => (
         </li>
       ))}
     </Container>
-  </section>
+  </Box>
 );

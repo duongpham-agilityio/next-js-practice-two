@@ -7,7 +7,7 @@ import {
 } from '@nextui-org/react';
 
 // Components
-import { Button } from '@/components';
+import { Button, Text } from '@/components';
 // Constants
 import { CONFIRM_MESSAGE } from '@/constants';
 
@@ -29,7 +29,7 @@ const ConfirmModal = ({ onAccept, onClose }: ConfirmModalProps) => (
     <ModalContent>
       <ModalHeader />
       <ModalBody>
-        <p className="text-text-primary">{CONFIRM_MESSAGE.DELETE_BLOG}</p>
+        <Text>{CONFIRM_MESSAGE.DELETE_BLOG}</Text>
       </ModalBody>
       <ModalFooter>
         <Button color="danger" variant="light" onClick={onClose}>
