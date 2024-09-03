@@ -1,11 +1,10 @@
 import { Suspense } from 'react';
+import lazy from 'next/dynamic';
 
 // Components
 import {
   BlogListTemplateSkeleton,
-  BlogWrapper,
   Container,
-  HighlightBlog,
   HighlightBlogSkeleton,
   TopicListSkeleton,
 } from '@/components';
@@ -14,22 +13,23 @@ import { MainLayout } from '@/layouts';
 
 export const dynamic = 'force-dynamic';
 
+const HighlightBlog = lazy(() => import('@/components/blogs/HighlightBlog'), {
+  loading: () => <HighlightBlogSkeleton />,
+});
+const BlogWrapper = lazy(() => import('@/components/blogs/BlogWrapper'), {
+  loading: () => (
+    <>
+      <TopicListSkeleton />
+      <BlogListTemplateSkeleton />
+    </>
+  ),
+});
+
 const HomePage = () => (
   <MainLayout>
     <Container className="flex flex-col gap-8 py-10">
-      <Suspense fallback={<HighlightBlogSkeleton />}>
-        <HighlightBlog />
-      </Suspense>
-      <Suspense
-        fallback={
-          <>
-            <TopicListSkeleton />
-            <BlogListTemplateSkeleton />
-          </>
-        }
-      >
-        <BlogWrapper />
-      </Suspense>
+      <HighlightBlog />
+      <BlogWrapper />
     </Container>
   </MainLayout>
 );

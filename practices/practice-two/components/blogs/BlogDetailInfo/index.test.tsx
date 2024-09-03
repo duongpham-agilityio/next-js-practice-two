@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import fetchMock from 'jest-fetch-mock';
 
 // Components
-import { BlogDetailInfo } from '@/components';
+import BlogDetailInfo from '@/components/blogs/BlogDetailInfo';
 // Mocks
 import { BLOG } from '@/mocks';
 

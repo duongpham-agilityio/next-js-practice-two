@@ -1,13 +1,11 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 
 // Components
 import {
-  BlogDetailInfo,
   BlogDetailInfoSkeleton,
   Box,
-  RelatedBlogs,
   RelatedBlogsSkeleton,
 } from '@/components';
 // Services
@@ -16,6 +14,16 @@ import { fetchBlogIds, getBlog } from '@/services';
 import { MainLayout } from '@/layouts';
 // Mocks
 import { BLOG } from '@/mocks';
+
+const RelatedBlogs = dynamic(() => import('@/components/blogs/RelatedBlogs'), {
+  loading: () => <RelatedBlogsSkeleton />,
+});
+const BlogDetailInfo = dynamic(
+  () => import('@/components/blogs/BlogDetailInfo'),
+  {
+    loading: () => <BlogDetailInfoSkeleton />,
+  },
+);
 
 interface BlogDetailPageProps {
   params: { blogId: string };
@@ -54,13 +62,9 @@ export async function generateStaticParams() {
 
 const BlogDetailPage = async ({ params: { blogId } }: BlogDetailPageProps) => (
   <MainLayout>
-    <Suspense fallback={<BlogDetailInfoSkeleton />}>
-      <BlogDetailInfo blogId={blogId} />
-    </Suspense>
+    <BlogDetailInfo blogId={blogId} />
     <Box className="mt-10">
-      <Suspense fallback={<RelatedBlogsSkeleton />}>
-        <RelatedBlogs />
-      </Suspense>
+      <RelatedBlogs />
     </Box>
   </MainLayout>
 );

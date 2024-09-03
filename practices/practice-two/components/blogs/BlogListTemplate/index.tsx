@@ -21,7 +21,10 @@ const EditBlogForm = dynamic(() => import('@/components/blogs/EditBlogForm'), {
   ssr: false,
   loading: () => <></>,
 });
-const ConfirmModal = dynamic(() => import('@/components/common/ConfirmModal'));
+const ConfirmModal = dynamic(() => import('@/components/common/ConfirmModal'), {
+  ssr: false,
+  loading: () => <></>,
+});
 
 export interface BlogListTemplateProps {
   blogs: BlogsType;
