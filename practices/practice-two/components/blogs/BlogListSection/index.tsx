@@ -1,11 +1,15 @@
 'use client';
 
+import dynamic from 'next/dynamic';
+
 // Components
-import { BlogListTemplate, Box, Button, Text, TopicList } from '@/components';
+import { BlogListTemplate, Box, Button, Text } from '@/components';
 // Hooks
 import { useLoadMore, useTopics } from '@/hooks';
 // Models
 import { BlogsType, Topics } from '@/models';
+
+const TopicList = dynamic(() => import('@/components/topics/TopicList'));
 
 export interface BlogListSectionProps {
   topics: Topics;

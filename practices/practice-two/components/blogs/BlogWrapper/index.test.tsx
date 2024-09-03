@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 // Services
 import { getBlogs, getTopics } from '@/services';
 // Components
-import { BlogWrapper } from '@/components';
+import BlogWrapper from '@/components/blogs/BlogWrapper';
 import { BlogListSectionProps } from '@/components/blogs/BlogListSection';
 // Mocks
 import { BLOGS } from '@/mocks';

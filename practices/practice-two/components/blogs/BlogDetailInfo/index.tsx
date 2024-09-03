@@ -1,21 +1,27 @@
+import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 
 // Services
 import { getBlog } from '@/services';
 // Models
 import { BlogType } from '@/models';
-// Components
-import { BlogDetailHeader, BlogDetailContent } from '@/components';
 // Helpers
 import { convertDateInBlog } from '@/helpers';
 // Mocks
 import { BLOG } from '@/mocks';
 
+const BlogDetailHeader = dynamic(
+  () => import('@/components/blogs/BlogDetailHeader'),
+);
+const BlogDetailContent = dynamic(
+  () => import('@/components/blogs/BlogDetailContent'),
+);
+
 export interface BlogDetailInfoProps {
   blogId: BlogType['id'];
 }
 
-export const BlogDetailInfo = async ({ blogId }: BlogDetailInfoProps) => {
+const BlogDetailInfo = async ({ blogId }: BlogDetailInfoProps) => {
   const { id, author, title, imageURL, body, createdAt } =
     await getBlog(blogId);
 
@@ -33,3 +39,5 @@ export const BlogDetailInfo = async ({ blogId }: BlogDetailInfoProps) => {
     </>
   );
 };
+
+export default BlogDetailInfo;

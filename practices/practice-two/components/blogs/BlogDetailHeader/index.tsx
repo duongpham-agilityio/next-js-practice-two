@@ -13,7 +13,7 @@ export interface BlogDetailHeaderProps
   createdAt: string;
 }
 
-export const BlogDetailHeader = ({
+const BlogDetailHeader = ({
   author,
   createdAt,
   title,
@@ -55,3 +55,5 @@ export const BlogDetailHeader = ({
     </Box>
   </Container>
 );
+
+export default BlogDetailHeader;

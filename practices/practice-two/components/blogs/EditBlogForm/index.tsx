@@ -3,7 +3,7 @@
 // Models
 import { BlogType } from '@/models';
 // Components
-import { BlogForm } from '@/components';
+import BlogForm from '@/components/blogs/BlogForm';
 // Hooks
 import { useEditBlog } from '@/hooks';
 // Constants

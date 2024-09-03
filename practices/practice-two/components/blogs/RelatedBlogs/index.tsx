@@ -7,7 +7,7 @@ import { ROUTE } from '@/constants';
 // Services
 import { fetchRelatedBlogs } from '@/services';
 
-export const RelatedBlogs = async () => {
+const RelatedBlogs = async () => {
   const blogs = await fetchRelatedBlogs();
 
   return (
@@ -36,3 +36,5 @@ export const RelatedBlogs = async () => {
     </Box>
   );
 };
+
+export default RelatedBlogs;

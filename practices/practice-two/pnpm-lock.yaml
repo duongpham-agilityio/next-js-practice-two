@@ -8,36 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@nextui-org/button':
-        specifier: 2.0.37
-        version: 2.0.37(@nextui-org/system@2.2.5(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nextui-org/code':
-        specifier: 2.0.32
-        version: 2.0.32(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nextui-org/input':
-        specifier: 2.2.4
-        version: 2.2.4(@nextui-org/system@2.2.5(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nextui-org/kbd':
-        specifier: 2.0.33
-        version: 2.0.33(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nextui-org/link':
-        specifier: 2.0.34
-        version: 2.0.34(@nextui-org/system@2.2.5(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nextui-org/listbox':
-        specifier: 2.1.25
-        version: 2.1.25(@nextui-org/system@2.2.5(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nextui-org/navbar':
-        specifier: 2.0.36
-        version: 2.0.36(@nextui-org/system@2.2.5(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(@types/react@18.3.3)(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/react':
         specifier: ^2.4.6
         version: 2.4.6(@types/react@18.3.3)(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4)))
-      '@nextui-org/snippet':
-        specifier: 2.0.41
-        version: 2.0.41(@nextui-org/system@2.2.5(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nextui-org/switch':
-        specifier: 2.0.33
-        version: 2.0.33(@nextui-org/system@2.2.5(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nextui-org/system':
         specifier: 2.2.5
         version: 2.2.5(@nextui-org/theme@2.2.9(tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.5.7)(typescript@5.5.4))))(framer-motion@11.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

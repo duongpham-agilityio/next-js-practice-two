@@ -1,13 +1,9 @@
 // __tests__/RelatedBlogs.test.tsx
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import fetchMock from 'jest-fetch-mock';
 
 // Components
-import { RelatedBlogs } from '@/components';
-// Services
-import { getBlogs } from '@/services';
-// Constants
-import { ROUTE } from '@/constants';
+import RelatedBlogs from '@/components/blogs/RelatedBlogs';
 
 const mockBlogs = [
   {

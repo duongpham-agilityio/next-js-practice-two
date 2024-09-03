@@ -7,7 +7,7 @@ export interface BlogDetailContentProps {
   body: BlogBodyType[];
 }
 
-export const BlogDetailContent = ({ body }: BlogDetailContentProps) => (
+const BlogDetailContent = ({ body }: BlogDetailContentProps) => (
   <Box as="section" className="bg-background-400 my-5 py-10">
     <Container className="flex flex-col gap-10 xl:w-[720px]">
       {body.map(({ id, content, subtitle }) => (
@@ -21,3 +21,5 @@ export const BlogDetailContent = ({ body }: BlogDetailContentProps) => (
     </Container>
   </Box>
 );
+
+export default BlogDetailContent;
