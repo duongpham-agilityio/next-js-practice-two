@@ -37,6 +37,22 @@ export const getBlogs = async (): Promise<BlogsType> => {
   }
 };
 
+export const getHighlightBlog = async (): Promise<BlogType> => {
+  try {
+    const data: Response = await fetch(`${API.MAIN}${ENDPOINT.BLOGS}`, {
+      next: {
+        tags: [ENDPOINT.BLOGS, ENDPOINT.HIGHLIGHT_BLOG],
+      },
+      cache: 'no-store',
+    });
+    const blogs: BlogsType = await data.json();
+
+    return blogs[blogs.length - 1] ?? BLOG;
+  } catch (error) {
+    throw new Error(ERROR_MESSAGE.FETCHING);
+  }
+};
+
 export const fetchBlogIds = async (): Promise<BlogType['id'][]> => {
   try {
     const data: Response = await fetch(`${API.MAIN}${ENDPOINT.BLOGS}`, {

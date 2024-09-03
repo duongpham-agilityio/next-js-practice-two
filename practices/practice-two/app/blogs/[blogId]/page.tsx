@@ -10,8 +10,6 @@ import {
 } from '@/components';
 // Services
 import { fetchBlogIds, getBlog } from '@/services';
-// Layout
-import { MainLayout } from '@/layouts';
 // Mocks
 import { BLOG } from '@/mocks';
 
@@ -61,12 +59,12 @@ export async function generateStaticParams() {
 }
 
 const BlogDetailPage = async ({ params: { blogId } }: BlogDetailPageProps) => (
-  <MainLayout>
+  <>
     <BlogDetailInfo blogId={blogId} />
     <Box className="mt-10">
       <RelatedBlogs />
     </Box>
-  </MainLayout>
+  </>
 );
 
 export default BlogDetailPage;

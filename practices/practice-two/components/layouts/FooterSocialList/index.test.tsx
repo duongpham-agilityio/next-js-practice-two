@@ -13,7 +13,7 @@ describe('FooterSocialList Component', () => {
 
     expect(section).toBeInTheDocument();
 
-    FOOTER_SOCIALS.forEach(({ id, href, icon }, index) => {
+    FOOTER_SOCIALS.forEach(({ href }, index) => {
       const link = screen.getAllByRole('link')[index];
 
       expect(link).toBeInTheDocument();

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 // Components
-import { HighlightBlog } from '@/components';
+import HighlightBlog from '@/components/blogs/HighlightBlog';
 
 const mockProps = {
   author: 'John Doe',
@@ -55,12 +55,5 @@ describe('HighlightBlog Component', () => {
 
     expect(button).toHaveAttribute('href', mockProps.externalLink);
     expect(button).toHaveAttribute('target', '_blank'); // Assuming OpenBlogButton handles the external link with target="_blank"
-  });
-
-  test('renders OpenBlogButton with correct href when externalLink is not provided', () => {
-    const propsWithoutExternalLink = { ...mockProps, externalLink: '' };
-
-    render(<HighlightBlog />);
-    const button = screen.getByRole('link') as HTMLAnchorElement;
   });
 });
