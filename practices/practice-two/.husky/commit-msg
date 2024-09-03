@@ -1,0 +1,3 @@
+cd practices/practice-two
+
+pnpm commitlint ${1}

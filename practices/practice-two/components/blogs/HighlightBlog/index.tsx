@@ -5,15 +5,13 @@ import { BLUR_DATA_URL, ROUTE } from '@/constants';
 // Components
 import { Box, Container, OpenBlogButton, Text } from '@/components';
 // Services
-import { getBlogs } from '@/services';
+import { getHighlightBlog } from '@/services';
 // Mocks
 import { BLOG } from '@/mocks';
 // Helpers
 import { convertDateInBlog } from '@/helpers';
 
 const HighlightBlog = async () => {
-  const blogs = await getBlogs();
-
   const {
     id = '',
     author = '',
@@ -22,7 +20,7 @@ const HighlightBlog = async () => {
     title = '',
     externalLink = '',
     body,
-  } = blogs[blogs.length - 1];
+  } = await getHighlightBlog();
 
   return (
     <Container as="section" className="text-center">

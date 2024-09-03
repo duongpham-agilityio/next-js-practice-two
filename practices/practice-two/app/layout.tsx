@@ -7,6 +7,8 @@ import '@/styles/globals.css';
 
 // Providers
 import { ThemeProvider } from '@/providers';
+// Layout
+import { MainLayout } from '@/layouts';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -38,7 +40,9 @@ const RootLayout = ({
 }>) => (
   <html lang="en">
     <body className={poppins.className}>
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider>
+        <MainLayout>{children}</MainLayout>
+      </ThemeProvider>
     </body>
   </html>
 );

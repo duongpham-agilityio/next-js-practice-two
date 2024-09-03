@@ -76,7 +76,7 @@ export const BlogContentForm = ({
           const isError: boolean = index === 0 ? isInvalid : false;
 
           return (
-            <Box as="section" key={index}>
+            <Box key={index} as="section">
               <Box className="pb-2">
                 <Box className="flex justify-start gap-5">
                   <Text>Section: {index + 1}</Text>

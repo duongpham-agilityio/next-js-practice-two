@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 
 // Components
-import { TopicList } from '@/components';
+import TopicList from '@/components/topics/TopicList';
 
 // Mock the Button component
 jest.mock('@/components', () => ({
@@ -23,7 +23,7 @@ describe('TopicList Component', () => {
     render(<TopicList selected="1" topics={mockTopics} />);
 
     // Check if all topics are rendered as buttons
-    mockTopics.forEach(({ id, label }) => {
+    mockTopics.forEach(({ label }) => {
       expect(screen.getByText(label)).toBeInTheDocument();
     });
   });

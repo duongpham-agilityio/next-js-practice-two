@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import lazy from 'next/dynamic';
 
 // Components
@@ -8,8 +7,6 @@ import {
   HighlightBlogSkeleton,
   TopicListSkeleton,
 } from '@/components';
-// Layouts
-import { MainLayout } from '@/layouts';
 
 export const dynamic = 'force-dynamic';
 
@@ -26,12 +23,10 @@ const BlogWrapper = lazy(() => import('@/components/blogs/BlogWrapper'), {
 });
 
 const HomePage = () => (
-  <MainLayout>
-    <Container className="flex flex-col gap-8 py-10">
-      <HighlightBlog />
-      <BlogWrapper />
-    </Container>
-  </MainLayout>
+  <Container className="flex flex-col gap-8 py-10">
+    <HighlightBlog />
+    <BlogWrapper />
+  </Container>
 );
 
 export default HomePage;

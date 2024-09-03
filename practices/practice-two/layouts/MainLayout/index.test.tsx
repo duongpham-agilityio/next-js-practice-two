@@ -38,6 +38,7 @@ describe('MainLayout', () => {
     );
 
     const divider = container.querySelector('hr'); // Assuming Divider renders as <hr>
+
     expect(divider).toBeInTheDocument();
   });
 });

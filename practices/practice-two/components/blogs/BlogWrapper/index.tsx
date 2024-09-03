@@ -1,7 +1,7 @@
 // Services
 import { getBlogs, getTopics } from '@/services';
 // Components
-import { BlogsListSection } from '@/components/';
+import { BlogsListSection } from '@/components';
 
 const BlogWrapper = async () => {
   const [blogs, topics] = await Promise.all([getBlogs(), getTopics()]);

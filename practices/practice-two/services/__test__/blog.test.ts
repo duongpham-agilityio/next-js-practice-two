@@ -3,7 +3,6 @@ import { getBlogs, paginationBlogs, getBlog } from '@/services';
 // Constants
 import { API, ENDPOINT, ERROR_MESSAGE, TIME } from '@/constants';
 // Mocks
-import { BLOG } from '@/mocks';
 import { generateUrlSearchParams } from '@/helpers';
 
 global.fetch = jest.fn();

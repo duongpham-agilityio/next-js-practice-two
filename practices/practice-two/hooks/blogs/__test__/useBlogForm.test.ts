@@ -2,7 +2,7 @@ import { renderHook, act } from '@testing-library/react';
 import { useForm, ControllerFieldState } from 'react-hook-form';
 
 // Hooks
-import { useBlogForm, BlogFormValueType } from '@/hooks';
+import { useBlogForm } from '@/hooks';
 import { DEFAULT_VALUE_BLOG_FORM } from '@/constants/data';
 
 jest.mock('react-hook-form', () => ({

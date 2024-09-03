@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 // Components
 import { BlogListTemplateSkeleton } from '@/components';
 // Mocks
-import { BLOGS } from '@/mocks';
 
 const meta: Meta<typeof BlogListTemplateSkeleton> = {
   component: BlogListTemplateSkeleton,

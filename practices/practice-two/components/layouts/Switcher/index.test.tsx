@@ -27,6 +27,7 @@ describe('Switcher Component', () => {
 
     // Check if the Switch component is rendered
     const switchElement = screen.getByRole('switch');
+
     expect(switchElement).toBeInTheDocument();
 
     // Verify the switch state
@@ -44,6 +45,7 @@ describe('Switcher Component', () => {
 
     // Toggle the switch
     const switchElement = screen.getByRole('switch');
+
     fireEvent.click(switchElement);
 
     // Verify that handleToggleTheme is called
@@ -61,6 +63,7 @@ describe('Switcher Component', () => {
 
     // Check if the Switch component is rendered
     const switchElement = screen.getByRole('switch');
+
     expect(switchElement).toBeInTheDocument();
 
     // Verify the switch state
