@@ -1,68 +1,61 @@
 'use client';
 
-import React, { useTransition } from 'react';
-import { useFormState } from 'react-dom';
-import { Controller } from 'react-hook-form';
+import { FormEventHandler } from 'react';
+import clsx from 'clsx';
+import {
+  Control,
+  Controller,
+  ControllerFieldState,
+  useFormState,
+} from 'react-hook-form';
 import {
   Modal,
-  ModalContent,
-  ModalHeader,
   ModalBody,
+  ModalContent,
   ModalFooter,
-  Button,
+  ModalHeader,
   Select,
   SelectItem,
-  Spinner,
 } from '@nextui-org/react';
-import clsx from 'clsx';
 
+// Hooks
+import { BlogFormValueType } from '@/hooks';
 // Components
-import { BlogContentForm, Input } from '@/components';
+import { Button, Input, BlogContentForm, LoadingIndicator } from '@/components';
+// Constants
+import { FORM_TITLE, RULE_BLOG_FORM } from '@/constants';
 // Mocks
 import { TOPICS } from '@/mocks';
-// Hooks
-import { BlogFormValueType, useBlogForm } from '@/hooks';
-// Constants
-import { RULE_BLOG_FORM } from '@/constants';
-// Actions
-import { FormStateType } from '@/actions';
 
-export interface BlogFormProps {
+interface BlogFormProps {
+  isSubmitting?: boolean;
   title?: string;
-  defaultValue: BlogFormValueType;
-  submitAction: (
-    preState: FormStateType,
-    formData: BlogFormValueType,
-  ) => Promise<FormStateType>;
-  onCloseForm?: () => void;
+  control: Control<BlogFormValueType>;
+  onSubmit: () => void | Promise<void>;
+  onCloseForm: () => void;
 }
 
-/**
- * ISSUES:
- * Can't found to solution show alert message after submit success/fail
- */
 const BlogForm = ({
-  defaultValue,
-  title = 'Add a new blog',
-  submitAction,
+  isSubmitting = false,
+  title = FORM_TITLE.ADD_BLOG,
+  control,
   onCloseForm,
+  onSubmit,
 }: BlogFormProps) => {
-  const [, action] = useFormState<FormStateType, BlogFormValueType>(
-    submitAction,
-    {
-      message: '',
-      isError: false,
-    },
-  );
-  const [isSubmitting, startTransition] = useTransition();
-  const { blogFormControl, checkError, handleSubmit } = useBlogForm({
-    value: defaultValue,
+  const { dirtyFields } = useFormState({
+    control,
   });
 
-  const submit = handleSubmit((data) => {
-    startTransition(() => {
-      action(data);
-    });
+  const isDirty = Boolean(Object.keys(dirtyFields).length);
+
+  const handleSubmit: FormEventHandler<HTMLDivElement> = (event) => {
+    event.preventDefault();
+
+    if (isDirty) return onSubmit();
+  };
+
+  const checkError = (error: ControllerFieldState['error']) => ({
+    isInvalid: !!error && !!error.message,
   });
 
   return (
@@ -71,12 +64,12 @@ const BlogForm = ({
         <ModalContent
           as="form"
           className="text-text-primary w-full h-full md:h-[550px] justify-start py-10 overflow-y-scroll"
-          onSubmit={submit}
+          onSubmit={handleSubmit}
         >
           <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
           <ModalBody className="h-fit text-sm flex-none">
             <Controller
-              control={blogFormControl}
+              control={control}
               name="author"
               render={({ field, fieldState: { error } }) => (
                 <Input {...field} {...checkError(error)} placeholder="Author" />
@@ -84,7 +77,7 @@ const BlogForm = ({
               rules={RULE_BLOG_FORM.AUTHOR}
             />
             <Controller
-              control={blogFormControl}
+              control={control}
               name="title"
               render={({ field, fieldState: { error } }) => (
                 <Input {...field} {...checkError(error)} placeholder="Title" />
@@ -92,7 +85,7 @@ const BlogForm = ({
               rules={RULE_BLOG_FORM.TITLE}
             />
             <Controller
-              control={blogFormControl}
+              control={control}
               name="imageURL"
               render={({ field, fieldState: { error } }) => (
                 <Input
@@ -104,7 +97,7 @@ const BlogForm = ({
               rules={RULE_BLOG_FORM.IMAGE_URL}
             />
             <Controller
-              control={blogFormControl}
+              control={control}
               name="externalLink"
               render={({ field, fieldState: { error } }) => (
                 <Input
@@ -116,7 +109,7 @@ const BlogForm = ({
               rules={RULE_BLOG_FORM.EXTERNAL_LINK}
             />
             <Controller
-              control={blogFormControl}
+              control={control}
               name="topicId"
               render={({ field, fieldState: { error } }) => (
                 <Select
@@ -129,11 +122,16 @@ const BlogForm = ({
                       'border-red-500': checkError(error).isInvalid,
                     }),
                   }}
-                  items={TOPICS}
+                  defaultSelectedKeys={[field.value]}
+                  items={TOPICS.slice(1)}
                   placeholder="Select an topic"
                 >
                   {({ id, label }) => (
-                    <SelectItem key={id} className="text-text-primary">
+                    <SelectItem
+                      key={id}
+                      className="text-text-primary"
+                      value={id}
+                    >
                       {label}
                     </SelectItem>
                   )}
@@ -142,7 +140,7 @@ const BlogForm = ({
               rules={RULE_BLOG_FORM.TOPIC}
             />
             <Controller
-              control={blogFormControl}
+              control={control}
               name="body"
               render={({
                 field: { value, onChange },
@@ -161,25 +159,13 @@ const BlogForm = ({
             <Button color="danger" variant="light" onPress={onCloseForm}>
               Close
             </Button>
-            <Button color="primary" type="submit">
+            <Button color="primary" isDisabled={!isDirty} type="submit">
               Submit
             </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
-      {isSubmitting && (
-        <Modal
-          isOpen
-          classNames={{
-            closeButton: 'hidden',
-            base: 'bg-transparent border-unset shadow-none flex items-center justify-center',
-          }}
-        >
-          <ModalContent>
-            <Spinner color="white" size="lg" />
-          </ModalContent>
-        </Modal>
-      )}
+      {isSubmitting && <LoadingIndicator />}
     </>
   );
 };

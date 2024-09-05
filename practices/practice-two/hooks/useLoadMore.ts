@@ -10,7 +10,7 @@ export interface UseLoadMoreOption {
 export const useLoadMore = <T>(blogs: T[], options?: UseLoadMoreOption) => {
   const { blogPerPage }: UseLoadMoreOption = {
     ...options,
-    blogPerPage: BLOGS_PER_PAGE_LIMIT,
+    blogPerPage: options?.blogPerPage ?? BLOGS_PER_PAGE_LIMIT,
   };
   const [page, setPage] = useState(1);
 
@@ -24,31 +24,31 @@ export const useLoadMore = <T>(blogs: T[], options?: UseLoadMoreOption) => {
     );
   }, [blogs.length, blogPerPage]);
 
+  // Handle the case when the last page before deletion has only one item.
+  const currentPage = pagination.length < page ? pagination.length : page;
+
   const dataPerPage = useMemo(() => {
-    const indexPage = pagination.indexOf(page);
+    const indexPage = pagination.indexOf(currentPage);
 
     return [
       ...pagination
         .slice(0, indexPage + 1)
-        .map((currentPage) =>
-          blogs.slice(
-            (currentPage - 1) * blogPerPage,
-            currentPage * blogPerPage,
-          ),
+        .map((item) =>
+          blogs.slice((item - 1) * blogPerPage, item * blogPerPage),
         ),
     ];
-  }, [blogs, page, pagination]);
+  }, [blogs, currentPage, pagination]);
 
   const hasNextPage = useMemo(
-    () => pagination.includes(page + 1),
-    [pagination, page],
+    () => pagination.includes(currentPage + 1),
+    [pagination, currentPage],
   );
 
   const fetchNextPage = useCallback(() => {
     if (!hasNextPage) return;
 
-    setPage((pre) => pre + 1);
-  }, [hasNextPage]);
+    setPage(currentPage + 1);
+  }, [hasNextPage, currentPage]);
 
   return {
     dataPerPage,

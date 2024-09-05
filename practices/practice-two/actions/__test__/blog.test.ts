@@ -4,7 +4,7 @@ import fetchMock from 'jest-fetch-mock';
 // Constants
 import { ENDPOINT, ERROR_MESSAGE, SUCCESS_MESSAGE } from '@/constants';
 // Actions
-import { addBlog, editBlog, deleteBlog } from '@/actions';
+import { addBlogAction, editBlogAction, deleteBlogAction } from '@/actions';
 // Mocks
 import { BLOG } from '@/mocks';
 
@@ -22,14 +22,14 @@ describe('Blog API Functions', () => {
     jest.clearAllMocks();
   });
 
-  describe('addBlog', () => {
+  describe('addBlogAction', () => {
     it('should return success message on successful response', async () => {
       fetchMock.mockResolvedValue({
         ok: true,
       } as Response);
 
       const formData = { ...BLOG, title: 'Test Blog', content: 'Test Content' };
-      const result = await addBlog({ isError: false, message: '' }, formData);
+      const result = await addBlogAction(formData);
 
       expect(result).toEqual({
         message: SUCCESS_MESSAGE.ADD_BLOG,
@@ -44,7 +44,7 @@ describe('Blog API Functions', () => {
       } as Response);
 
       const formData = { ...BLOG, title: 'Test Blog', content: 'Test Content' };
-      const result = await addBlog({ isError: false, message: '' }, formData);
+      const result = await addBlogAction(formData);
 
       expect(result).toEqual({
         message: ERROR_MESSAGE.ADD_BLOG,
@@ -54,7 +54,7 @@ describe('Blog API Functions', () => {
     });
   });
 
-  describe('editBlog', () => {
+  describe('editBlogAction', () => {
     it('should return success message on successful response', async () => {
       fetchMock.mockResolvedValue({
         ok: true,
@@ -66,7 +66,7 @@ describe('Blog API Functions', () => {
         title: 'Updated Blog',
         content: 'Updated Content',
       };
-      const result = await editBlog({ isError: false, message: '' }, formData);
+      const result = await editBlogAction(formData);
 
       expect(result).toEqual({
         message: SUCCESS_MESSAGE.UPDATE_BLOG,
@@ -86,7 +86,7 @@ describe('Blog API Functions', () => {
         title: 'Updated Blog',
         content: 'Updated Content',
       };
-      const result = await editBlog({ isError: false, message: '' }, formData);
+      const result = await editBlogAction(formData);
 
       expect(result).toEqual({
         message: ERROR_MESSAGE.UPDATE_BLOG,
@@ -96,14 +96,14 @@ describe('Blog API Functions', () => {
     });
   });
 
-  describe('deleteBlog', () => {
+  describe('deleteBlogAction', () => {
     it('should return success message on successful response', async () => {
       fetchMock.mockResolvedValue({
         ok: true,
       } as Response);
 
       const blogId = '123';
-      const result = await deleteBlog(blogId);
+      const result = await deleteBlogAction(blogId);
 
       expect(result).toEqual({
         message: SUCCESS_MESSAGE.DELETE_BLOG,
@@ -118,7 +118,7 @@ describe('Blog API Functions', () => {
       } as Response);
 
       const blogId = '123';
-      const result = await deleteBlog(blogId);
+      const result = await deleteBlogAction(blogId);
 
       expect(result).toEqual({
         message: ERROR_MESSAGE.DELETE_BLOG,

@@ -8,7 +8,7 @@ import { FaMinus, FaPlus } from 'react-icons/fa';
 // Models
 import { BlogBodyType } from '@/models';
 // Components
-import { Button, Input } from '@/components';
+import { Box, Button, Input, Text } from '@/components';
 // Helpers
 import { findItemInListByAnyField } from '@/helpers';
 
@@ -29,7 +29,7 @@ export const BlogContentForm = ({
     sectionId: BlogBodyType['id'],
     fieldName: keyof Omit<BlogBodyType, 'id'>,
     value: string,
-  ) =>
+  ) => {
     setSections((sections) => {
       const field: BlogBodyType | undefined = findItemInListByAnyField({
         list: sections,
@@ -44,6 +44,7 @@ export const BlogContentForm = ({
 
       return newSections;
     });
+  };
 
   const handleAddSection = () =>
     setSections((sections) => [
@@ -65,7 +66,7 @@ export const BlogContentForm = ({
 
   return (
     <>
-      <div className="text-text-primary">
+      <Box className="text-text-primary">
         {sections.map(({ id, subtitle, content }, index) => {
           const changeSubtitle = (e: ChangeEvent<HTMLInputElement>) =>
             handleChangeSection(id, 'subtitle', e.target.value);
@@ -75,10 +76,10 @@ export const BlogContentForm = ({
           const isError: boolean = index === 0 ? isInvalid : false;
 
           return (
-            <section key={index}>
-              <div className="pb-2">
-                <div className="flex justify-start gap-5">
-                  <p>Section: {index + 1}</p>
+            <Box key={index} as="section">
+              <Box className="pb-2">
+                <Box className="flex justify-start gap-5">
+                  <Text>Section: {index + 1}</Text>
                   <Button
                     isIconOnly
                     className="w-fit h-fit text-lg px-1"
@@ -86,8 +87,8 @@ export const BlogContentForm = ({
                   >
                     <FaMinus />
                   </Button>
-                </div>
-                <div className="mt-2 flex flex-col gap-3">
+                </Box>
+                <Box className="mt-2 flex flex-col gap-3">
                   <Input
                     isInvalid={isError}
                     placeholder="Subtitle"
@@ -104,12 +105,12 @@ export const BlogContentForm = ({
                     value={content}
                     onChange={changeContent}
                   />
-                </div>
-              </div>
-            </section>
+                </Box>
+              </Box>
+            </Box>
           );
         })}
-        <div className="flex justify-end">
+        <Box className="flex justify-end">
           <Button
             isIconOnly
             className="w-fit h-fit text-lg p-1"
@@ -117,8 +118,8 @@ export const BlogContentForm = ({
           >
             <FaPlus />
           </Button>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </>
   );
 };

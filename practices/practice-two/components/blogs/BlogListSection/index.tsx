@@ -1,11 +1,18 @@
 'use client';
 
+import dynamic from 'next/dynamic';
+
 // Components
-import { BlogListTemplate, Button, TopicList } from '@/components';
+import { Box, Button, Text } from '@/components';
 // Hooks
 import { useLoadMore, useTopics } from '@/hooks';
 // Models
 import { BlogsType, Topics } from '@/models';
+
+const TopicList = dynamic(() => import('@/components/topics/TopicList'));
+const BlogListTemplate = dynamic(
+  () => import('@/components/blogs/BlogListTemplate'),
+);
 
 export interface BlogListSectionProps {
   topics: Topics;
@@ -33,20 +40,20 @@ const BlogListSection = ({ blogs, topics }: BlogListSectionProps) => {
         onChangeTopic={handleChangeTopic}
       />
       {!isShowMessage ? (
-        <p className="text-text-primary text-center md:text-xl xl:text-3xl">
+        <Text className="text-center md:text-xl xl:text-3xl">
           Oops! No Blogs Available
-        </p>
+        </Text>
       ) : (
         dataPerPage.map((blogs, index) => (
           <BlogListTemplate key={index} blogs={blogs} />
         ))
       )}
       {hasNextPage && (
-        <div className="flex items-center justify-center">
+        <Box className="flex items-center justify-center">
           <Button className="px-8 py-6" onClick={fetchNextPage}>
             Load more
           </Button>
-        </div>
+        </Box>
       )}
     </>
   );

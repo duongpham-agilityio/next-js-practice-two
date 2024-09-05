@@ -3,7 +3,7 @@
 import { Skeleton } from '@nextui-org/react';
 
 // Components
-import { Container } from '@/components';
+import { Box, Container } from '@/components';
 
 export const BlogDetailHeaderSkeleton = () => (
   <Container
@@ -15,13 +15,13 @@ export const BlogDetailHeaderSkeleton = () => (
       data-testid="skeleton-item"
     />
     <Skeleton className="rounded-xl w-[70%] h-3" data-testid="skeleton-item" />
-    <div className="rounded-xl flex flex-col gap-2">
+    <Box className="rounded-xl flex flex-col gap-2">
       <Skeleton
         className="w-11 h-3 rounded-xl md:hidden"
         data-testid="skeleton-item"
       />
-      <div className="flex justify-between items-center">
-        <div className="flex flex-col gap-3">
+      <Box className="flex justify-between items-center">
+        <Box className="flex flex-col gap-3">
           <Skeleton
             className="h-3 w-16 rounded-xl"
             data-testid="skeleton-item"
@@ -30,8 +30,8 @@ export const BlogDetailHeaderSkeleton = () => (
             className="h-3 w-12 rounded-xl"
             data-testid="skeleton-item"
           />
-        </div>
-        <div className="rounded-xl flex items-center gap-3 h-11">
+        </Box>
+        <Box className="rounded-xl flex items-center gap-3 h-11">
           <Skeleton
             className="rounded-xl w-11 h-3 hidden md:block"
             data-testid="skeleton-item"
@@ -40,8 +40,8 @@ export const BlogDetailHeaderSkeleton = () => (
             className="h-3 w-16 rounded-xl"
             data-testid="skeleton-item"
           />
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   </Container>
 );

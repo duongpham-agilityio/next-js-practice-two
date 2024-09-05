@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import { TopicList } from '@/components';
+import TopicList from '@/components/topics/TopicList';
 // Mocks
 import { TOPICS } from '@/mocks';
 

@@ -1,8 +1,5 @@
-import { useCallback, useEffect } from 'react';
-import { ControllerFieldState, useForm } from 'react-hook-form';
-
-// Stores
-// import { blogFormStore } from '@app/features';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 // Types
 import { BlogType } from '@/models';
@@ -14,46 +11,36 @@ export type BlogFormValueType = Omit<
   Partial<Pick<BlogType, 'id'>>;
 
 export interface UseBlogFormOptions {
-  isKeepValue?: boolean;
   value: BlogFormValueType;
+  action: (value: BlogFormValueType) => Promise<void>;
+  onSuccess?: () => void;
+  onError?: (error: Error) => void;
 }
 
 export const useBlogForm = (options: UseBlogFormOptions) => {
-  const { value, isKeepValue = false } = options;
-  //   const { blog, setBlog, updateBlog } = blogFormStore();
-  const {
-    control: blogFormControl,
-    handleSubmit,
-    setValue,
-  } = useForm<BlogFormValueType>({
-    // defaultValues: isKeepValue ? (blog ?? value) : value,
-    defaultValues: isKeepValue ? value : value,
+  const { value, action, onError, onSuccess } = options;
+  const [isSubmitting, setSubmitting] = useState(false);
+  const { control: blogFormControl, handleSubmit: submit } =
+    useForm<BlogFormValueType>({
+      defaultValues: value,
+    });
+
+  const handleSubmit = submit(async (formValue) => {
+    try {
+      setSubmitting(true);
+      await action(formValue);
+      onSuccess && onSuccess();
+      setSubmitting(false);
+    } catch (error) {
+      if (error instanceof Error && onError) {
+        onError(error);
+      }
+    }
   });
-
-  const checkError = (error: ControllerFieldState['error']) => ({
-    isInvalid: !!error && !!error.message,
-  });
-
-  const handleChangeValue = useCallback(
-    (
-      fieldName: keyof BlogFormValueType,
-      value: BlogFormValueType[typeof fieldName],
-    ) => {
-      //   if (isKeepValue) updateBlog({ [fieldName]: value });
-
-      setValue(fieldName, value);
-    },
-    [isKeepValue, setValue],
-  );
-
-  useEffect(() => {
-    // if (isKeepValue && !blog) setBlog(value);
-  }, [isKeepValue, value]);
 
   return {
+    isSubmitting,
     blogFormControl,
-    checkError,
     handleSubmit,
-    handleChangeValue,
   };
 };

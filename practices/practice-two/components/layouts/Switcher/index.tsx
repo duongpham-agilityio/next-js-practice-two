@@ -1,6 +1,6 @@
 'use client';
 
-import { Switch } from '@nextui-org/switch';
+import { Switch } from '@nextui-org/react';
 
 // Hooks
 import { useColorMode } from '@/hooks';
