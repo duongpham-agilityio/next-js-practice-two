@@ -3,13 +3,16 @@
 import dynamic from 'next/dynamic';
 
 // Components
-import { BlogListTemplate, Box, Button, Text } from '@/components';
+import { Box, Button, Text } from '@/components';
 // Hooks
 import { useLoadMore, useTopics } from '@/hooks';
 // Models
 import { BlogsType, Topics } from '@/models';
 
 const TopicList = dynamic(() => import('@/components/topics/TopicList'));
+const BlogListTemplate = dynamic(
+  () => import('@/components/blogs/BlogListTemplate'),
+);
 
 export interface BlogListSectionProps {
   topics: Topics;

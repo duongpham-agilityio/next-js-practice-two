@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import { BlogListTemplate } from '@/components';
+import BlogListTemplate from '@/components/blogs/BlogListTemplate';
 // Mocks
 import { BLOGS } from '@/mocks';
 

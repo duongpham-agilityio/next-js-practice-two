@@ -2,7 +2,6 @@ export * from './OpenBlogButton';
 export { default as BlogCard } from './BlogCard';
 export * from './BlogCardSkeleton';
 export * from './HighlightBlogSkeleton';
-export { default as BlogListTemplate } from './BlogListTemplate';
 export * from './BlogListTemplateSkeleton';
 export { default as CreateBlogButton } from './CreateBlogButton';
 export { default as BlogsListSection } from './BlogListSection';
