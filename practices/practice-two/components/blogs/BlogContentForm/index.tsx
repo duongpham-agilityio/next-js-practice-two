@@ -8,18 +8,20 @@ import { FaMinus, FaPlus } from 'react-icons/fa';
 // Models
 import { BlogBodyType } from '@/models';
 // Components
-import { Box, Button, Input, Text } from '@/components';
+import { Box, Button, ErrorMessage, Input, Text } from '@/components';
 // Helpers
 import { findItemInListByAnyField } from '@/helpers';
 
 export interface BlogContentFormProps {
-  isInvalid: boolean;
+  isInvalid?: boolean;
+  errorMessage?: string;
   content: BlogBodyType[];
   onChangeContent: (content: BlogBodyType[]) => void;
 }
 
 export const BlogContentForm = ({
-  isInvalid,
+  isInvalid = false,
+  errorMessage = '',
   content,
   onChangeContent,
 }: BlogContentFormProps) => {
@@ -76,41 +78,46 @@ export const BlogContentForm = ({
           const isError: boolean = index === 0 ? isInvalid : false;
 
           return (
-            <Box key={index} as="section">
-              <Box className="pb-2">
-                <Box className="flex justify-start gap-5">
-                  <Text>Section: {index + 1}</Text>
-                  <Button
-                    isIconOnly
-                    className="w-fit h-fit text-lg px-1"
-                    onClick={removeSection}
-                  >
-                    <FaMinus />
-                  </Button>
-                </Box>
-                <Box className="mt-2 flex flex-col gap-3">
-                  <Input
-                    isInvalid={isError}
-                    placeholder="Subtitle"
-                    value={subtitle}
-                    onChange={changeSubtitle}
-                  />
-                  <Textarea
-                    className={clsx({
-                      'border rounded-xl': true,
-                      'border-border-100': !isError,
-                      'border-red-500': isError,
-                    })}
-                    placeholder="Content"
-                    value={content}
-                    onChange={changeContent}
-                  />
+            <>
+              <Box key={index} as="section">
+                <Box className="pb-2">
+                  <Box className="flex justify-start gap-5">
+                    <Text>Section: {index + 1}</Text>
+                    <Button
+                      isIconOnly
+                      className="w-fit h-fit text-lg px-1"
+                      onClick={removeSection}
+                    >
+                      <FaMinus />
+                    </Button>
+                  </Box>
+                  <Box className="mt-2 flex flex-col gap-3">
+                    <Input
+                      isInvalid={isError}
+                      placeholder="Subtitle"
+                      value={subtitle}
+                      onChange={changeSubtitle}
+                    />
+                    <Textarea
+                      className={clsx({
+                        'border rounded-xl': true,
+                        'border-border-100': !isError,
+                        'border-red-500': isError,
+                      })}
+                      placeholder="Content"
+                      value={content}
+                      onChange={changeContent}
+                    />
+                  </Box>
                 </Box>
               </Box>
-            </Box>
+              {index === 0 && isError && (
+                <ErrorMessage message={errorMessage} />
+              )}
+            </>
           );
         })}
-        <Box className="flex justify-end">
+        <Box className="flex justify-end mt-2">
           <Button
             isIconOnly
             className="w-fit h-fit text-lg p-1"

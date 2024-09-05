@@ -27,6 +27,7 @@ import {
   BlogContentForm,
   LoadingIndicator,
   Box,
+  ErrorMessage,
 } from '@/components';
 // Constants
 import { FORM_TITLE, RULE_BLOG_FORM } from '@/constants';
@@ -80,29 +81,39 @@ const BlogForm = ({
               <Controller
                 control={control}
                 name="title"
-                render={({ field, fieldState: { error } }) => (
-                  <Box className="flex-1 gap-5">
-                    <Input
-                      {...field}
-                      {...checkError(error)}
-                      placeholder="Title"
-                    />
-                  </Box>
-                )}
+                render={({ field, fieldState: { error } }) => {
+                  const isError = checkError(error).isInvalid;
+
+                  return (
+                    <Box className="flex-1 gap-5">
+                      <Input
+                        {...field}
+                        isInvalid={isError}
+                        placeholder="Title"
+                      />
+                      {isError && <ErrorMessage message={error?.message} />}
+                    </Box>
+                  );
+                }}
                 rules={RULE_BLOG_FORM.TITLE}
               />
               <Controller
                 control={control}
                 name="imageURL"
-                render={({ field, fieldState: { error } }) => (
-                  <Box className="flex-1">
-                    <Input
-                      {...field}
-                      {...checkError(error)}
-                      placeholder="Image URL"
-                    />
-                  </Box>
-                )}
+                render={({ field, fieldState: { error } }) => {
+                  const isError = checkError(error).isInvalid;
+
+                  return (
+                    <Box className="flex-1">
+                      <Input
+                        {...field}
+                        isInvalid={isError}
+                        placeholder="Image URL"
+                      />
+                      {isError && <ErrorMessage message={error?.message} />}
+                    </Box>
+                  );
+                }}
                 rules={RULE_BLOG_FORM.IMAGE_URL}
               />
             </Box>
@@ -110,61 +121,78 @@ const BlogForm = ({
               <Controller
                 control={control}
                 name="author"
-                render={({ field, fieldState: { error } }) => (
-                  <Box className="flex-1">
-                    <Input
-                      {...field}
-                      {...checkError(error)}
-                      placeholder="Author"
-                    />
-                  </Box>
-                )}
+                render={({ field, fieldState: { error } }) => {
+                  const isError = checkError(error).isInvalid;
+
+                  return (
+                    <Box className="flex-1">
+                      <Input
+                        {...field}
+                        isInvalid={isError}
+                        placeholder="Author"
+                      />
+                      {isError && <ErrorMessage message={error?.message} />}
+                    </Box>
+                  );
+                }}
                 rules={RULE_BLOG_FORM.AUTHOR}
               />
               <Controller
                 control={control}
                 name="topicId"
-                render={({ field, fieldState: { error } }) => (
-                  <Box className="flex-1">
-                    <Select
-                      {...field}
-                      classNames={{
-                        base: 'w-full border-red-500',
-                        trigger: clsx({
-                          'h-[50px] border': true,
-                          'border-border-100': !checkError(error).isInvalid,
-                          'border-red-500': checkError(error).isInvalid,
-                        }),
-                      }}
-                      defaultSelectedKeys={[field.value]}
-                      items={TOPICS.slice(1)}
-                      placeholder="Select an topic"
-                    >
-                      {({ id, label }) => (
-                        <SelectItem
-                          key={id}
-                          className="text-text-primary"
-                          value={id}
-                        >
-                          {label}
-                        </SelectItem>
-                      )}
-                    </Select>
-                  </Box>
-                )}
+                render={({ field, fieldState: { error } }) => {
+                  const isError = checkError(error).isInvalid;
+
+                  return (
+                    <Box className="flex-1">
+                      <Select
+                        {...field}
+                        classNames={{
+                          base: 'w-full border-red-500',
+                          trigger: clsx({
+                            'h-[50px] border': true,
+                            'border-border-100': !checkError(error).isInvalid,
+                            'border-red-500': checkError(error).isInvalid,
+                          }),
+                        }}
+                        defaultSelectedKeys={[field.value]}
+                        items={TOPICS.slice(1)}
+                        placeholder="Select an topic"
+                      >
+                        {({ id, label }) => (
+                          <SelectItem
+                            key={id}
+                            className="text-text-primary"
+                            value={id}
+                          >
+                            {label}
+                          </SelectItem>
+                        )}
+                      </Select>
+                      {isError && <ErrorMessage message={error?.message} />}
+                    </Box>
+                  );
+                }}
                 rules={RULE_BLOG_FORM.TOPIC}
               />
             </Box>
             <Controller
               control={control}
               name="externalLink"
-              render={({ field, fieldState: { error } }) => (
-                <Input
-                  {...field}
-                  {...checkError(error)}
-                  placeholder="External Link"
-                />
-              )}
+              render={({ field, fieldState: { error } }) => {
+                const isError = checkError(error).isInvalid;
+
+                return (
+                  <Box>
+                    <Input
+                      {...field}
+                      isInvalid={isError}
+                      placeholder="External Link"
+                    />
+                    {isError && <ErrorMessage message={error?.message} />}
+                  </Box>
+                );
+              }}
               rules={RULE_BLOG_FORM.EXTERNAL_LINK}
             />
 
@@ -178,6 +206,7 @@ const BlogForm = ({
                 <BlogContentForm
                   {...checkError(error)}
                   content={value}
+                  errorMessage={error?.message}
                   onChangeContent={onChange}
                 />
               )}
@@ -185,10 +214,10 @@ const BlogForm = ({
             />
           </ModalBody>
           <ModalFooter>
-            <Button color="danger" variant="light" onPress={onCloseForm}>
+            <Button variant="outline" onPress={onCloseForm}>
               Close
             </Button>
-            <Button color="primary" isDisabled={!isDirty} type="submit">
+            <Button isDisabled={!isDirty} type="submit">
               Submit
             </Button>
           </ModalFooter>
