@@ -26,7 +26,7 @@ export const textPrimaryDarkColors = {
   text: {
     primary: colorPalette.white,
     100: colorPalette.white,
-    200: colorPalette.white,
+    200: colorPalette.red.light,
     300: colorPalette.red.primary,
   },
 };
@@ -34,7 +34,7 @@ export const textPrimaryLightColors = {
   text: {
     primary: colorPalette.black,
     100: colorPalette.red.primary,
-    200: colorPalette.white,
+    200: colorPalette.red.dark,
     300: colorPalette.white,
   },
 };

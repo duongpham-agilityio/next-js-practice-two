@@ -8,7 +8,7 @@ describe('Button Component', () => {
     const button = screen.getByRole('button', { name: /Primary Button/i });
 
     expect(button).toHaveClass('bg-background-300');
-    expect(button).toHaveClass('text-text-200');
+    expect(button).toHaveClass('text-white');
   });
 
   it('renders with outline variant when specified', () => {

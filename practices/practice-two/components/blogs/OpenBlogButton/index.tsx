@@ -17,7 +17,7 @@ export const OpenBlogButton = ({
 }: OpenBlogButtonProps) => (
   <Link
     aria-label={`Read more the ${title}`}
-    className="text-red-dark inline-flex items-center gap-2"
+    className="text-text-200 inline-flex items-center gap-2"
     href={href}
     target={isExternal ? '_blank' : '_self'}
   >
