@@ -1,6 +1,6 @@
 export const ERROR_MESSAGE = {
   FETCHING: 'There was an error during processing.',
-  REQUIRE_FIELD: 'You need to fill out this information to proceed.',
+  REQUIRE_FIELD: 'This field is required.',
   LINK: 'The provided link is not a valid URL',
   UPDATE_BLOG: 'Failed to update blog. Please try again.',
   ADD_BLOG: 'Failed to add blog. Please try again.',
