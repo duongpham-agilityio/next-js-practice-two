@@ -72,7 +72,9 @@ const BlogForm = ({
           className="text-text-primary max-w-full lg:max-w-4xl h-full md:h-[550px] justify-start py-10 overflow-y-scroll"
           onSubmit={handleSubmit}
         >
-          <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
+          <ModalHeader className="flex flex-col gap-1 md:text-3xl lg:text-4xl">
+            {title}
+          </ModalHeader>
           <ModalBody className="h-fit text-sm flex-none flex flex-col gap-5">
             <Box className="flex flex-col gap-5 md:flex-row">
               <Controller
