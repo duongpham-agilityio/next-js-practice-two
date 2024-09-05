@@ -8,6 +8,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 const Input = ({ className = '', isInvalid = false, ...props }: InputProps) => (
   <input
     className={clsx(
+      'w-full',
       [
         'border',
         'border-px',
