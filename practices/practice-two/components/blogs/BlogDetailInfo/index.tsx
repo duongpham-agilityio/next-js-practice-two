@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 
 // Services
@@ -9,13 +8,8 @@ import { BlogType } from '@/models';
 import { convertDateInBlog } from '@/helpers';
 // Mocks
 import { BLOG } from '@/mocks';
-
-const BlogDetailHeader = dynamic(
-  () => import('@/components/blogs/BlogDetailHeader'),
-);
-const BlogDetailContent = dynamic(
-  () => import('@/components/blogs/BlogDetailContent'),
-);
+// Components
+import { BlogDetailHeader, BlogDetailContent } from '@/components';
 
 export interface BlogDetailInfoProps {
   blogId: BlogType['id'];

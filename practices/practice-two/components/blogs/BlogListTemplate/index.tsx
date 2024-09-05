@@ -19,11 +19,9 @@ import { useDeleteBlog } from '@/hooks';
 
 const EditBlogForm = dynamic(() => import('@/components/blogs/EditBlogForm'), {
   ssr: false,
-  loading: () => <></>,
 });
 const ConfirmModal = dynamic(() => import('@/components/common/ConfirmModal'), {
   ssr: false,
-  loading: () => <></>,
 });
 
 export interface BlogListTemplateProps {
